@@ -1,5 +1,8 @@
 # GSQ DD&T Executive Platform
 
+**GitHub:** https://github.com/chilr357/gsq-ddt-executive-platform (private)  
+**Intended owner:** [LewisRobinsonTakeda](https://github.com/LewisRobinsonTakeda) — accept the admin invite / transfer, then the canonical URL becomes `https://github.com/LewisRobinsonTakeda/gsq-ddt-executive-platform`.
+
 Versioned source for the GSQ GML DD&T single pane of glass — prototype spec, SharePoint seed, visual DNA, and Vibe Power Apps build prompt.
 
 | Field | Value |
