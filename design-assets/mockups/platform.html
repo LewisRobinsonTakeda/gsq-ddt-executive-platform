@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>DD&T Executive Platform — target mockup</title>
+<style>
+  :root {
+    --red: #E1242A;
+    --maroon: #891515;
+    --navy: #102033;
+    --dark: #34373F;
+    --steel: #A1B1C3;
+    --gray: #D1D8E0;
+    --mist: #EDF2F3;
+    --white: #FFFFFF;
+    --green: #2E8B57;
+    --amber: #C98900;
+    --blue: #2B5A8A;
+    --page: #F4F6F8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #111; }
+  body { font-family: "Segoe UI", Aptos, Arial, sans-serif; color: var(--dark); }
+  .screen { width: 1920px; height: 1080px; background: var(--page); display: none; flex-direction: column; }
+  .screen.active { display: flex; }
+
+  .ribbon {
+    height: 22px; background: var(--navy); color: #fff; font-size: 11px; letter-spacing: .08em;
+    display: flex; align-items: center; justify-content: space-between; padding: 0 16px; text-transform: uppercase;
+  }
+  .ribbon b { color: #F6C6C8; font-weight: 600; }
+
+  .topbar {
+    height: 52px; background: #fff; border-bottom: 1px solid var(--gray);
+    display: flex; align-items: center; gap: 16px; padding: 0 16px;
+  }
+  .mark { height: 28px; }
+  .wordmark { height: 12px; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .product { font-size: 15px; font-weight: 650; color: var(--navy); }
+  .product span { color: var(--red); font-weight: 600; }
+  .fresh { margin-left: auto; display: flex; gap: 8px; font-size: 11px; color: #5B6470; }
+  .pill { background: var(--mist); border: 1px solid var(--gray); border-radius: 99px; padding: 3px 9px; }
+  .pill.on { background: #E8F6EE; border-color: #B7DCC6; color: #1F6B3A; }
+  .who { font-size: 12px; color: var(--dark); font-weight: 600; }
+
+  .identity {
+    height: 64px; background: #fff; display: flex; align-items: center; gap: 14px; padding: 0 16px;
+    border-bottom: 1px solid var(--gray);
+  }
+  .site {
+    min-width: 280px; height: 40px; border: 2px solid var(--red); border-radius: 6px; background: #fff;
+    display: flex; align-items: center; justify-content: space-between; padding: 0 12px; position: relative;
+  }
+  .site .code { font-size: 11px; font-weight: 700; color: var(--red); letter-spacing: .06em; }
+  .site .name { font-size: 15px; font-weight: 700; color: var(--navy); }
+  .site .chev { color: var(--red); font-size: 12px; }
+  .site-menu {
+    position: absolute; top: 44px; left: -2px; width: calc(100% + 4px); background: #fff;
+    border: 1px solid var(--gray); border-radius: 6px; box-shadow: 0 8px 24px rgba(16,32,51,.12);
+    z-index: 5; display: none; padding: 6px 0;
+  }
+  .site.open .site-menu { display: block; }
+  .site-menu div { padding: 7px 12px; font-size: 13px; }
+  .site-menu div:hover, .site-menu .sel { background: var(--mist); }
+  .site-menu .sel { font-weight: 700; }
+  .titles h1 { font-size: 22px; color: var(--navy); line-height: 1.1; }
+  .titles p { font-size: 12px; color: #5B6470; margin-top: 2px; }
+  .scope { display: flex; background: var(--mist); border-radius: 6px; padding: 3px; }
+  .scope button {
+    border: 0; background: transparent; padding: 7px 14px; font-size: 12px; font-weight: 650;
+    color: #5B6470; border-radius: 4px; cursor: default;
+  }
+  .scope button.on { background: var(--red); color: #fff; }
+  .jira-btn {
+    margin-left: auto; background: var(--red); color: #fff; border: 0; height: 36px; padding: 0 16px;
+    border-radius: 4px; font-weight: 700; font-size: 12px;
+  }
+
+  .tabs { height: 42px; background: #fff; display: flex; align-items: flex-end; padding: 0 12px; gap: 2px; border-bottom: 2px solid var(--navy); }
+  .tab {
+    padding: 9px 13px; font-size: 12px; font-weight: 650; color: #5B6470; border-radius: 6px 6px 0 0;
+  }
+  .tab.on { background: var(--red); color: #fff; }
+  .tab.new::after { content: " NEW"; font-size: 9px; color: #F6C6C8; font-weight: 800; }
+
+  .filters {
+    height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; background: #fff;
+    border-bottom: 1px solid var(--gray);
+  }
+  .search, .dd {
+    height: 32px; border: 1px solid var(--steel); border-radius: 4px; padding: 0 10px; font-size: 12px; background: #fff; color: var(--dark);
+  }
+  .search { width: 220px; }
+  .note { margin-left: auto; font-size: 11px; color: #5B6470; }
+
+  .main { flex: 1; display: flex; min-height: 0; padding: 10px 12px 8px; gap: 10px; }
+  .legend {
+    height: 34px; display: flex; align-items: center; gap: 16px; padding: 0 16px; font-size: 11px; color: #5B6470; background: #fff;
+    border-top: 1px solid var(--gray);
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 5px; }
+  .tri { width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 9px solid var(--amber); display: inline-block; margin-right: 5px; }
+  .dia { width: 8px; height: 8px; background: var(--red); transform: rotate(45deg); display: inline-block; margin-right: 6px; }
+
+  /* One pager */
+  .grid-wrap { flex: 1; display: flex; flex-direction: column; min-width: 0; background: #fff; border: 1px solid var(--gray); }
+  .rocks { display: grid; grid-template-columns: 92px repeat(6, 1fr); }
+  .rock { background: var(--navy); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .04em; text-align: center; padding: 10px 6px; line-height: 1.25; }
+  .rock.corner { background: var(--red); }
+  .year { display: grid; grid-template-columns: 92px repeat(6, 1fr); flex: 1; border-top: 1px solid var(--gray); }
+  .year-lab { color: #fff; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; text-align: center; padding: 8px; line-height: 1.3; }
+  .y26 { background: var(--navy); } .y27 { background: var(--red); } .y28 { background: #1B3A55; }
+  .cell { border-left: 1px solid var(--gray); padding: 6px; display: flex; flex-direction: column; gap: 5px; }
+  .card { background: var(--mist); border: 1px solid var(--gray); border-radius: 4px; padding: 5px 7px; font-size: 11px; display: flex; align-items: center; gap: 6px; }
+  .card.sel { outline: 2px solid var(--red); background: #fff; }
+  .card .nm { font-weight: 650; }
+  .card .meta { color: #5B6470; font-size: 10px; }
+  .empty { color: #8A929C; font-size: 11px; font-style: italic; padding: 8px; }
+
+  .side { width: 320px; background: #fff; border: 1px solid var(--gray); display: flex; flex-direction: column; }
+  .side h3 { background: var(--navy); color: #fff; font-size: 12px; padding: 10px 12px; }
+  .side .body { padding: 12px; font-size: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .kv { display: flex; justify-content: space-between; gap: 8px; }
+  .kv span { color: #5B6470; }
+  .kv b { text-align: right; }
+  .link { color: var(--red); font-weight: 700; text-decoration: none; }
+  .actions { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+  .actions button {
+    height: 30px; border: 1px solid var(--navy); background: #fff; font-size: 11px; font-weight: 700; color: var(--navy);
+  }
+  .actions button.pri { background: var(--red); color: #fff; border-color: var(--red); }
+  .banner { background: #FFF6E8; border: 1px solid #E8C98A; color: #6A4A10; font-size: 11px; padding: 8px; }
+
+  /* Gantt */
+  .gantt { flex: 1; background: #fff; border: 1px solid var(--gray); display: flex; flex-direction: column; min-width: 0; }
+  .ghead { display: grid; grid-template-columns: 220px 1fr; background: var(--navy); color: #fff; font-size: 11px; font-weight: 700; }
+  .ghead div { padding: 8px 10px; }
+  .qtr { display: grid; grid-template-columns: repeat(12, 1fr); font-size: 10px; text-align: center; background: #1B3A55; color: #D1D8E0; }
+  .grow { display: grid; grid-template-columns: 220px 1fr; border-top: 1px solid var(--gray); min-height: 28px; }
+  .glab { font-size: 11px; padding: 6px 10px; display: flex; align-items: center; gap: 6px; }
+  .glab.grp { background: var(--mist); font-weight: 800; color: var(--navy); }
+  .gbars { position: relative; background: repeating-linear-gradient(90deg, #fff 0, #fff calc(8.333% - 1px), #EEF1F4 calc(8.333% - 1px), #EEF1F4 8.333%); }
+  .bar { position: absolute; top: 6px; height: 16px; border-radius: 3px; font-size: 9px; color: #fff; display: flex; align-items: center; padding: 0 6px; font-weight: 700; white-space: nowrap; }
+  .today { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--red); left: 54%; }
+  .budget { width: 360px; background: var(--navy); color: #fff; display: flex; flex-direction: column; padding: 12px; gap: 10px; }
+  .budget h3 { font-size: 13px; }
+  .budget .sub { font-size: 11px; color: var(--steel); }
+  .bkpi { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .bkpi div { background: #1B3A55; padding: 8px; }
+  .bkpi b { display: block; font-size: 16px; }
+  .bkpi span { font-size: 10px; color: var(--steel); }
+  .rowb { display: flex; justify-content: space-between; font-size: 11px; padding: 4px 0; border-bottom: 1px solid #2A4158; }
+  .var.neg { color: #F6C6C8; } .var.ok { color: #B7DCC6; }
+
+  /* Review + input */
+  .stack { flex: 1; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .kpis { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+  .kpi { background: #fff; border: 1px solid var(--gray); padding: 10px 12px; }
+  .kpi b { display: block; font-size: 22px; color: var(--navy); }
+  .kpi.hot b { color: var(--red); }
+  .kpi span { font-size: 11px; color: #5B6470; text-transform: uppercase; letter-spacing: .04em; font-weight: 700; }
+  .cols { display: grid; grid-template-columns: 1.15fr .85fr; gap: 10px; flex: 1; min-height: 0; }
+  .panel { background: #fff; border: 1px solid var(--gray); display: flex; flex-direction: column; min-height: 0; }
+  .panel h3 { font-size: 12px; padding: 10px 12px; background: var(--navy); color: #fff; }
+  .panel .pad { padding: 10px 12px; font-size: 12px; overflow: hidden; }
+  .beat { display: flex; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--mist); align-items: flex-start; }
+  .beat.on { background: #FFF4F4; margin: 0 -12px; padding: 7px 12px; }
+  .num { width: 22px; height: 22px; border-radius: 50%; background: var(--mist); color: var(--navy); font-weight: 800; font-size: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .beat.on .num { background: var(--red); color: #fff; }
+  table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  th { text-align: left; color: #5B6470; font-size: 10px; padding: 4px 6px; border-bottom: 1px solid var(--gray); }
+  td { padding: 6px; border-bottom: 1px solid var(--mist); }
+  .ask { background: var(--mist); padding: 8px; margin-bottom: 8px; }
+  .freeze { background: var(--red); color: #fff; border: 0; height: 36px; padding: 0 16px; font-weight: 800; font-size: 12px; }
+  .form-tabs { display: flex; gap: 4px; padding: 8px 12px 0; background: #fff; }
+  .form-tabs span { font-size: 12px; font-weight: 700; padding: 7px 10px; color: #5B6470; border-bottom: 2px solid transparent; }
+  .form-tabs .on { color: var(--red); border-color: var(--red); }
+  label { display: block; font-size: 10px; font-weight: 700; color: #5B6470; text-transform: uppercase; margin: 8px 0 3px; }
+  input, select, textarea {
+    width: 100%; border: 1px solid var(--steel); border-radius: 3px; padding: 7px 8px; font: 12px "Segoe UI", Aptos, Arial, sans-serif; color: var(--dark);
+  }
+  textarea { height: 86px; resize: none; }
+  .save { background: var(--navy); color: #fff; border: 0; height: 32px; padding: 0 14px; font-weight: 700; font-size: 12px; }
+  .audit { font-size: 11px; color: #5B6470; margin-top: 8px; }
+</style>
+</head>
+<body>
+<script>
+  const v = new URLSearchParams(location.search).get("v") || "onepager";
+  document.addEventListener("DOMContentLoaded", () => {
+    const el = document.getElementById(v);
+    if (el) el.classList.add("active");
+  });
+</script>
+
+<!-- ========== ONE PAGER ========== -->
+<section id="onepager" class="screen">
+  <div class="ribbon"><span>Target mockup · not a live app · <b>what the developer builds</b></span><span>Site selector + Budget / Capability / Business Review / Site input added to the current One pager shell</span></div>
+  <div class="topbar">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 48 48"><rect width="48" height="48" fill="#E1242A"/><text x="24" y="32" text-anchor="middle" fill="#fff" font-size="22" font-family="Georgia, serif" font-weight="700">T</text></svg>
+      <div class="product">DD&amp;T <span>Executive Platform</span></div>
+    </div>
+    <div class="fresh">
+      <span class="pill on">Jira 2 min</span>
+      <span class="pill">SPOT 41 min</span>
+      <span class="pill">EDB 1h</span>
+      <span class="pill">Site Head 14:02</span>
+    </div>
+    <div class="who">Dean Santoro · Site DD&amp;T</div>
+  </div>
+  <div class="identity">
+    <div class="site">
+      <div><div class="code">SITE — 18 GSQ M&amp;L</div><div class="name">THO · Thousand Oaks ▾</div></div>
+    </div>
+    <div class="scope"><button class="on">This site</button><button>Network</button></div>
+    <div class="titles">
+      <h1>DD&amp;T Roadmap FY26–FY28+</h1>
+      <p>Executive roadmap · Big Rocks × fiscal year · layout writes mapping only</p>
+    </div>
+    <button class="jira-btn">Open Jira board</button>
+  </div>
+  <div class="tabs">
+    <div class="tab on">One pager</div>
+    <div class="tab">Status KPIs</div>
+    <div class="tab">Gantt + Budget</div>
+    <div class="tab">Budget</div>
+    <div class="tab">Risks</div>
+    <div class="tab">Jira</div>
+    <div class="tab">Capability</div>
+    <div class="tab new">Business Review</div>
+    <div class="tab new">Site input</div>
+    <div class="tab">Network</div>
+  </div>
+  <div class="filters">
+    <input class="search" value="" placeholder="Search project / SPOT / Jira" />
+    <select class="dd"><option>All fiscal years</option></select>
+    <select class="dd"><option>All platforms</option></select>
+    <select class="dd"><option>All status</option></select>
+    <select class="dd"><option>All Big Rocks</option></select>
+    <span class="note">Empty cells stay in English. Portuguese draft strings retired.</span>
+  </div>
+  <div class="main">
+    <div class="grid-wrap">
+      <div class="rocks">
+        <div class="rock corner">6 BIG ROCKS</div>
+        <div class="rock">ONE DAY<br>BATCH RELEASE</div>
+        <div class="rock">LAB OF THE<br>FUTURE</div>
+        <div class="rock">PREDICTIVE<br>MAINTENANCE</div>
+        <div class="rock">RAPID DIGITAL<br>TECH TRANSFER</div>
+        <div class="rock">INVENTORY<br>OPTIMIZATION</div>
+        <div class="rock">POWER OF<br>DIGITAL TWINS</div>
+      </div>
+      <div class="year">
+        <div class="year-lab y26">FY2026<br>BUILD<br>FOUNDATION</div>
+        <div class="cell">
+          <div class="card sel"><span class="dot" style="background:var(--green)"></span><div><div class="nm">MES Elaprase DS</div><div class="meta">SPOT 1024096 · DDTTO-12</div></div></div>
+          <div class="card"><span class="dot" style="background:var(--amber)"></span><div><div class="nm">NYMI Batch</div><div class="meta">SPOT 1042101</div></div></div>
+        </div>
+        <div class="cell">
+          <div class="card"><span class="dot" style="background:var(--green)"></span><div><div class="nm">Labware LIMS</div><div class="meta">DDTTO-31</div></div></div>
+          <div class="card"><span class="dot" style="background:var(--steel);border:1px solid #8A929C"></span><div><div class="nm">LabX scales</div><div class="meta">Planning</div></div></div>
+        </div>
+        <div class="cell">
+          <div class="card"><span class="dot" style="background:var(--green)"></span><div><div class="nm">TO APMS</div><div class="meta">SPOT 1041357</div></div></div>
+          <div class="card"><span class="dia"></span><div><div class="nm">LPMS rollout</div><div class="meta">Leadership</div></div></div>
+        </div>
+        <div class="cell">
+          <div class="card"><span class="dot" style="background:var(--green)"></span><div><div class="nm">TO SAIL — FDP</div><div class="meta">DDTTO-08</div></div></div>
+          <div class="card"><span class="dot" style="background:var(--amber)"></span><div><div class="nm">Takami</div><div class="meta">DDTTO-58 · unmapped FY?</div></div></div>
+        </div>
+        <div class="cell">
+          <div class="card"><span class="dot" style="background:var(--green)"></span><div><div class="nm">SAP warehouse</div><div class="meta">Site-led</div></div></div>
+        </div>
+        <div class="cell">
+          <div class="card"><span class="dot" style="background:var(--steel);border:1px solid #8A929C"></span><div><div class="nm">Discoverant feed</div><div class="meta">Planning</div></div></div>
+        </div>
+      </div>
+      <div class="year">
+        <div class="year-lab y27">FY2027<br>SCALE &amp;<br>INTEGRATE</div>
+        <div class="cell">
+          <div class="card"><span class="dot" style="background:var(--amber)"></span><div><div class="nm">MES ↔ SAIL</div><div class="meta">Integration</div></div></div>
+        </div>
+        <div class="cell">
+          <div class="card"><span class="dot" style="background:var(--green)"></span><div><div class="nm">Smart QC</div><div class="meta">North Star</div></div></div>
+        </div>
+        <div class="cell"><div class="empty">No projects in this Big Rock / year</div></div>
+        <div class="cell">
+          <div class="card"><span class="dot" style="background:var(--green)"></span><div><div class="nm">Phoenix</div><div class="meta">SPOT · $436k</div></div></div>
+        </div>
+        <div class="cell">
+          <div class="card"><span class="dot" style="background:var(--green)"></span><div><div class="nm">Takami inventory</div><div class="meta">Programme</div></div></div>
+        </div>
+        <div class="cell">
+          <div class="card"><span class="dot" style="background:var(--green)"></span><div><div class="nm">SIMCA Online</div><div class="meta">Digital twin</div></div></div>
+        </div>
+      </div>
+      <div class="year">
+        <div class="year-lab y28">FY2028+<br>TRANSFORM</div>
+        <div class="cell"><div class="empty">No projects in this Big Rock / year</div></div>
+        <div class="cell">
+          <div class="card"><span class="dot" style="background:var(--steel);border:1px solid #8A929C"></span><div><div class="nm">Paperless Ops</div><div class="meta">Planning</div></div></div>
+        </div>
+        <div class="cell">
+          <div class="card"><span class="dot" style="background:var(--green)"></span><div><div class="nm">RTMS expand</div><div class="meta">North Star</div></div></div>
+        </div>
+        <div class="cell"><div class="empty">No projects in this Big Rock / year</div></div>
+        <div class="cell"><div class="empty">No projects in this Big Rock / year</div></div>
+        <div class="cell">
+          <div class="card"><span class="dot" style="background:var(--green)"></span><div><div class="nm">Enterprise data twin</div><div class="meta">EDB</div></div></div>
+        </div>
+      </div>
+    </div>
+    <aside class="side">
+      <h3>Selected · MES Elaprase DS</h3>
+      <div class="body">
+        <div class="kv"><span>Owner</span><b>Site MES lead</b></div>
+        <div class="kv"><span>Status</span><b>On track</b></div>
+        <div class="kv"><span>Jira</span><b><a class="link" href="#">DDTTO-12</a></b></div>
+        <div class="kv"><span>SPOT</span><b><a class="link" href="#">1024096</a></b></div>
+        <div class="kv"><span>Big Rock</span><b>One Day Batch Release</b></div>
+        <div class="kv"><span>FY swimlane</span><b>FY26 · mapping</b></div>
+        <div class="kv"><span>Go-live</span><b>Jira date · Q3 FY26</b></div>
+        <p style="color:#5B6470">Replace paper batch steps on Elaprase DS. Value sits in Jira; spend sits in SPOT.</p>
+        <div class="banner">Drag moves Big Rock × FY mapping only. Jira dates and SPOT money do not change.</div>
+        <div class="actions">
+          <button class="pri">Open in Gantt + Budget</button>
+          <button>Capability · MES</button>
+          <button>Open Jira issue</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <div class="legend">
+    <span><span class="dot" style="background:var(--green)"></span>On track</span>
+    <span><span class="tri"></span>Monitor closely</span>
+    <span><span class="dia"></span>Leadership attention</span>
+    <span><span class="dot" style="background:var(--red)"></span>Blocked</span>
+    <span><span class="dot" style="background:var(--steel)"></span>Planning / no status</span>
+    <span><span class="dot" style="background:var(--blue)"></span>Complete</span>
+    <span style="margin-left:auto">Key challenges: Communication · Change management · Leadership engagement</span>
+  </div>
+</section>
+
+<!-- ========== GANTT + BUDGET ========== -->
+<section id="gantt" class="screen">
+  <div class="ribbon"><span>Target mockup · not a live app · <b>Gantt + Budget tab</b></span><span>Combined Power App pattern, now inside the Glass and filtered by the site selector</span></div>
+  <div class="topbar">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 48 48"><rect width="48" height="48" fill="#E1242A"/><text x="24" y="32" text-anchor="middle" fill="#fff" font-size="22" font-family="Georgia, serif" font-weight="700">T</text></svg>
+      <div class="product">DD&amp;T <span>Executive Platform</span></div>
+    </div>
+    <div class="fresh">
+      <span class="pill on">Jira 2 min</span>
+      <span class="pill">SPOT 41 min</span>
+      <span class="pill">EDB 1h</span>
+    </div>
+    <div class="who">Finance partner · view</div>
+  </div>
+  <div class="identity">
+    <div class="site">
+      <div><div class="code">SITE</div><div class="name">THO · Thousand Oaks</div></div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="scope"><button class="on">This site</button><button>Network</button></div>
+    <div class="titles">
+      <h1>When does it land — and is the money tracking the dates?</h1>
+      <p>Bars = Jira / SPOT dates · dollars = SPOT read-only · Today line required</p>
+    </div>
+    <button class="jira-btn">Open SPOT 1024096</button>
+  </div>
+  <div class="tabs">
+    <div class="tab">One pager</div>
+    <div class="tab">Status KPIs</div>
+    <div class="tab on">Gantt + Budget</div>
+    <div class="tab">Budget</div>
+    <div class="tab">Risks</div>
+    <div class="tab">Jira</div>
+    <div class="tab">Capability</div>
+    <div class="tab new">Business Review</div>
+    <div class="tab new">Site input</div>
+    <div class="tab">Network</div>
+  </div>
+  <div class="filters">
+    <select class="dd"><option>At risk + leadership</option></select>
+    <select class="dd"><option>All workstreams</option></select>
+    <select class="dd"><option>FY24–FY28</option></select>
+    <span class="note">Financials are read-only. Corrections happen in SPOT.</span>
+  </div>
+  <div class="main">
+    <div class="gantt">
+      <div class="ghead"><div>Initiative / project</div><div>FY25&nbsp;&nbsp;&nbsp; FY26&nbsp;&nbsp;&nbsp; FY27&nbsp;&nbsp;&nbsp; FY28</div></div>
+      <div class="qtr" style="grid-template-columns:220px 1fr"><div></div><div style="display:grid;grid-template-columns:repeat(16,1fr)"><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span></div></div>
+      <div class="grow"><div class="glab grp">MES</div><div class="gbars"><div class="today"></div></div></div>
+      <div class="grow"><div class="glab">MES Elaprase DS · 1024096</div><div class="gbars"><div class="today"></div><div class="bar" style="left:28%;width:26%;background:var(--green)">On track</div></div></div>
+      <div class="grow"><div class="glab">TO MES Dapnese DS</div><div class="gbars"><div class="today"></div><div class="bar" style="left:18%;width:22%;background:var(--amber)">Monitor</div></div></div>
+      <div class="grow"><div class="glab grp">SAIL</div><div class="gbars"><div class="today"></div></div></div>
+      <div class="grow"><div class="glab">TO SAIL — FDP</div><div class="gbars"><div class="today"></div><div class="bar" style="left:34%;width:18%;background:var(--green)">Go-live FY26</div></div></div>
+      <div class="grow"><div class="glab grp">Phoenix</div><div class="gbars"><div class="today"></div></div></div>
+      <div class="grow"><div class="glab">CIM — Project Phoenix</div><div class="gbars"><div class="today"></div><div class="bar" style="left:40%;width:30%;background:var(--green)">$436k</div></div></div>
+      <div class="grow"><div class="glab grp">Local / site-led</div><div class="gbars"><div class="today"></div></div></div>
+      <div class="grow"><div class="glab">TO APMS · 1041357</div><div class="gbars"><div class="today"></div><div class="bar" style="left:22%;width:48%;background:var(--red)">Leadership</div></div></div>
+      <div class="grow"><div class="glab">OT Cyber remediation</div><div class="gbars"><div class="today"></div><div class="bar" style="left:30%;width:20%;background:var(--amber)">$205k</div></div></div>
+      <div class="grow"><div class="glab">No dates reported</div><div class="gbars"><div class="today"></div><div class="bar" style="left:4%;width:14%;background:#8A929C">3 items</div></div></div>
+    </div>
+    <aside class="budget">
+      <h3>MYC Budget 2026 · THO</h3>
+      <div class="sub">Same site as the Gantt. Bind to SPOT.</div>
+      <div class="bkpi">
+        <div><span>Approved</span><b>$1,158k</b></div>
+        <div><span>Projects</span><b>7</b></div>
+        <div><span>FY26</span><b>$822k</b></div>
+        <div><span>FY27</span><b>$336k</b></div>
+      </div>
+      <div class="rowb"><span>Phoenix</span><b>$436k</b></div>
+      <div class="rowb"><span>APMS</span><b class="var.neg">Watch</b></div>
+      <div class="rowb"><span>OT Cyber</span><b>$205k</b></div>
+      <div class="rowb"><span>NYMI Batch</span><b>$148k</b></div>
+      <div class="rowb"><span>Variance vs forecast</span><b class="var ok">+1.2%</b></div>
+      <div class="sub" style="margin-top:8px">Click a bar → sidecar + SPOT + Jira. Variance cell opens the Budget tab.</div>
+    </aside>
+  </div>
+  <div class="legend">
+    <span>Today = red line</span>
+    <span>Bar colour = delivery health</span>
+    <span>Sidebar = financial health (can differ)</span>
+    <span style="margin-left:auto">Colour-blind safe glyphs on Network mode; this site view uses labelled bars</span>
+  </div>
+</section>
+
+<!-- ========== BUSINESS REVIEW ========== -->
+<section id="review" class="screen">
+  <div class="ribbon"><span>Target mockup · not a live app · <b>Business Review tab</b></span><span>Assembled from the other tabs — freeze pack replaces the slide factory</span></div>
+  <div class="topbar">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 48 48"><rect width="48" height="48" fill="#E1242A"/><text x="24" y="32" text-anchor="middle" fill="#fff" font-size="22" font-family="Georgia, serif" font-weight="700">T</text></svg>
+      <div class="product">DD&amp;T <span>Executive Platform</span></div>
+    </div>
+    <div class="fresh">
+      <span class="pill on">Pack not frozen</span>
+      <span class="pill">Last commentary 14:02 by D. Santoro</span>
+    </div>
+    <div class="who">Site Head in the room</div>
+  </div>
+  <div class="identity">
+    <div class="site">
+      <div><div class="code">SITE</div><div class="name">THO · Thousand Oaks</div></div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="scope"><button class="on">This site</button><button>Network</button></div>
+    <div class="titles">
+      <h1>Thursday business review · 11 Sep 2026</h1>
+      <p>30–45 minutes · run from this tab · export is a snapshot, not a new data store</p>
+    </div>
+    <button class="freeze">Freeze pack</button>
+  </div>
+  <div class="tabs">
+    <div class="tab">One pager</div>
+    <div class="tab">Status KPIs</div>
+    <div class="tab">Gantt + Budget</div>
+    <div class="tab">Budget</div>
+    <div class="tab">Risks</div>
+    <div class="tab">Jira</div>
+    <div class="tab">Capability</div>
+    <div class="tab on">Business Review</div>
+    <div class="tab new">Site input</div>
+    <div class="tab">Network</div>
+  </div>
+  <div class="main">
+    <div class="stack">
+      <div class="kpis">
+        <div class="kpi"><span>Active</span><b>44</b></div>
+        <div class="kpi hot"><span>At risk</span><b>13</b></div>
+        <div class="kpi"><span>On-track %</span><b>70%</b></div>
+        <div class="kpi"><span>OPEX MYC</span><b>$1,158k</b></div>
+        <div class="kpi"><span>Variance</span><b>+1.2%</b></div>
+        <div class="kpi"><span>Capability</span><b>49.3</b></div>
+      </div>
+      <div class="cols">
+        <div class="panel">
+          <h3>Meeting beats</h3>
+          <div class="pad">
+            <div class="beat on"><div class="num">1</div><div><b>Site snapshot</b><div style="color:#5B6470">13 at risk · capability 49.3 · budget inside tolerance</div></div></div>
+            <div class="beat"><div class="num">2</div><div><b>Big Rocks</b><div style="color:#5B6470">One pager — ODBR and Lab of the Future</div></div></div>
+            <div class="beat"><div class="num">3</div><div><b>Money vs time</b><div style="color:#5B6470">Gantt + Budget · APMS leadership · Phoenix $436k</div></div></div>
+            <div class="beat"><div class="num">4</div><div><b>Risks</b><div style="color:#5B6470">Top 5 — OpenLab support still in Jira</div></div></div>
+            <div class="beat"><div class="num">5</div><div><b>North Star adoption</b><div style="color:#5B6470">Capability · MES ↔ SAIL, Veeva ↔ SAP pending</div></div></div>
+            <div class="beat"><div class="num">6</div><div><b>Decisions / asks</b><div style="color:#5B6470">Two leadership asks from Site input</div></div></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Asks of leadership · from Site input</h3>
+          <div class="pad">
+            <div class="ask"><b>Codex seats for Aimee Rarugal</b><div style="color:#5B6470">Needed by 9 Sep · from Jan Felix Meyer · already on SPOT 1063647</div></div>
+            <div class="ask"><b>APMS leadership airtime</b><div style="color:#5B6470">SPOT 1041357 dates vs spend · Site Head wants a call this cycle</div></div>
+            <table>
+              <tr><th>Risk</th><th>Owner</th><th>Status</th></tr>
+              <tr><td>OpenLab support</td><td>PMO</td><td>Monitor</td></tr>
+              <tr><td>MES ↔ SAIL interface</td><td>MES</td><td>Leadership</td></tr>
+              <tr><td>Local mapping gaps</td><td>Site DD&amp;T</td><td>Planning</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="legend">
+    <span>Freeze writes a dated PDF/PPT from the portal.</span>
+    <span>After the meeting, decisions are typed on Site input — not in a side deck.</span>
+    <span style="margin-left:auto">Acceptance: one TO review runs entirely from this tab</span>
+  </div>
+</section>
+
+<!-- ========== SITE INPUT ========== -->
+<section id="input" class="screen">
+  <div class="ribbon"><span>Target mockup · not a live app · <b>Site input — the only write path</b></span><span>Jira dates and SPOT money stay read-only. Commentary, local risk, asks, and mapping write to Dataverse.</span></div>
+  <div class="topbar">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 48 48"><rect width="48" height="48" fill="#E1242A"/><text x="24" y="32" text-anchor="middle" fill="#fff" font-size="22" font-family="Georgia, serif" font-weight="700">T</text></svg>
+      <div class="product">DD&amp;T <span>Executive Platform</span></div>
+    </div>
+    <div class="fresh">
+      <span class="pill on">You can edit · Site Head / Site DD&amp;T</span>
+      <span class="pill">Audit on</span>
+    </div>
+    <div class="who">Dean Santoro · writing as Site DD&amp;T</div>
+  </div>
+  <div class="identity">
+    <div class="site">
+      <div><div class="code">SITE</div><div class="name">THO · Thousand Oaks</div></div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="scope"><button class="on">This site</button><button>Network</button></div>
+    <div class="titles">
+      <h1>What the Site Head just confirmed, asked, or flagged</h1>
+      <p>Attributable writes only · no shared mailbox · soft delete</p>
+    </div>
+  </div>
+  <div class="tabs">
+    <div class="tab">One pager</div>
+    <div class="tab">Status KPIs</div>
+    <div class="tab">Gantt + Budget</div>
+    <div class="tab">Budget</div>
+    <div class="tab">Risks</div>
+    <div class="tab">Jira</div>
+    <div class="tab">Capability</div>
+    <div class="tab">Business Review</div>
+    <div class="tab on">Site input</div>
+    <div class="tab">Network</div>
+  </div>
+  <div class="form-tabs">
+    <span class="on">Review commentary</span>
+    <span>Local risk</span>
+    <span>Leadership ask</span>
+    <span>Go-live confirmation</span>
+    <span>Mapping correction</span>
+  </div>
+  <div class="main">
+    <div class="panel" style="flex:1.1">
+      <h3>Review commentary · FY26 September cycle</h3>
+      <div class="pad">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+          <div><label>Period</label><select><option>Sep 2026 BR cycle</option></select></div>
+          <div><label>Big Rock (optional)</label><select><option>All / site-wide</option></select></div>
+          <div><label>Sentiment</label><select><option>Watch</option></select></div>
+        </div>
+        <label>Narrative</label>
+        <textarea>TO can run Thursday’s review from the portal. Thirteen at-risk items are concentrated on APMS and two MES integrations. Phoenix spend is tracking. Asking leadership for APMS airtime and to close the Codex ask already on SPOT 1063647.</textarea>
+        <div style="display:flex;align-items:center;gap:12px;margin-top:10px">
+          <button class="save">Save commentary</button>
+          <div class="audit">Last saved 4 Sep 2026 14:02 · Dean Santoro · THO. Appears on the sidecar and the Business Review snapshot.</div>
+        </div>
+      </div>
+    </div>
+    <div class="panel" style="width:420px;flex:none">
+      <h3>Open writes this cycle</h3>
+      <div class="pad">
+        <table>
+          <tr><th>Type</th><th>Title</th><th>Who</th></tr>
+          <tr><td>Ask</td><td>Codex for Aimee</td><td>Dean</td></tr>
+          <tr><td>Ask</td><td>APMS airtime</td><td>Site Head</td></tr>
+          <tr><td>Risk</td><td>Local mapping gaps</td><td>PMO</td></tr>
+          <tr><td>Map</td><td>DDTTO-58 → Rapid Digital / FY26 / SAIL</td><td>PMO</td></tr>
+        </table>
+        <div class="banner" style="margin-top:12px">Go-live confirmation does <b>not</b> change Jira until PMO copies it. Mapping updates the One pager only.</div>
+      </div>
+    </div>
+  </div>
+  <div class="legend">
+    <span>Writes: commentary · local risk · leadership ask · go-live confirm · project_map</span>
+    <span>Never written here: Jira status, Jira dates, SPOT budget, EDB deploy/adopt</span>
+    <span style="margin-left:auto">Retention: BR cycle + 2 years (confirm with records)</span>
+  </div>
+</section>
+</body>
+</html>

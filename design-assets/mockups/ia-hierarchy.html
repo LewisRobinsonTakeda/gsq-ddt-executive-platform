@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Canonical information architecture</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1800px; height: 980px; background: #EDF2F3; font-family: "Segoe UI", Aptos, Arial, sans-serif; color: #34373F; }
+  body { padding: 28px 32px; }
+  h1 { font-size: 24px; color: #102033; }
+  .sub { font-size: 13px; color: #5B6470; margin: 4px 0 18px; }
+  .tree { display: flex; flex-direction: column; gap: 8px; }
+  .row { display: flex; align-items: center; gap: 10px; }
+  .lvl { min-width: 210px; padding: 10px 12px; border-radius: 6px; color: #fff; font-weight: 700; font-size: 13px; }
+  .l0 { background: #E1242A; }
+  .l1 { background: #891515; margin-left: 28px; }
+  .l2 { background: #102033; margin-left: 56px; }
+  .l3 { background: #1B3A55; margin-left: 84px; }
+  .l4 { background: #34373F; margin-left: 112px; }
+  .l5 { background: #5B6470; margin-left: 140px; }
+  .note { font-size: 12px; color: #5B6470; font-weight: 500; }
+  .kids { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip { background: #fff; border: 1px solid #D1D8E0; border-radius: 4px; padding: 6px 8px; font-size: 11px; font-weight: 650; color: #102033; }
+  .sites { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 16px; }
+  .reg { background: #fff; border: 1px solid #D1D8E0; border-radius: 6px; padding: 10px 12px; }
+  .reg h3 { font-size: 12px; color: #E1242A; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
+  .reg p { font-size: 12px; line-height: 1.45; }
+  .pilot { color: #E1242A; font-weight: 800; }
+  .foot { margin-top: 14px; background: #102033; color: #fff; padding: 10px 14px; border-radius: 6px; font-size: 13px; }
+</style>
+</head>
+<body>
+  <h1>Canonical information architecture</h1>
+  <p class="sub">One hierarchy. Site is the control that drives every tab. Regions are DD&amp;T reporting lines — Vashi→Europe, Yaroslavl→APAC.</p>
+  <div class="tree">
+    <div class="row"><div class="lvl l0">GSQ Network</div><span class="note">18 Manufacturing &amp; Labs sites</span></div>
+    <div class="row"><div class="lvl l1">Region</div><div class="kids"><span class="chip">Americas</span><span class="chip">Europe</span><span class="chip">Asia-Pacific</span></div></div>
+    <div class="row"><div class="lvl l2">Site  ·  e.g. THO</div><span class="note">Header drop-down. Changing site re-queries every tab.</span></div>
+    <div class="row"><div class="lvl l3">Big Rock  ·  6 columns</div><div class="kids"><span class="chip">One Day Batch Release</span><span class="chip">Lab of the Future</span><span class="chip">Predictive Maintenance</span><span class="chip">Rapid Digital Tech Transfer</span><span class="chip">Inventory Optimization</span><span class="chip">Digital Twins</span></div></div>
+    <div class="row"><div class="lvl l4">North Star platform</div><div class="kids"><span class="chip">MES</span><span class="chip">SAIL</span><span class="chip">Labware</span><span class="chip">Phoenix</span><span class="chip">Veeva</span><span class="chip">SAP</span><span class="chip">…</span></div></div>
+    <div class="row"><div class="lvl l5">Initiative → site project</div><div class="kids"><span class="chip">Jira DDTGMPORT-*</span><span class="chip">Site DDTTO-*</span><span class="chip">SPOT ID</span><span class="chip">Milestone / go-live</span><span class="chip">Risk</span><span class="chip">Budget line</span><span class="chip">Capability / integration</span></div></div>
+  </div>
+  <div class="sites">
+    <div class="reg"><h3>Americas · 5</h3><p>LEX · <span class="pilot">THO pilot</span> · BRP · NAU · BUE</p></div>
+    <div class="reg"><h3>Europe · 7</h3><p>GRA · BRY · LIN · ORA · SNG · NEU · VAS (reports Europe)</p></div>
+    <div class="reg"><h3>Asia-Pacific · 6</h3><p>TJN · OSA · HIK · SGP · YAR (reports APAC) · BEK</p></div>
+  </div>
+  <div class="foot">Planning FY (One pager swimlane) ≠ Gantt date span. Initiative RAG = worst open child. Complete / Cancelled excluded from active and at-risk counts.</div>
+</body>
+</html>

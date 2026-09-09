@@ -1,0 +1,30 @@
+.DS_Store
+._*
+~$*
+*.tmp
+*.bak
+.env
+.env.*
+!.env.example
+.cursor/
+*.local
+*.asd
+
+# Local Python
+__pycache__/
+.venv/
+venv/
+*.pyc
+
+# Walkthrough screenshot dump (keep mockups + live-app figs)
+design-assets/takos-steps/
+
+# Large source decks / scans, not the app
+*.pptx
+Capability Tracker.pdf
+DD&T Roadmap-*.pdf
+DDTRoadmap.pdf
+GSQ DD&T Roadmap Executive Platform MVP v2 Sept 2026 1 (1).docx
+GSQ GML DD&T Takeda  - T&M Oct 2026 to Dec 2026.docx
+GSQ-DDT-Executive-Platform-5-Page-Brief.pdf
+GSQ-DDT-Executive-Platform-5-Page-Brief.docx

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Executive Platform — high-level schematic</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 2200px; height: 1240px; background: #EDF2F3; font-family: "Segoe UI", Aptos, Arial, sans-serif; color: #34373F; }
+  body { padding: 28px 36px; }
+  h1 { font-size: 28px; color: #102033; font-weight: 750; }
+  .sub { font-size: 14px; color: #5B6470; margin: 4px 0 18px; }
+  .shell {
+    background: #fff; border: 2px solid #102033; border-radius: 8px; padding: 14px 16px 16px;
+  }
+  .chrome { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .logo { width: 36px; height: 36px; background: #E1242A; color: #fff; display: flex; align-items: center; justify-content: center; font: 700 18px Georgia, serif; }
+  .prod { font-weight: 750; font-size: 16px; color: #102033; }
+  .prod span { color: #E1242A; }
+  .site {
+    margin-left: 12px; border: 2px solid #E1242A; border-radius: 6px; padding: 6px 12px; font-weight: 700; font-size: 14px;
+  }
+  .tog { display: flex; background: #EDF2F3; border-radius: 6px; overflow: hidden; font-size: 12px; font-weight: 700; }
+  .tog b { background: #E1242A; color: #fff; padding: 6px 10px; }
+  .tog span { padding: 6px 10px; color: #5B6470; }
+  .tabs { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; }
+  .tab { background: #102033; color: #fff; text-align: center; padding: 10px 4px; font-size: 12px; font-weight: 700; border-radius: 4px; line-height: 1.25; }
+  .tab.new { background: #E1242A; }
+  .tab small { display: block; font-weight: 500; font-size: 10px; color: #D1D8E0; margin-top: 3px; }
+  .flows { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 16px; }
+  .box { background: #fff; border: 1px solid #D1D8E0; border-radius: 6px; padding: 12px 14px; }
+  .box h3 { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #E1242A; margin-bottom: 8px; }
+  .box p, .box li { font-size: 13px; line-height: 1.4; }
+  .box ul { padding-left: 16px; }
+  .arrow-row { display: flex; justify-content: space-around; margin: 14px 0 8px; font-size: 22px; color: #A1B1C3; }
+  .sources { display: grid; grid-template-columns: 1.2fr 1.2fr 1.2fr .9fr; gap: 12px; }
+  .src { background: #102033; color: #fff; border-radius: 6px; padding: 12px 14px; }
+  .src.write { background: #891515; }
+  .src h3 { font-size: 14px; margin-bottom: 4px; }
+  .src p { font-size: 12px; color: #D1D8E0; }
+  .badge { display: inline-block; background: #2E8B57; color: #fff; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 3px; margin-bottom: 6px; }
+  .badge.ro { background: #5B6470; }
+  .rule { margin-top: 14px; background: #102033; color: #fff; padding: 12px 16px; border-radius: 6px; font-size: 14px; display: flex; gap: 28px; }
+  .rule b { color: #F6C6C8; }
+</style>
+</head>
+<body>
+  <h1>High-level design — one Glass, three systems of record</h1>
+  <p class="sub">The portal does not replace Jira, SPOT, or EDB. It is the meeting layer. Site context set once applies to every tab.</p>
+
+  <div class="shell">
+    <div class="chrome">
+      <div class="logo">T</div>
+      <div class="prod">DD&amp;T <span>Executive Platform</span></div>
+      <div class="site">Site ▾  THO · Thousand Oaks</div>
+      <div class="tog"><b>This site</b><span>Network · 18 plants</span></div>
+    </div>
+    <div class="tabs">
+      <div class="tab">One pager<small>Big Rocks × FY</small></div>
+      <div class="tab">KPIs<small>Honest counts</small></div>
+      <div class="tab">Gantt + $<small>Dates vs spend</small></div>
+      <div class="tab">Budget<small>Approve / actual</small></div>
+      <div class="tab">Risks<small>Airtime only</small></div>
+      <div class="tab">Jira<small>Live backlog</small></div>
+      <div class="tab">Capability<small>Deploy + adopt</small></div>
+      <div class="tab new">Business Review<small>New · the meeting</small></div>
+      <div class="tab new">Site input<small>New · write path</small></div>
+      <div class="tab">Network<small>34 / 573 picture</small></div>
+    </div>
+  </div>
+
+  <div class="arrow-row"><span>↓ reuse</span><span>↓ reuse</span><span>↓ embed</span><span>↓ new</span></div>
+
+  <div class="flows">
+    <div class="box">
+      <h3>Already built — wrap, don’t reinvent</h3>
+      <ul>
+        <li>TO One pager, KPIs, Gantt, Risks, Jira links</li>
+        <li>MYC Budget 2026 and combined Gantt + Budget</li>
+        <li>Capability Tracker (Power BI)</li>
+        <li>Global roadmap: 34 programmes · 573 projects</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>What the order actually builds</h3>
+      <ul>
+        <li>Site selector for all 18 GSQ M&amp;L plants</li>
+        <li>Live Jira + SPOT on one row</li>
+        <li>Site Head commentary, asks, mapping</li>
+        <li>Business-review freeze from the portal</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>How a leader moves</h3>
+      <ul>
+        <li>Pick site → every tab filters</li>
+        <li>Card → sidecar → Jira / SPOT</li>
+        <li>Same entity on Gantt + Budget</li>
+        <li>Pending integration → Capability</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sources" style="margin-top:16px">
+    <div class="src">
+      <div class="badge ro">READ ONLY</div>
+      <h3>Jira / DDTGMPORT</h3>
+      <p>Delivery, RAG, dates, impediments. Status is never dual-written from the portal.</p>
+    </div>
+    <div class="src">
+      <div class="badge ro">READ ONLY</div>
+      <h3>SPOT</h3>
+      <p>Approved / forecast / actual, milestones, project IDs (e.g. 1024096). Money is corrected in SPOT.</p>
+    </div>
+    <div class="src">
+      <div class="badge ro">READ ONLY</div>
+      <h3>EDB / Capability</h3>
+      <p>Deploy, adopt, integration pairs. Tracker embed is the MVP fallback if the API is late.</p>
+    </div>
+    <div class="src write">
+      <div class="badge">WRITE</div>
+      <h3>Dataverse</h3>
+      <p>Commentary, local risk, leadership asks, mapping, freeze pack. Attributable only.</p>
+    </div>
+  </div>
+
+  <div class="rule">
+    <div><b>Rule.</b> Systems of record stay authoritative.</div>
+    <div><b>Pilot.</b> Thousand Oaks business review runs from this portal.</div>
+    <div><b>Record.</b> SPOT 1063647 — do not open a second project.</div>
+  </div>
+</body>
+</html>

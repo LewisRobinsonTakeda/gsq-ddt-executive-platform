@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Level of effort</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1800px; height: 720px; background: #EDF2F3; font-family: "Segoe UI", Aptos, Arial, sans-serif; color: #34373F; }
+  body { padding: 28px 32px; }
+  h1 { font-size: 24px; color: #102033; }
+  .sub { font-size: 13px; color: #5B6470; margin: 4px 0 18px; }
+  .bands { display: grid; grid-template-columns: 1fr 1.35fr 1fr; gap: 14px; }
+  .band { background: #fff; border-radius: 8px; padding: 16px; border: 2px solid #D1D8E0; }
+  .band.rec { border-color: #E1242A; background: #102033; color: #fff; }
+  .band h2 { font-size: 16px; margin-bottom: 6px; }
+  .band .dol { font-size: 28px; font-weight: 800; margin: 8px 0; }
+  .band.rec .dol { color: #F6C6C8; }
+  .band p { font-size: 13px; line-height: 1.4; }
+  .cal { margin-top: 18px; display: grid; grid-template-columns: repeat(11, 1fr); gap: 6px; }
+  .wk { background: #fff; border: 1px solid #D1D8E0; border-radius: 4px; padding: 8px 6px; text-align: center; }
+  .wk b { display: block; font-size: 11px; color: #E1242A; }
+  .wk span { font-size: 10px; color: #5B6470; }
+  .foot { margin-top: 14px; font-size: 13px; color: #102033; }
+</style>
+</head>
+<body>
+  <h1>Level of effort — three products, one recommendation</h1>
+  <p class="sub">Hours are delivery hours at an indicative $140/h. Business-case §1 ($168k) is Band B. Business-case §9 ($40k) is Band A only.</p>
+  <div class="bands">
+    <div class="band">
+      <h2>A · Thin shell</h2>
+      <div class="dol">~$42k</div>
+      <p>280–320 hours · 6 weeks · 1 FTE<br>Site drop-down + wrap today’s tabs.<br><b>No SPOT, no EDB, no Site Head input.</b> Cannot prove the three-source hypothesis.</p>
+    </div>
+    <div class="band rec">
+      <h2>B · Recommended MVP</h2>
+      <div class="dol">~$155–168k</div>
+      <p>1,040–1,160 hours · 10–12 weeks · ~2.5 FTE<br>Live Jira + SPOT, combined Gantt, Capability embed, Site input, TO business-review freeze. EDB gated inside the same order.</p>
+    </div>
+    <div class="band">
+      <h2>C · Full business case</h2>
+      <div class="dol">~$196k</div>
+      <p>1,360–1,520 hours · 12 weeks · ~3 FTE<br>Band B + EDB data-product bind + production network roadmap + LEX/BRP parity.</p>
+    </div>
+  </div>
+  <div class="cal">
+    <div class="wk"><b>Wk 1</b><span>Access · site master</span></div>
+    <div class="wk"><b>2–3</b><span>Chrome + One pager</span></div>
+    <div class="wk"><b>4–5</b><span>Gantt + Budget + SPOT</span></div>
+    <div class="wk"><b>Wk 6</b><span>Risks · Jira · Capability</span></div>
+    <div class="wk"><b>Wk 7</b><span>Site input · BR freeze</span></div>
+    <div class="wk"><b>Wk 8</b><span>Network · security</span></div>
+    <div class="wk"><b>Wk 9</b><span>UAT 1</span></div>
+    <div class="wk"><b>Wk 10</b><span>UAT 2</span></div>
+    <div class="wk"><b>Wk 11</b><span>Pilot BR · hypercare</span></div>
+    <div class="wk"><b>Critical</b><span>Jira + SPOT API</span></div>
+    <div class="wk"><b>Record</b><span>SPOT 1063647</span></div>
+  </div>
+  <p class="foot">Team: Power Platform lead 1.0 · integration 0.7 · Power BI 0.2 · GML BA 0.3 · Dean 0.15 · PM 0.15.</p>
+</body>
+</html>
