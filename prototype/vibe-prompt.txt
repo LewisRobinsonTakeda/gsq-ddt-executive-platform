@@ -15,15 +15,15 @@ LIVE SYSTEMS TO WIRE (do not recreate as a second product):
 SOURCES OF TRUTH AND INTEGRATION LABELS:
 - Jira = project roadmap (status, start, finish, key, owner, initiative). Display staged values AND mark every auto-pull Jira field with a small chip: "Integration needed".
 - SPOT = project financials (Approved / Forecast / Actual OPEX and CAPEX). Display staged values AND mark every auto-pull money field with "Integration needed".
-- SharePoint lists = Site Head writes (commentary, local risk, leadership ask, go-live confirm, mapping, freeze). Refresh the app from those lists.
-- SharePoint lists are read-only inside Vibe. Site input must NOT pretend to Patch SharePoint. Each write form has a primary button "Open in SharePoint" that launches the matching list NewForm on /sites/GSQExecutivePlatform, plus a read-only gallery of staged/open writes. Never write Jira dates/status or SPOT money from this app.
+- SharePoint lists = Site Head writes (OnePager cards, commentary, local risk, leadership ask, go-live confirm, mapping, freeze). Refresh the app from those lists.
+- SharePoint lists are read-only inside Vibe. Site input must NOT pretend to Patch SharePoint. Each write form has a primary button "Open in SharePoint" that launches the matching Site Input page tab on /sites/GSQExecutivePlatform/SitePages (One-pager, Commentary, Local-risk, Go-live-confirm, Leadership-ask, Mapping-correction), plus a read-only gallery of staged/open writes. Hub: SitePages/Site-Input.aspx. Never write Jira dates/status or SPOT money from this app.
 - EDB / Capability Tracker live pull: "Integration needed".
 
 VISUAL TOKENS (exact): Takeda red #E1242A, maroon #891515, navy #102033, dark #34373F, steel #A1B1C3, gray #D1D8E0, mist #EDF2F3, page #F4F6F8, green #2E8B57, amber #C98900, blue #2B5A8A, white #FFFFFF. Segoe UI / Aptos. Wordmark: "DD&T" navy + "Executive Platform" red. No extra gradients.
 
 STATUS GLYPHS: on_track filled green circle; monitor amber triangle; leadership red diamond; blocked filled red circle; planning hollow steel circle; complete blue check; cancelled steel X. Initiative RAG = worst open child (leadership > blocked > monitor > on_track). Complete/cancelled excluded from Active and At risk.
 
-APP STATE: siteCode default THO; scope Site|Network; tab OnePager; selectedProject DDTTO-12; role SiteDDT; period 2026-09. Changing site updates EVERY tab in the same app. Do not hard-code "Thousand Oaks" as the app title.
+APP STATE: siteCode default THO; scope Site|Network; tab OnePager; selectedProject DDTTO-3; role SiteDDT; period 2026-09. Changing site updates EVERY tab in the same app. Do not hard-code "Thousand Oaks" as the app title.
 
 CHROME ON EVERY SCREEN:
 1. Navy ribbon: "Prototype · SharePoint + Power Apps · Jira/SPOT staged until Integration needed is closed"
@@ -37,23 +37,25 @@ CHROME ON EVERY SCREEN:
 
 SIX BIG ROCKS: 1 One Day Batch Release; 2 Lab of the Future; 3 Predictive Maintenance; 4 Rapid Digital Tech Transfer; 5 Inventory Optimization; 6 Power of Digital Twins.
 
-CREATE DRAFT TABLES with these exact names (SharePoint contract): Sites, BigRocks, StatusMap, Projects, ProjectMap, Financials, Capabilities, Integrations, Risks, Commentary, LeadershipAsks, GoLiveConfirm, ReviewFreeze, Audit, Freshness, UserSiteRole.
+CREATE DRAFT TABLES with these exact names (SharePoint contract): Sites, BigRocks, StatusMap, Projects, ProjectMap, Financials, OnePager, Capabilities, Integrations, Risks, Commentary, LeadershipAsks, GoLiveConfirm, ReviewFreeze, Audit, Freshness, UserSiteRole.
+
+OnePager is the Site Head card-entry list (one New item = one One pager card). Columns: Title (Description), Site (choice CODE — Name for all 18 sites), FiscalYear (FY2026/FY2027/FY2028), BigRock (six rocks), NorthStar (MES, LIMS, SAP, Takami, SAIL, LPMS, APMS, RTMS, COMOS, Smart QC, LabX, Veeva eQMS, Discoverant, OptTracker, SIMCA Online, OpsTrakker, Phoenix, Fabriq, Labware), JiraKey (typed text), SpotId (typed text), Status (On Track, Started, At Risk, Delayed). Filter cards with Left(ThisItem.Site, 3) = varSite. Do not invent keys. Golden thread: TO MES Elaprase DS · DDTTO-3 · SPOT 1024096 · FY2026 · One Day Batch Release · MES · On Track.
 
 Projects columns: Title, JiraKey, SiteCode, InitiativeKey, InitiativeName, SpotId, StatusCanonical, Platform, OwnerName, ProgrammeOrLocal, StartDate, FinishDate, ProgressPct, Description, BusinessValue, Dependencies, JiraUrl, SpotUrl. Do NOT store Big Rock or FY on Projects — those live only on ProjectMap.
 
 Financials columns: Title, SpotId, SiteCode, JiraKey, FY, Approved, Forecast, Actual, AsOf. Variance is calculated, never stored. App is read-only on money.
 
 SEED THO PROJECTS (golden thread first):
-MES Elaprase DS | DDTTO-12 | SPOT 1024096 | on_track | MES | Programme | 2025-10-01 to 2026-06-30 | "Replace paper batch steps on Elaprase DS. Value sits in Jira; spend sits in SPOT." JiraUrl https://onetakeda.atlassian.net/browse/DDTTO-12 SpotUrl https://tospot.azurewebsites.net (search 1024096)
+MES Elaprase DS | DDTTO-3 | SPOT 1024096 | on_track | MES | Programme | 2025-10-01 to 2026-06-30 | "Replace paper batch steps on Elaprase DS. Value sits in Jira; spend sits in SPOT." JiraUrl https://onetakeda.atlassian.net/browse/DDTTO-3 SpotUrl https://tospot.azurewebsites.net (search 1024096). Key from DDTRoadmap Power BI Raw Data. Do not invent keys.
 NYMI Batch DDTTO-21 1042101 monitor; Labware LIMS DDTTO-31 on_track; LabX scales DDTTO-32 planning; TO APMS DDTTO-54 1041357 leadership; LPMS rollout DDTTO-63 leadership; TO SAIL — FDP DDTTO-08 on_track; TO Takami DDTTO-58 monitor; SAP warehouse DDTTO-41 on_track site-led; Discoverant feed DDTTO-70 planning; MES ↔ SAIL DDTTO-80 monitor FY27; Smart QC DDTTO-81 on_track FY27; Phoenix DDTTO-22 1038801 on_track FY27; Takami inventory DDTTO-59 on_track FY27; SIMCA Online DDTTO-71 on_track FY27; Paperless Ops DDTTO-90 planning FY28+; RTMS expand DDTTO-64 on_track FY28+; Enterprise data twin DDTTO-72 on_track FY28+; OT Cyber remediation DDTTO-77 1049001 monitor; TO MES Dapnese DS DDTTO-14 monitor; Unmapped test DDTTO-99 planning (NO ProjectMap row).
 
-THO ProjectMap: DDTTO-12 one-day-batch-release FY26; 21 ODBR FY26; 31 lab FY26; 32 lab FY26; 54 PdM FY26; 63 PdM FY26; 08 tech-transfer FY26; 58 tech-transfer FY26; 41 inventory FY26; 70 twin FY26; 80 ODBR FY27; 81 lab FY27; 22 tech-transfer FY27; 59 inventory FY27; 71 twin FY27; 90 lab FY28+; 64 PdM FY28+; 72 twin FY28+. Leave some FY28+ cells empty: "No projects in this Big Rock / year".
+THO ProjectMap (Power BI keys in SharePoint): DDTTO-3 Elaprase ODBR FY26; 17 Adynovate ODBR FY26; 4/7/21/22/23/24 OpsTrakker lab FY26; 34/41 Labware lab FY26; 42 Fabriq twin FY26; 53/55/56/57 SAIL tech-transfer FY26; 58 Takami tech-transfer FY26; 54 APMS PdM FY26; 25 Phoenix tech-transfer FY27. Leave empty Big Rock × FY cells: "No projects in this Big Rock / year".
 
 LEX (must look different): LEX SAIL Fill Line DDTLEX-04 1050100 on_track FY26 tech-transfer; LEX Labware DDTLEX-11 on_track FY26 lab; LEX MES suite DDTLEX-02 1028800 monitor FY26 ODBR; LEX Phoenix DDTLEX-20 planning FY27 tech-transfer; LEX LPMS DDTLEX-33 on_track FY26 PdM.
 
 BRP only: BRP SAIL DDTBP-07 on_track FY26 tech-transfer; BRP Smart QC DDTBP-18 monitor FY27 lab.
 
-THO Financials USD: 1024096/DDTTO-12 FY26 180000/180000/92000; 1042101/21 148000/148000/61000; 1041357/54 205000/220000/198000; 1038801/22 FY27 436000/436000/40000; 1049001/77 205000/205000/150000. Budget tiles MUST use the SUM of these rows everywhere (one number). LEX financials: 1050100/DDTLEX-04 120000/120000/40000; 1028800/DDTLEX-02 90000/95000/30000.
+THO Financials USD (amounts unchanged; keys/SPOTs aligned to Power BI): 1024096/DDTTO-3 FY26 180000/180000/92000; 1042101 NYMI 148000/148000/61000 (SPOT not on Raw Data — keep amount, do not invent a key); 1051357/54 205000/220000/198000; 1056412/DDTTO-25 FY27 436000/436000/40000; 1059685/DDTTO-8 205000/205000/150000. Budget tiles MUST use the SUM of these rows everywhere (one number). LEX financials: 1050100/DDTLEX-04 120000/120000/40000; 1028800/DDTLEX-02 90000/95000/30000.
 
 THO risks: OpenLab support Jira monitor PMO DDTGMPORT-41; MES ↔ SAIL interface Jira leadership MES DDTTO-80; Local mapping gaps Local planning Site DD&T; APMS dates vs spend Local leadership Reliability DDTTO-54.
 
@@ -64,18 +66,18 @@ Leadership asks: Codex seats for Aimee Rarugal needed 2026-09-09 (already on SPO
 Capabilities: 18 named digital capabilities per THO/LEX/BRP so the formula 100 * Sum(0.5 Deployed + 0.5 Adopted) / Count lands near THO 50, LEX 69, BRP 42. Pending integrations THO: MES ↔ SAIL, Veeva ↔ SAP. Freshness: Jira IsOK true Integration needed; SPOT IsOK true Integration needed; EDB IsOK true Integration needed; SiteHead OK.
 
 SCREENS:
-HOME / DEFAULT = One pager (1000-foot). Six Big Rocks × FY26 BUILD FOUNDATION / FY27 SCALE & INTEGRATE / FY28+ TRANSFORM. Cards from ProjectMap joined to Projects, filtered by site. Card: glyph, name, "SPOT {id} · {JiraKey}". Default select MES Elaprase DS. Sidecar: Owner, Status, Jira link + Integration needed, SPOT link + Integration needed, Big Rock, FY mapping, Go-live (Jira date + Integration needed), description. Banner: "Layout changes are planning metadata. Jira dates and status remain the system of record." Mapping dropdowns + "Update mapping" only changes ProjectMap (or opens SharePoint ProjectMap NewForm). Buttons: Open in Gantt + Budget; Capability · platform; Open Jira issue.
+HOME / DEFAULT = One pager (1000-foot). Six Big Rocks × FY26 BUILD FOUNDATION / FY27 SCALE & INTEGRATE / FY28+ TRANSFORM. Cards from live SharePoint OnePager, filtered by site (Left(Site,3) = varSite). Place each card in the BigRock × FiscalYear cell. Card: glyph from Status (On Track green, Started hollow, At Risk amber, Delayed red), Description, "SPOT {SpotId} · {JiraKey}". North Star pill highlights cards whose NorthStar matches. Empty cell: "Drop a project here". Default select MES Elaprase DS (DDTTO-3). Sidecar: Status, Jira link + Integration needed, SPOT link + Integration needed, Big Rock, FY, North Star, description. Banner: "Cards come from SharePoint One pager. Jira dates and SPOT money stay systems of record." Mapping still opens SitePages/Mapping-correction.aspx. Buttons: Open in Gantt + Budget; Capability · platform; Open Jira issue; Open in SharePoint (SitePages/One-pager.aspx).
 
 Status KPIs: Active, On Track, Planning, At Risk (monitor+leadership+blocked), Leadership, on-track % by FY, Programme vs site-led, last Site Head update. Click KPI filters One pager.
 
-Gantt + Budget: LEFT in-app Gantt grouped by InitiativeName, bars Start–Finish on FY25–FY28, Today red line, "No dates reported" group. Also a control "Open network Gantt (Power BI)" launching the DD&T Roadmap report URL (site dropdown / regional grouping). RIGHT 360px navy MYC Budget sidebar like the TO cost slide: Approved, project count, FY26, FY27, ranked forecast lines, variance (Actual-Forecast)/Forecast, caption "Financials are read-only. Corrections happen in SPOT." + Integration needed. Click bar selects project.
+Gantt + Budget: LEFT in-app Gantt from SharePoint Projects (filter SiteCode), grouped by InitiativeName, bars StartDate–FinishDate on FY25–FY28, Today red line, "No dates reported" group. Initial rows were staged from DDTRoadmap Power BI Raw Data (real Jira keys; do not invent). THO golden thread: TO MES Elaprase DS · DDTTO-3 · SPOT 1024096. SharePoint tab: SitePages/Roadmap.aspx. Also a control "Open network Gantt (Power BI)" launching the DD&T Roadmap report URL. RIGHT 360px navy MYC Budget sidebar from SharePoint Financials: Approved, project count, FY26, FY27, ranked forecast lines, variance (Actual-Forecast)/Forecast, caption "Financials are read-only. Corrections happen in SPOT." + Integration needed. Click bar selects project.
 
 Budget tab: finance-first KPI strip + table. No money edits. Comment button opens Site input / SharePoint Commentary.
 
-Risks, Jira backlog (hyperlinks only, no status write-back), Capability (score + pending integrations + Integration needed for EDB), Business Review (Thursday 11 Sep 2026, 6 KPIs, meeting beats that navigate, asks, Freeze pack → ReviewFreeze note + "Open FreezePacks in SharePoint"), Site input (forms + Open in SharePoint for Commentary, Risks, LeadershipAsks, GoLiveConfirm, ProjectMap), Network (Americas / APAC / Europe, VAS Europe, YAR APAC; click site sets siteCode and opens One pager).
+Risks, Jira backlog (hyperlinks only, no status write-back), Capability (score + pending integrations + Integration needed for EDB), Business Review (Thursday 11 Sep 2026, 6 KPIs, meeting beats that navigate, asks, Freeze pack → ReviewFreeze note + "Open FreezePacks in SharePoint"), Site input (forms + Open in SharePoint for OnePager, Commentary, Risks, LeadershipAsks, GoLiveConfirm, ProjectMap — One pager first: SitePages/One-pager.aspx), Network (Americas / APAC / Europe, VAS Europe, YAR APAC; click site sets siteCode and opens One pager).
 
 View as role: Executive, SiteHead, SiteDDT, PMO, Finance, BRPOnly. BRPOnly locks site to BRP and hides THO financials including 1024096.
 
-DEMO MUST WORK: THO → Elaprase DDTTO-12 / 1024096 on One pager, Gantt, Budget, Jira. Switch to LEX → no Elaprase, SAIL Fill Line appears. BRPOnly cannot see $180k Elaprase.
+DEMO MUST WORK: THO → Elaprase DDTTO-3 / 1024096 on One pager, Gantt, Budget, Jira. Switch to LEX → no Elaprase, SAIL Fill Line appears. BRPOnly cannot see $180k Elaprase.
 
 English only. Empty cells: "No projects in this Big Rock / year".

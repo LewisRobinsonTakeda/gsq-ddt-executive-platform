@@ -3,8 +3,11 @@ Implement now. English only. Do not invent Jira keys or SPOT IDs. Do not add liv
 The One pager is close. Finish copying the live 1000-foot Roadmap and the Claude artifact / combined Gantt app.
 
 CHROME
-- Title: THOUSAND OAKS / DD&T Roadmap FY26–FY28+ · Executive roadmap
-- Tab row = one rounded pill like 1000-foot. All 10 tabs in this order: One pager · Status KPIs · Gantt + Budget · Budget · Risks · Jira · Capability · Business Review · Site input · Network. Selected tab = filled light chip, not an underline.
+- Copy the live 1000-foot title bar exactly (white rounded card). Left: selected site name stacked two lines, bold black ALL CAPS (default THOUSAND OAKS). Thick red slash. Right: DD&T Roadmap FY26–FY28+ plus gray subtitle Executive roadmap.
+- The stacked site name is a dropdown of all 18 GSQ M&L sites, not hard-coded text. Menu shows CODE · Name. Changing site updates every tab. Default THO. Vashi = Europe. Yaroslavl = APAC. Do not hard-code Thousand Oaks as the only site.
+- 18 sites: LEX Lexington; THO Thousand Oaks; BRP Brooklyn Park; NAU Naucalpan; BUE Buenos Aires; TJN Tianjin; OSA Osaka; HIK Hikari; SGP Singapore; YAR Yaroslavl; BEK Bekasi; GRA Grange Castle; BRY Bray; LIN Linz; ORA Oranienburg; SNG Singen; NEU Neuchatel; VAS Vashi.
+- Remove the wrong top chrome (GSQ EP PROTOTYPE / DD&T Executive Platform + THO Thousand Oaks Lewis Robinson chip). The 1000-foot title bar is the identity bar.
+- Tab row = one rounded pill like 1000-foot, under the title bar. All 10 tabs in this order: One pager · Status KPIs · Gantt + Budget · Budget · Risks · Jira · Capability · Business Review · Site input · Network. Selected tab = filled light chip, not an underline.
 - Filter row under tabs: Search project · All fiscal years · All platforms · All status · All capabilities. Red Open Jira board button.
 - Footer: On Track (green filled) · Planning Not Started (hollow) · At Risk (amber) · Delayed (red). Key Challenges: COMMUNICATION · CHANGE MANAGEMENT · LEADERSHIP ENGAGEMENT
 
@@ -12,8 +15,10 @@ ONE PAGER
 - Full-width maroon banner with centered 6 BIG ROCKS, then six NAVY rounded headers in ALL CAPS with no 01/02 numbers: ONE DAY BATCH RELEASE · LAB OF THE FUTURE · PREDICTIVE MAINTENANCE · RAPID DIGITAL TECH TRANSFER · INVENTORY OPTIMIZATION · POWER OF DIGITAL TWINS
 - Year banners full width: FY2026 - BUILD FOUNDATION navy #102033 · FY2027 - SCALE & INTEGRATE maroon #891515 · FY2028 & Beyond - TRANSFORM & OPTIMIZE dark #1B3A55
 - Compact white cards: grip + status glyph (green filled, hollow planning, amber, red). Empty cell: Drop a project here
-- Click card: red outline + floating white sidecar OVER the North Star (like 1000-foot), On Track badge, FY, Strategic Capability, Move project + Confirm change, Owner, Description, Business Value, Dependencies, Milestones, progress bar, red Jira link button. Top-right X closes the sidecar, clears the selection, and shows North Star again. Escape also closes it.
-- Default MES Elaprase DS · DDTTO-12 · SPOT 1024096
+- INSIDE the white One pager card, the right rail is always NORTHSTAR PLATFORMS (the Individual Projects / platform list). Copy live 1000-foot. Red header: NORTHSTAR PLATFORMS / THE DIGITAL TWIN FOUNDATION. Navy full-width pills in this order: MES · LIMS · SAP · Takami · SAIL · LPMS · APMS · RTMS · COMOS · Smart QC · LabX · Veeva eQMS · Discoverant · OptTracker · SIMCA Online. Footer navy block: Connected platforms enable the Digital Twin. This column must never be replaced by the sidecar.
+- Click a North Star platform: that pill stays selected, and every matching One pager project card gets the same red outline as a selected card. Do not open the sidecar when clicking a platform. THO keys from SharePoint / Power BI Raw Data only — MES → DDTTO-3 Elaprase, DDTTO-17 Adynovate; LIMS → DDTTO-41 Labware Phase III, DDTTO-34 SAP x Labware; Takami → DDTTO-58; SAIL → DDTTO-53, 55, 56, 57; APMS → DDTTO-54; Phoenix → DDTTO-25; OT → DDTTO-8; OpsTrakker → DDTTO-4, 7, 21, 22, 23, 24; Fabriq → DDTTO-42. COMOS / Veeva eQMS / OptTracker / LabX / Discoverant / SIMCA / LPMS / RTMS highlight none unless a SharePoint row exists. Do not invent keys.
+- Click a project card: floating white sidecar OUTSIDE the card to the right (like 1000-foot). North Star rail stays visible underneath/beside it. Sidecar has On Track badge, FY, Strategic Capability, Move project + Confirm change, Owner, Description, Business Value, Dependencies, Milestones, progress bar, red Jira link button. Top-right X or Escape closes the sidecar only. Platform highlights stay until another platform is chosen or All platforms is reset.
+- On load do not auto-open the sidecar. No card selected. North Star rail must be visible immediately. Golden thread when a card is clicked: TO MES Elaprase DS · DDTTO-3 · SPOT 1024096.
 
 STATUS KPIs — copy the Claude artifact graphics (NO yen, NO 億円)
 - After this change, default the visible tab to Status KPIs so Preview opens there
@@ -27,11 +32,11 @@ STATUS KPIs — copy the Claude artifact graphics (NO yen, NO 億円)
 - Click a KPI applies that status filter and switches to One pager
 
 GANTT + BUDGET — copy live app Thousand Oaks (US) — DD&T Project Roadmap
-- Left ~70%: title Thousand Oaks (US). PROJECT HEALTH pills Amber / Green / Red / Unassigned
-- Grouped swimlanes with collapse chevrons: MES, SAIL, Paperless Ops, APMS, LPMS, Veeva, Labware, OT Cyber, Takami, Phoenix, Local
-- Each row = Title · SPOT {id} when present. Horizontal bars on a year/quarter axis. Bar color = health. TODAY = 2px red vertical line through the chart
-- Seeded bars only: Elaprase 12, Dapnese 14, NYMI 21, SAIL 08, APMS 54, LPMS 63, Phoenix 22, Labware 31, LabX 32, Takami 58, SAP 41, OT Cyber 77, Smart QC 81, MES↔SAIL 80, SIMCA 71, RTMS 64, Discoverant 70, Paperless 90
-- Right 360px #102033 MYC Budget 2026 sidebar: EXECUTIVE SUMMARY, KPI pills Total OPEX $1,174,000 · 5 projects · FY26 $738k · FY27 $436k, donut OPEX BY VALUE STREAM with TOTAL OPEX $1,174K in the hole, red INVESTMENT RANKING (Phoenix $436k longest, APMS $220k, OT Cyber $205k, Elaprase $180k, NYMI $148k). Caption: Financials are read-only. Corrections happen in SPOT. Integration needed.
+- Left ~70%: title from selected site (default Thousand Oaks (US)). PROJECT HEALTH pills Amber / Green / Red / Unassigned
+- Grouped swimlanes with collapse chevrons by InitiativeName from SharePoint Projects
+- Each row = Title · SPOT {id} when present · JiraKey. Horizontal bars on StartDate–FinishDate. Bar color = health. TODAY = 2px red vertical line. Rows with no dates go under No dates reported
+- Bind Gantt rows to live SharePoint Projects filtered by SiteCode. Do not use draft mock keys. THO golden thread: DDTTO-3 Elaprase SPOT 1024096. Other THO keys from the list (17, 4, 7, 8, 21–25, 34, 41, 42, 53–58). Open SharePoint Roadmap tab: https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform/SitePages/Roadmap.aspx
+- Right 360px #102033 MYC Budget 2026 sidebar: EXECUTIVE SUMMARY, KPI pills from SharePoint Financials for the site (THO approved sum $1,174,000 · 5 projects · FY26 $738k · FY27 $436k), donut OPEX BY VALUE STREAM, red INVESTMENT RANKING from Financials. Caption: Financials are read-only. Corrections happen in SPOT. Integration needed.
 
 BUDGET tab: the same MYC dark canvas full-page (not a spreadsheet). Same KPIs, donut, ranking, FY chart, table of the 5 THO Financials rows.
 
@@ -43,3 +48,17 @@ RISKS — PMO table, English
 BUSINESS REVIEW: Claude hero + six meeting beats + leadership asks (Codex seats, APMS airtime) + Freeze pack. Staged THO numbers only. No yen.
 
 Site input = Open in SharePoint only. Implement now.
+
+SHAREPOINT LIVE BIND (Site Head entry updates the Power App)
+- Site: https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform
+- Data tab already has live SharePoint tables from GSQ Executive Platform: Audit, Commentary, Risks, LeadershipAsks, Projects, ProjectMap, Financials, OnePager. Do not add Jira, SPOT, or MYC connectors.
+- Bind One pager cards to live SharePoint OnePager (not draft Project / Project Map). Filter Left(Site,3) = varSite. Gantt = Projects. Budget = Financials. Drop mock DDTTO-12 cards. Do not invent keys.
+- Project roadmap SharePoint tabs (left-nav Roadmap): https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform/SitePages/Roadmap.aspx · map https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform/SitePages/Roadmap-map.aspx · financials https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform/SitePages/Roadmap-financials.aspx
+- Site input buttons open the SharePoint Site Input page tabs (do not Patch from the app). Hub: https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform/SitePages/Site-Input.aspx
+  - One pager: https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform/SitePages/One-pager.aspx
+  - Commentary: https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform/SitePages/Commentary.aspx
+  - Local risk: https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform/SitePages/Local-risk.aspx
+  - Go-live confirm: https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform/SitePages/Go-live-confirm.aspx
+  - Leadership ask: https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform/SitePages/Leadership-ask.aspx
+  - Mapping: https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform/SitePages/Mapping-correction.aspx
+- Never Patch Jira or SPOT. English only. Do not invent keys. Do not add live Jira/SPOT/MYC connectors.
