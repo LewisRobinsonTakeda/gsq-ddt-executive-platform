@@ -1,0 +1,55 @@
+Implement now. Do not invent Jira keys or SPOT IDs. Do not ask questions. Keep English. Draft-data only until SharePoint lists are bound.
+
+Visual DNA (copy these three sources; do not invent a fourth layout):
+1) Live 1000-foot Roadmap for One pager grid + card click + North Star column.
+2) Live MYC Budget 2026 for Gantt+Budget AND Budget sidebar/charts (full #102033, white type, red bars, donut, FY columns).
+3) Claude artifact / local platform.html for chrome: navy header, red GSQ/DT badge, red selected tab, NEW markers, red-hero KPI cards on Status KPIs + Business Review. Do NOT copy the artifact’s yen (億円) numbers.
+
+TOKENS: red #E1242A, maroon #891515, navy #102033, dark #34373F, steel #A1B1C3, gray #D1D8E0, mist #EDF2F3, page #F4F6F8, green #2E8B57, amber #C98900, blue #2B5A8A.
+
+CHROME (every tab):
+- Navy top bar: red GSQ badge + DD&T Executive Platform + site name THO Thousand Oaks + Lewis Robinson.
+- Identity: site combo with 2px red border. Title: DD&T Roadmap FY26–FY28+.
+- Tabs (order contractual, pill style like 1000-foot): One pager · Status KPIs · Gantt + Budget · Budget · Risks · Jira · Capability · Business Review NEW · Site input NEW · Network. Active tab = red pill (#E1242A white text).
+- Filters row: Search project · All fiscal years · All platforms · All status · All Big Rocks. Red Open Jira board.
+- Footer: On track · Planning · At risk · Delayed. Key challenges: Communication · Change management · Leadership engagement.
+
+ONE PAGER = 1000-foot:
+- Page #F4F6F8. Red corner cell 6 BIG ROCKS. Six navy rounded rock headers (NO 01/02 numbers): One Day Batch Release · Lab of the Future · Predictive Maintenance · Rapid Digital Tech Transfer · Inventory Optimization · Power of Digital Twins.
+- Year bands are CENTERED banners across the FULL row (no fat left year column): FY2026 BUILD FOUNDATION navy #102033 · FY2027 SCALE AND INTEGRATE red #E1242A · FY2028+ TRANSFORM AND OPTIMIZE dark #1B3A55. Do NOT paint all three banners red.
+- Compact WHITE pills, 2–3 per cell: 8px status DOT (green on_track, amber monitor, red leadership/blocked, steel planning) + name + Jira key. Selected = 2px red outline. Empty cell italic "No projects in this Big Rock / year".
+- CARDS MUST BE CLICKABLE like 1000-foot. Click sets selected project, red-outlines the card, highlights matching North Star platform, and updates the far-right sidecar.
+- RIGHT navy #102033 column titled NORTH STAR / THE DIGITAL TWIN FOUNDATION with platform pills: MES, LIMS, SAP, Takami, LPMS, APMS, Smart QC, LabX, Veeva, Discoverant, Phoenix, NYMI, SAIL, RTMS, SIMCA, EDB. Highlight selected platform in red.
+- FAR-RIGHT white sidecar updates on click: Owner, Status, FY, Jira + Integration needed, SPOT + Integration needed, Big Rock, description, dependencies. Buttons: Open in Gantt + Budget, Open Jira issue.
+- Default selected: MES Elaprase DS · DDTTO-12 · SPOT 1024096 · On track (GREEN dot, not red).
+- Elaprase status is on_track. NYMI=monitor (amber). APMS=leadership (red). LabX=planning (steel).
+
+THO map ONLY (do not add extras; DELETE invented keys 75 73 74 76 84 87 88 91 68):
+FY26 ODBR: Elaprase 12, NYMI 21, Dapnese 14. Lab: Labware 31, LabX 32. PdM: APMS 54, LPMS 63. Tech: SAIL 08, Takami 58. Inv: SAP 41. Twin: Discoverant 70.
+FY27 ODBR: MES↔SAIL 80. Lab: Smart QC 81. Tech: Phoenix 22. Inv: Takami inventory 59. Twin: SIMCA 71.
+FY28+ Lab: Paperless Ops 90. PdM: RTMS 64. Twin: Enterprise data twin 72.
+LEX: SAIL Fill Line 04 + LEX MES 02 FY26; LEX Labware 11 Lab FY26; LEX LPMS 33 PdM FY26; LEX Phoenix 20 tech FY27. LEX never shows Elaprase.
+
+GANTT + BUDGET:
+- Left: grouped Gantt FY25–FY28, today = 2px red line, bar colour = status. Click bar selects project.
+- RIGHT SIDEBAR = live MYC Budget 2026 (full #102033, white type, rounded cards):
+  Rounded KPI pills: Total OPEX $1,174,000, 5 THO funded projects, FY26 $738k, FY27 $436k.
+  Donut “OPEX by Value Stream” with $ in the hole.
+  Horizontal red #E1242A ranking bars — Phoenix $436k longest, then APMS $220k, OT Cyber $205k, Elaprase $180k, NYMI $148k.
+  FY column chart at bottom.
+  Caption: Financials are read-only. Corrections happen in SPOT. Integration needed.
+  Elaprase dollars 180000 / 180000 / 92000.
+
+BUDGET tab: same MYC dark canvas (not a spreadsheet). Same KPIs, donut, ranking, FY chart, table of the 5 THO Financials rows.
+
+STATUS KPIs + BUSINESS REVIEW (Claude artifact theme, staged THO numbers — no yen):
+- Red-to-maroon hero “Where the portfolio stands today”.
+- Six glass KPI cards: Active projects · At risk · On-track % · OPEX $1,174,000 · Leadership items · Capability score.
+- Under hero: navy Big Rock filter pills (same six rocks). Clicking a pill filters the One pager / list.
+- Review owned / Review associated chips.
+- Six beats: snapshot, Big Rocks, money vs time, risks, North Star, asks.
+- Freeze pack button (does not invent a second SPOT).
+
+RISKS / JIRA / CAPABILITY / SITE INPUT / NETWORK: keep existing tabs; Site input = Open in SharePoint only (no Patch from Vibe). Network uses the 18-site combo order.
+
+Do not click Connect live Jira/SPOT. Do not invent keys or SPOT IDs. Implement now.

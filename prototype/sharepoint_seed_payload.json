@@ -1,0 +1,72 @@
+{
+  "fields": {
+    "Projects": [
+      ["InitiativeKey", 2],
+      ["ProgressPct", 9],
+      ["BusinessValue", 3],
+      ["Dependencies", 3]
+    ],
+    "BigRocks": [["TypicalPlatforms", 2]],
+    "Financials": [["AsOf", 4]],
+    "Capabilities": [
+      ["SiteCode", 2],
+      ["GlobalFlag", 2],
+      ["Deployed", 2],
+      ["Adopted", 2],
+      ["ScoreWeight", 9]
+    ],
+    "Integrations": [
+      ["SiteCode", 2],
+      ["SourceSystem", 2],
+      ["TargetSystem", 2],
+      ["Deployed", 2],
+      ["Adopted", 2],
+      ["RelatedJiraKey", 2]
+    ],
+    "Risks": [
+      ["Due", 4],
+      ["RelatedSpotId", 2],
+      ["Severity", 2],
+      ["Mitigation", 3]
+    ],
+    "StatusMap": [
+      ["Canonical", 2],
+      ["Label", 2],
+      ["RankWorst", 9],
+      ["InActive", 2],
+      ["InAtRisk", 2]
+    ],
+    "UserSiteRole": [
+      ["UserEmail", 2],
+      ["SiteCode", 2],
+      ["Role", 2]
+    ],
+    "GoLiveConfirm": [
+      ["SiteCode", 2],
+      ["JiraKey", 2],
+      ["ConfirmOrChange", 2],
+      ["Reason", 3],
+      ["AuthorName", 2]
+    ],
+    "ReviewFreeze": [
+      ["SiteCode", 2],
+      ["Period", 2],
+      ["ArtifactUrl", 2],
+      ["CreatedByName", 2]
+    ],
+    "Audit": [
+      ["Entity", 2],
+      ["Action", 2],
+      ["ActorName", 2],
+      ["ActorEmail", 2],
+      ["BeforeJson", 3],
+      ["AfterJson", 3],
+      ["SiteCode", 2]
+    ],
+    "Freshness": [
+      ["AsOf", 2],
+      ["StaleMessage", 2]
+    ],
+    "Commentary": [["RockId", 2]]
+  }
+}
