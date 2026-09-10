@@ -12,7 +12,7 @@ ONE PAGER
 - Full-width maroon banner with centered 6 BIG ROCKS, then six NAVY rounded headers in ALL CAPS with no 01/02 numbers: ONE DAY BATCH RELEASE · LAB OF THE FUTURE · PREDICTIVE MAINTENANCE · RAPID DIGITAL TECH TRANSFER · INVENTORY OPTIMIZATION · POWER OF DIGITAL TWINS
 - Year banners full width: FY2026 - BUILD FOUNDATION navy #102033 · FY2027 - SCALE & INTEGRATE maroon #891515 · FY2028 & Beyond - TRANSFORM & OPTIMIZE dark #1B3A55
 - Compact white cards: grip + status glyph (green filled, hollow planning, amber, red). Empty cell: Drop a project here
-- Click card: red outline + floating white sidecar OVER the North Star (like 1000-foot), On Track badge, FY, Strategic Capability, Move project + Confirm change, Owner, Description, Business Value, Dependencies, Milestones, progress bar, red Jira link button
+- Click card: red outline + floating white sidecar OVER the North Star (like 1000-foot), On Track badge, FY, Strategic Capability, Move project + Confirm change, Owner, Description, Business Value, Dependencies, Milestones, progress bar, red Jira link button. Top-right X closes the sidecar, clears the selection, and shows North Star again. Escape also closes it.
 - Default MES Elaprase DS · DDTTO-12 · SPOT 1024096
 
 STATUS KPIs — copy the Claude artifact graphics (NO yen, NO 億円)
