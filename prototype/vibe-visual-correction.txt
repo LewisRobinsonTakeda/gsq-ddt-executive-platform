@@ -4,16 +4,18 @@ The One pager is close. Finish copying the live 1000-foot Roadmap and the Claude
 
 CHROME
 - Title: THOUSAND OAKS / DD&T Roadmap FY26–FY28+ · Executive roadmap
-- Tab row = one rounded pill like 1000-foot. All 10 tabs in this order: One pager · Status KPIs · Gantt + Budget · Budget · Risks · Jira · Capability · Business Review · Site input · Network. Selected tab = filled light chip, not an underline.
+- Tab row = one rounded pill like 1000-foot. Tabs: One pager · Status KPIs · Gantt + Budget · Budget · Risks · Capability · Business Review. No Jira tab. No Network tab. Selected tab = filled light chip, not an underline. Site input = Takeda red #E1242A button on the right of the tab row; Launch() https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform/SitePages/Site-Input.aspx. No in-app Site input screen.
 - Filter row under tabs: Search project · All fiscal years · All platforms · All status · All capabilities. Red Open Jira board button.
 - Footer: On Track (green filled) · Planning Not Started (hollow) · At Risk (amber) · Delayed (red). Key Challenges: COMMUNICATION · CHANGE MANAGEMENT · LEADERSHIP ENGAGEMENT
 
 ONE PAGER
 - Full-width maroon banner with centered 6 BIG ROCKS, then six NAVY rounded headers in ALL CAPS with no 01/02 numbers: ONE DAY BATCH RELEASE · LAB OF THE FUTURE · PREDICTIVE MAINTENANCE · RAPID DIGITAL TECH TRANSFER · INVENTORY OPTIMIZATION · POWER OF DIGITAL TWINS
 - Year banners full width: FY2026 - BUILD FOUNDATION navy #102033 · FY2027 - SCALE & INTEGRATE maroon #891515 · FY2028 & Beyond - TRANSFORM & OPTIMIZE dark #1B3A55
-- Compact white cards: grip + status glyph (green filled, hollow planning, amber, red). Empty cell: Drop a project here
-- Click card: red outline + floating white sidecar OVER the North Star (like 1000-foot), On Track badge, FY, Strategic Capability, Move project + Confirm change, Owner, Description, Business Value, Dependencies, Milestones, progress bar, red Jira link button. Top-right X closes the sidecar, clears the selection, and shows North Star again. Escape also closes it.
-- Default MES Elaprase DS · DDTTO-12 · SPOT 1024096
+- Compact white cards like the live 1000-foot Roadmap: grip + status glyph + Description only. Do not show Jira or SPOT on the tile. Jira/SPOT stay in the sidecar.
+- Cards are movable: drag between Big Rock × FY cells and reorder inside a cell, same as Power App 83afccd8. Empty cell: Drop a project here.
+- On drop, Patch SharePoint OnePager using connected display names: 'Big Rock', 'Fiscal Year', Sequence. Example: Patch(OnePager, ThisItem, { 'Big Rock': {Value: destRock}, 'Fiscal Year': {Value: destFY}, Sequence: destSeq }); Refresh(OnePager). Optional matching ProjectMap RockId/FiscalYear where JiraKey = ThisItem.Jira. Never Patch Projects dates/status or Financials. Banner: Layout changes are planning metadata.
+- Click card: red outline + floating sidecar. Jira/SPOT links + Integration needed live in the sidecar, not on the tile. X or Escape closes sidecar only.
+- Default TO MES Elaprase DS · DDTTO-3 · SPOT 1024096
 
 STATUS KPIs — copy the Claude artifact graphics (NO yen, NO 億円)
 - After this change, default the visible tab to Status KPIs so Preview opens there
@@ -31,9 +33,9 @@ GANTT + BUDGET — copy live app Thousand Oaks (US) — DD&T Project Roadmap
 - Grouped swimlanes with collapse chevrons: MES, SAIL, Paperless Ops, APMS, LPMS, Veeva, Labware, OT Cyber, Takami, Phoenix, Local
 - Each row = Title · SPOT {id} when present. Horizontal bars on a year/quarter axis. Bar color = health. TODAY = 2px red vertical line through the chart
 - Seeded bars only: Elaprase 12, Dapnese 14, NYMI 21, SAIL 08, APMS 54, LPMS 63, Phoenix 22, Labware 31, LabX 32, Takami 58, SAP 41, OT Cyber 77, Smart QC 81, MES↔SAIL 80, SIMCA 71, RTMS 64, Discoverant 70, Paperless 90
-- Right 360px #102033 MYC Budget 2026 sidebar: EXECUTIVE SUMMARY, KPI pills Total OPEX $1,174,000 · 5 projects · FY26 $738k · FY27 $436k, donut OPEX BY VALUE STREAM with TOTAL OPEX $1,174K in the hole, red INVESTMENT RANKING (Phoenix $436k longest, APMS $220k, OT Cyber $205k, Elaprase $180k, NYMI $148k). Caption: Financials are read-only. Corrections happen in SPOT. Integration needed.
+- Right 360px budget rail bound to BudgetTracker (not Financials). Light theme like One pager: page #F4F6F8, white cards, navy #102033, Takeda red #E1242A. No Mid Year Cycle / disciplined plan / Endorsement Ready / Executive Summary / insight chips. THO KPIs $1,158,000 · 7 · $822k · $336k · Phoenix $436k · 3. Mini donut + Title ranking. Integration needed for Budget ID / Local vs Global.
 
-BUDGET tab: the same MYC dark canvas full-page (not a spreadsheet). Same KPIs, donut, ranking, FY chart, table of the 5 THO Financials rows.
+BUDGET tab: light canvas like One pager (not dark MYC, not a spreadsheet). No Mid Year Cycle, no disciplined-plan H1, no Endorsement Ready, no Executive Summary, no insight bubbles. Bind BudgetTracker. Compact KPI row, donut, ranking bars, FY distribution, footer table. Labels = Title. THO KPIs $1,158,000 · 7 · $822k · $336k · Phoenix $436k. Budget ID and Local vs Global show Integration needed. Do not use old Financials. Do not add a SPOT connector.
 
 RISKS — PMO table, English
 - Columns: Title, status glyph, owner, due, Jira key (hyperlink), Big Rock, source (Jira / Local), mitigation
@@ -42,4 +44,12 @@ RISKS — PMO table, English
 
 BUSINESS REVIEW: Claude hero + six meeting beats + leadership asks (Codex seats, APMS airtime) + Freeze pack. Staged THO numbers only. No yen.
 
-Site input = Open in SharePoint only. Implement now.
+CAPABILITY — copy Digital Integrations KPI
+- Bind IntegrationsTracker + CapabilityTracker from GSQ Executive Platform (not the old Capabilities/Integrations lists). Filter by siteCode.
+- White canvas, Actuals | FY26 Forecast toggle, KPI pills: site code · Total Integrations · In Progress · Not Started · % Live (red ring) · % Actuals
+- Navy domain headers + white cards with product/line bars (Elaprase DS 100% / Adynovate DS 0% on THO PAS-X ↔ SAIL)
+- Right rail: Top 5 Barriers, DD&T Action Items, Business Action Items
+- Open in SharePoint: SitePages/Capability.aspx and SitePages/Integrations.aspx
+- LEX and BRP must look different. Do not hard-code THO values.
+
+Site input = red Launch button to SitePages/Site-Input.aspx only. No in-app Site input screen. Implement now.

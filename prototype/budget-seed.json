@@ -1,0 +1,9 @@
+[
+  {"title":"Interactive Cenario Training for Manufacturing","siteCode":"THO","siteLabel":"TO","spotId":"1057851","fundingNote":"operator training / capability enablement","opex":11000,"valueCreation":"Business Continuity People/Engagement","fy":"FY26"},
+  {"title":"NExUS Hub Learning & Capability Center","siteCode":"THO","siteLabel":"TO","spotId":"1058944","fundingNote":"Site init","opex":30000,"valueCreation":"Business Continuity People/Engagement","fy":"FY26"},
+  {"title":"NYMI Bands Thousand Oaks","siteCode":"THO","siteLabel":"TO","spotId":"1059172","fundingNote":"site-funded with DD&T technical support","opex":300000,"valueCreation":"FTE Hours","fy":"FY27"},
+  {"title":"OLOID Facial Recognition","siteCode":"THO","siteLabel":"TO","spotId":"1062428","fundingNote":"Site init","opex":36000,"valueCreation":"FTE Hours","fy":"FY27"},
+  {"title":"Project Phoenix Thousand Oaks","siteCode":"THO","siteLabel":"TO","spotId":"1056412","fundingNote":"No Phoenix funding avail - should be done by CIM","opex":436000,"valueCreation":"Organizational Capability","fy":"FY26"},
+  {"title":"Thousand Oaks OT Cybersecurity Remediation Program Vulnerability Management","siteCode":"THO","siteLabel":"TO","spotId":"1059685","fundingNote":"should be done by CIM","opex":285000,"valueCreation":"Organizational Capability","fy":"FY26"},
+  {"title":"CIM Team Spend","siteCode":"THO","siteLabel":"TO","spotId":"Just Do IT","fundingNote":"BAU not portfolio investment","opex":60000,"valueCreation":"Organizational Capability","fy":"FY26"}
+]

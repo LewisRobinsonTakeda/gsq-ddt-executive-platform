@@ -1,0 +1,31 @@
+Implement now. Visual chrome only. Do not add connectors. Do not invent money. Do not Patch. After this change, default the visible tab to Budget.
+
+REMOVE from Budget (and from the Gantt + Budget right rail if present). Delete completely — do not leave empty space or placeholders:
+- Mid Year Cycle
+- Executive Review
+- A disciplined, resilience-first 2026 plan (and any FY26–FY27 plan H1)
+- The one-sentence subtitle under that H1
+- Endorsement Ready
+- Executive Summary chip
+- All insight / bubble chips (Phoenix $436,000, OT Cyber $285,000, FY27 NYMI & OLOID, GNP 2.0, Tier-5, etc.)
+
+COLOR — match One pager / Status KPIs, not the dark MYC canvas:
+- Page #F4F6F8
+- Cards white #FFFFFF
+- Text navy #102033
+- Muted #34373F / steel #A1B1C3
+- Accent Takeda red #E1242A
+- Ranking bars and donut accent #E1242A
+- Second donut / FY series navy #102033 or steel #A1B1C3
+- No near-black #0B0C0F canvas. No #14171C cards.
+
+KEEP (same BudgetTracker SiteCode filter, Title labels):
+- Compact KPI row: TOTAL OPEX · PROJECTS · FY26 · FY27 · #1 INVESTMENT · VALUE STREAMS. THO: $1,158,000 · 7 · $822,000 · $336,000 · Project Phoenix Thousand Oaks $436,000 · 3
+- OPEX by Value Stream donut + legend
+- INVESTMENT RANKING bars, Title + Opex, longest first
+- Fiscal Year Distribution
+- Footer table: Title, SpotId, FY, ValueCreation, Opex, Capex. Budget ID and Local vs Global stay — + Integration needed
+- Open in SharePoint Budget.aspx
+- Gantt + Budget right rail keeps the same KPIs/donut/ranking on the light theme. No $1,174,000 Financials.
+
+Keep chrome tabs and red Site input. No Jira tab. No Network tab.

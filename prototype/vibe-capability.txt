@@ -1,0 +1,58 @@
+Implement now. English only. Do not invent Jira keys or SPOT IDs. Do not add live Jira, SPOT, or MYC connectors. SharePoint list binding is allowed.
+
+CAPABILITY TAB — copy Digital Integrations KPI (Power BI report 45a8a522 / page Digital Integrations KPI). After this change, default the visible tab to Capability so Preview opens there.
+
+CONNECT these two existing SharePoint lists from GSQ Executive Platform (same site as OnePager). Do NOT use the old thin lists named Capabilities or Integrations.
+- IntegrationsTracker (GUID 77be8fc3-72c7-4ff1-b6f6-09f8a587bd3f)
+- CapabilityTracker (GUID a46c5e09-9c6d-4354-83dc-3029c32cf50d)
+Filter every query by SiteCode = the app siteCode. Changing site must refresh Capability like every other tab.
+
+OPEN IN SHAREPOINT (read-only in the app; writes stay on SharePoint):
+- Capability: https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform/SitePages/Capability.aspx
+- Integrations: https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform/SitePages/Integrations.aspx
+Site input can also launch those two page tabs. Do not Patch IntegrationsTracker or CapabilityTracker from the app.
+
+LAYOUT (1920x1080, white canvas, Takeda tokens)
+1. Filter row under the existing app chrome: Geo (from site region) · Site (locked to current siteCode, e.g. TO for THO) · Status (All / Not Started / In Progress / Live / Adopted / Deployed / Not Planned) · segmented toggle Actuals | FY26 Forecast.
+2. KPI strip of white pills, selected % Live has a Takeda-red ring:
+   - Site code (THO → show TO like the Power BI)
+   - Total Integrations
+   - In Progress
+   - Not Started
+   - % Live
+   - % Actuals
+3. Main grid: navy rounded section headers + white rounded cards. One card per IntegrationId for the site.
+   Header: "{Title} | {card %}"  (examples: PAS-X ↔ SAIL | 25%, OSI PI → SAIL | 25%, DeltaV ↔ SAIL | 25%, Veeva ↔ SAP | 0%)
+   Body: one thin progress bar per ProductGroup (Adynovate DS, Assembly & Packaging, DP, Elaprase DS, Plant-wide, plus site-specific groups). Label left, % right, navy fill.
+4. Right rail 280px:
+   - Top 5 Barriers to Adoption — counts from CapabilityTracker.BlockerCategory for this site (skip blank). Power BI example: Equipment Incompatibility.
+   - DD&T Action Items — IntegrationsTracker.RequiredWork / BlockerNotes for the site (show empty black bar when none).
+   - Business Action Items — CapabilityTracker.BlockerDesc for the site (empty black bar when none).
+5. Footer caption: Source Capability Platform Tracker · SharePoint IntegrationsTracker + CapabilityTracker · all 18 sites. Open in SharePoint.
+
+CARD GROUPING / DOMAIN HEADERS (use DomainPair, this order):
+Engineering & Manufacturing · Engineering · Supply Chain · Manufacturing & QC · Manufacturing & Supply Chain · Supply Chain & Quality · Engineering & QC · QC
+Only render a header if the site has at least one integration in that pair.
+
+MEASURES (Excel is the system of record; match the Power BI look, do not invent a second dataset)
+- Exclude Status = "Not Planned" from Total / In Progress / Not Started / % Live / % Actuals unless the Status filter is Not Planned or All-including-planned is explicitly chosen. Default Status = All except Not Planned.
+- Card % and bar %:
+  Actuals = DeployPct (0-100 already stored)
+  FY26 Forecast = AdoptPct when not blank, else DeployPct. If TargetGoLive is in FY2026 (2026-04-01 to 2027-03-31) and status is not Live/Adopted/Deployed, still show the forecast %.
+- Roll up a unique IntegrationId to one card: average the visible product-group percents for the header %.
+- KPI Total = count of unique IntegrationId on the filtered cards.
+- In Progress = unique IntegrationId whose best status is In Progress or Active.
+- Not Started = unique IntegrationId whose best status is Not Started.
+- % Live = unique IntegrationId whose best status is Live, Adopted, Deployed, or Validated, divided by Total.
+- % Actuals = average DeployPct of visible rows.
+- Status rank for rollup: Adopted > Deployed > Live > Validated > Active > In Progress > Not Started > Not Planned.
+
+THO SMOKE (must be visible after bind)
+- Engineering & Manufacturing cards: PAS-X ↔ SAIL, OSI PI → SAIL, DeltaV ↔ SAIL with Elaprase DS at 100% and Adynovate DS / Assembly & Packaging at 0%.
+- Engineering: Veeva ↔ SAP with a plant-wide bar near 85%.
+- Manufacturing & QC: PAS-X ↔ LabWare and SAP ↔ PAS-X.
+- Do not hard-code these values — they must come from IntegrationsTracker. If THO data is missing, show Empty: No integrations for this site.
+
+LEX MUST LOOK DIFFERENT: richer RTMS / SAIL line cards (Cell Banking, Central Ops, Upstream, Downstream). BRP shows Train 1 / Train 2 / Entyvio. Switching siteCode rebuilds the grid.
+
+Keep the current chrome: tabs One pager · Status KPIs · Gantt + Budget · Budget · Risks · Capability · Business Review, plus the red Site input Launch button. No Jira tab. No Network tab. Do not invent a new IA. Do not Patch Financials, Projects dates, or Jira. Do not treat DDTGMPORT as this product's SPOT.
