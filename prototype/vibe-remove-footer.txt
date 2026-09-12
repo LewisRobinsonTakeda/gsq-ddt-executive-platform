@@ -1,0 +1,9 @@
+Implement now. Visual chrome only. Do not add connectors. Do not invent data. English only.
+
+On the Roadmap tab:
+
+1) Remove the footer line "Key Challenges: COMMUNICATION · CHANGE MANAGEMENT · LEADERSHIP ENGAGEMENT" entirely. Do not replace it with other copy. If the same footer appears on other tabs, remove it there too.
+
+2) Remove the caption "Connected platforms enable the Digital Twin." under the NORTHSTAR PLATFORMS rail. Keep the NORTHSTAR PLATFORMS header and the platform pills (MES, LIMS, SAP, etc.).
+
+Do not change Jira hyperlinks, banner title, empty cells, Budget, or Business Review.

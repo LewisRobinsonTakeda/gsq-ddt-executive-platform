@@ -1,0 +1,16 @@
+Implement now. Visual chrome only. Do not add connectors. Do not invent data. Do not Patch. English only.
+
+1) ROADMAP EMPTY CELLS
+On the Roadmap tab only (the Big Rocks × FY grid):
+Remove the placeholder copy "Drop a project here" / "Drop a Project Here" from every empty cell.
+Keep each empty cell exactly as it is otherwise: same background color, same size, same border/radius, same drop-target behavior. Just no text.
+Do not add replacement copy (no "Add", no "+", no dashed hint). Do not change filled project cards.
+
+2) IDENTITY BANNER (every tab)
+In the red header:
+- Remove the small line "DD&T Business Review" entirely.
+- Change the large title from "DD&T Roadmap FY26–FY28+" to "DD&T Executive Roadmap".
+- Remove the smaller subtitle "Executive roadmap" entirely.
+Leave the site block (SITE / THOUSAND OAKS · THO), the red slash, and the rest of the banner color/layout unchanged.
+
+Do not change Business Review cards, Budget, KPIs, or any other tab content.

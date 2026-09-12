@@ -1,0 +1,7 @@
+Implement now. Visual chrome only. English only. Do not add connectors.
+
+1) Rename the tab "Business Review" to "Portfolio Health". Keep the same tab content and layout.
+
+2) Move the Portfolio Health tab to the leftmost position, before Roadmap. New order: Portfolio Health, Roadmap, then the remaining tabs in their current order.
+
+Do not change banner title, Roadmap grid, Global Solutions rail, status colors, Jira links, Budget, or other tab content.

@@ -1,0 +1,14 @@
+Implement now. Visual chrome only. Do not add connectors. Do not invent data. English only.
+
+On the Roadmap tab only:
+
+Status CIRCLES (filled dots on project cards AND the matching Legend under the grid):
+
+- On Track = green (#2E8B57)
+- At Risk = yellow / amber (#C98900)
+- Delayed = red (#A3251B)
+
+Apply the same colors in the Legend labels (On Track / At Risk / Delayed) so the legend matches the cards.
+
+Do not change the identity banner, Jira hyperlinks, empty cells, Northstar pills, Budget, or Business Review.
+Keep any other statuses (e.g. Started / Planning) as they are unless they are currently using green/yellow/red incorrectly — those three named statuses must match the colors above.

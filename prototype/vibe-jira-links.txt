@@ -1,0 +1,19 @@
+Implement now. Do not add connectors. Do not invent Jira keys or SPOT IDs. English only. Do not Patch SharePoint. Do not click Change data source.
+
+HYPERLINK EVERY JIRA REFERENCE to the real Jira page on https://onetakeda.atlassian.net (NOT takeda.atlassian.net).
+
+Rules:
+1) Any visible Jira issue key already in the app (DDTTO-*, DDTGMPORT-*, DDTLEX-*, DDTBP-*, or any other key shown) must be a clickable hyperlink to:
+   https://onetakeda.atlassian.net/browse/{that exact key}
+   Examples already on screen: DDTTO-12, DDTTO-99, DDTTO-58, DDTGMPORT-41. Use only keys that already appear — do not invent new keys.
+
+2) Any button or label named "Jira Links", "Jira link", "Open Jira issue", "Open Jira board", or similar must actually Launch Jira:
+   - If it belongs to a selected/shown project, Launch that project's browse URL.
+   - If it is a generic board / "Jira Links" control with no key, Launch https://onetakeda.atlassian.net
+   Open in a new window/tab (Launch).
+
+3) Apply this on every tab where those strings/keys already exist: Roadmap sidecar and cards, Risks table, Gantt, Business Review narrative, Leadership asks, Status KPIs — wherever a Jira key or "Jira Links" text is shown as plain text today.
+
+4) Keep "Integration needed" chips. Do not add a Jira tab. Do not change Budget numbers, banner title, or empty-cell styling.
+
+Do this now.

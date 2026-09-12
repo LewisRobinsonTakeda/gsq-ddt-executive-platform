@@ -1,0 +1,9 @@
+Implement now. Visual chrome only. English only. Do not add connectors.
+
+1) Identity banner title: change "DD&T Executive Roadmap" to "GSQ DD&T Executive Dashboard". Keep the site block (SITE / THOUSAND OAKS · THO) and red slash. Do not add a subtitle.
+
+2) On the Roadmap tab: remove the "6 BIG ROCKS" / "6 Big Rocks" title above the six dark column headers. Keep the six column headers themselves (One Day Batch Release, Lab of the Future, etc.).
+
+3) Right rail: change "NORTHSTAR PLATFORMS" and "THE DIGITAL TWIN FOUNDATION" to a single heading "Global Solutions". Keep the platform pills (MES, LIMS, SAP, etc.).
+
+Do not change status circle colors, Jira links, empty cells, Budget, or Business Review.
