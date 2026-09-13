@@ -1,0 +1,247 @@
+THIS IS THE DUPLICATE APP ONLY. Name it "GSQ DD&T Leadership Briefing".
+
+DO NOT EDIT the frozen original:
+- Environment 0f7bbacc-ed0b-efbc-9497-b5b75c96f91e
+- App ID 6578df9f-308b-466e-ac80-3f99f06830c8
+- Vibe project 3e0db99d-4425-49eb-af2d-13a44c6b63bb
+- Play URL https://apps.powerapps.com/play/e/0f7bbacc-ed0b-efbc-9497-b5b75c96f91e/app/6578df9f-308b-466e-ac80-3f99f06830c8?tenantId=57fdf63b-7e22-45a3-83dc-d37003163aae
+After Save as / Duplicate, apply every change below only to the NEW app ID. Never send this prompt to the original.
+
+Visual + interaction spec (open and copy behaviour): design-assets/mockups/leadership-briefing.html
+
+============================================================
+PRODUCT
+============================================================
+Title stays: GSQ DD&T Executive Platform
+Audience: site / GSQ leadership (Joel, Dean, site LT). Elaine-style 5-minute sell is the default altitude; Dean/Ivan can drill.
+This is a briefing, not Power BI. No “pick filters → run report.” Click, see, drill, back out without losing context.
+Golden path on the landing screen: Portfolio → Attention → Priority → Context → Action.
+Chat is optional and token-expensive. First iteration = canned chips that navigate. Free-text Copilot Studio is deferred (preview only, disabled).
+
+============================================================
+HARD RULES (unchanged from the frozen workbench)
+============================================================
+- Never write Jira dates/status or SPOT money from the app.
+- Site Head writes only to SharePoint (commentary, local risk, asks). SharePoint lists are read-only inside Vibe. Every write form’s primary button is “Open in SharePoint”.
+- Jira keys are hyperlinks to https://onetakeda.atlassian.net/browse/{key} in a new window. Host is onetakeda, never takeda.atlassian.net.
+- SPOT IDs are hyperlinks to https://tospot.azurewebsites.net in a new window.
+- Label every auto-pull Jira / SPOT / EDB field with a small chip: “Integration needed”.
+- This product’s only investment record is SPOT 1063647. Do not create a second SPOT.
+- Golden thread: TO MES Elaprase DS · DDTTO-12 · SPOT 1024096.
+- Vashi reports to Europe. Yaroslavl reports to APAC.
+- Staged THO-rich data. Network / GRA / LIMS can be thin stubs so Joel can still click them.
+- No new connectors on this visual pass. Do not click Change data source. Publish updates only.
+- English only.
+
+============================================================
+VISUAL SYSTEM — Takeda potx Custom 1 (NOT Claude cinema)
+============================================================
+Do NOT use the original Claude reds (#501311 → #C4332F) or a full-width red wall.
+Use official Takeda template Custom 1 plus the mockup tokens:
+
+- Takeda red #E1242A and maroon #891515 as ACCENTS only (selected tab underline, primary CTA, alert stripe, site box border)
+- Charcoal #34373F
+- Navy #102033 / #0E2841 for titles
+- Mist #EDF2F4, page #F4F6F8, steel #939DB7 / #A1B1C3, gray #D1D8E0
+- White cards, 16–20px radius, large type, lots of air, soft shadow 0 12px 40px rgba(16,32,51,.08)
+- Fonts: Aptos Display for headlines, Segoe UI / Aptos for body
+- Status circles (keep these exact): On Track green #2E8B57 · At Risk amber #C98900 · Delayed red #A3251B · Planning = hollow steel circle
+- Page background #F4F6F8. Cards white. No cinematic red banner.
+
+============================================================
+CHROME (every screen)
+============================================================
+1. Thin freeze/prototype ribbon: “Leadership Briefing copy · original Vibe app 6578df9f is frozen”
+2. White top bar: Takeda T mark, product title “GSQ DD&T Executive Platform”, freshness pills:
+   Jira 2 min · Integration needed | SPOT 41 min · Integration needed | EDB 1h · Integration needed | Site Head 14:02
+3. Identity row:
+   - Site combo (red 2px border): SITE — 18 GSQ M&L / CODE · Name. All 18 sites selectable.
+   - Scope: This site (default) | Network. Network shows 18-site chips / regional roll-up, not a globe.
+   - Audience (header, not a secret ACL): Executive | Site DD&T | Delivery. Same data, different sentence length. Executives can still drill.
+   - Breadcrumb when drilled: THO › LIMS › Back to Briefing. Always visible during Explore.
+4. Tabs in this EXACT order. Default open = Briefing. Active tab = Takeda red underline. Site input is far-right and quieter.
+   Briefing · Explore · Roadmap · Capability · Money · Risks · Ask Copilot · Site input
+5. No search/FY/platform filter bar on Briefing. Object-first clicks replace “run report”.
+
+18 SITES (VAS = Europe, YAR = APAC):
+LEX Lexington Americas; THO Thousand Oaks Americas (default); BRP Brooklyn Park Americas; NAU Naucalpan Americas; BUE Buenos Aires Americas;
+TJN Tianjin APAC; OSA Osaka APAC; HIK Hikari APAC; SGP Singapore APAC; YAR Yaroslavl APAC; BEK Bekasi APAC;
+GRA Grange Castle Europe; BRY Bray Europe; LIN Linz Europe; ORA Oranienburg Europe; SNG Singen Europe; NEU Neuchatel Europe; VAS Vashi Europe.
+
+SIX BIG ROCKS (keep column headers, no “6 Big Rocks” title):
+One Day Batch Release · Lab of the Future · Predictive Maintenance · Rapid Digital Tech Transfer · Inventory Optimization · Power of Digital Twins.
+
+GLOBAL SOLUTIONS platforms (clickable objects, not a dropdown):
+MES, LIMS, SAIL, SAP, Veeva, Smart QC, LabX, APMS, LPMS, Phoenix, Takami.
+
+============================================================
+DATA (reuse staged collections — do not invent new money or Jira keys)
+============================================================
+Use the same draft tables / seed as the original workbench: Sites, BigRocks, StatusMap, Projects, ProjectMap, Financials, Capabilities, Integrations, Risks, Commentary, LeadershipAsks, GoLiveConfirm, ReviewFreeze, Audit, Freshness, UserSiteRole.
+
+THO projects (golden thread first):
+MES Elaprase DS DDTTO-12 SPOT 1024096 on_track MES global FY26 ODBR
+NYMI Batch DDTTO-21 1042101 monitor Smart QC shared FY26 ODBR
+Labware LIMS DDTTO-31 on_track LIMS global FY26 Lab
+LabX scales DDTTO-32 planning LabX local FY26 Lab
+TO APMS DDTTO-54 1041357 leadership APMS shared FY26 PdM — NEED: Dennis / site LT · Timing: this BR cycle · If nothing: uptime risk stays unexplained
+LPMS rollout DDTTO-63 leadership LPMS shared FY26 PdM
+TO SAIL — FDP DDTTO-08 on_track SAIL global FY26 tech-transfer (last go-live story)
+TO Takami DDTTO-58 monitor Takami global FY26 tech-transfer
+SAP warehouse DDTTO-41 on_track SAP local FY26 inventory
+Discoverant feed DDTTO-70 planning Phoenix shared FY26 twin
+MES ↔ SAIL DDTTO-80 monitor MES global FY27 ODBR
+Smart QC DDTTO-81 on_track Smart QC global FY27 Lab
+Phoenix DDTTO-22 1038801 on_track Phoenix shared FY27 tech-transfer $436k
+Takami inventory DDTTO-59 on_track Takami global FY27 inventory
+SIMCA Online DDTTO-71 on_track Phoenix shared FY27 twin
+Paperless Ops DDTTO-90 planning Veeva global FY28+ Lab
+RTMS expand DDTTO-64 on_track LPMS global FY28+ PdM
+Enterprise data twin DDTTO-72 on_track Phoenix shared FY28+ twin
+OT Cyber remediation DDTTO-77 1049001 monitor MES local FY26 ODBR
+TO MES Dapnese DS DDTTO-14 monitor MES global FY26 ODBR
+
+LEX: LEX SAIL Fill Line DDTLEX-04 1050100 on_track; LEX Labware DDTLEX-11 on_track; LEX MES suite DDTLEX-02 1028800 monitor.
+BRP: BRP SAIL DDTBP-07 on_track; BRP Smart QC DDTBP-18 monitor.
+GRA stubs (so Explore works): GRA Labware LIMS DDTGRA-11 leadership (adoption lag vs reported green); GRA MES DDTGRA-04 monitor.
+VAS stub: VAS LIMS DDTVAS-09 leadership (PM green / business red — Delivery depth only, not Elaine).
+
+THO Financials USD (SUM these; never invent):
+1024096/DDTTO-12 FY26 180000/180000/92000
+1042101/DDTTO-21 FY26 148000/148000/61000
+1041357/DDTTO-54 FY26 205000/220000/198000
+1038801/DDTTO-22 FY27 436000/436000/40000
+1049001/DDTTO-77 FY26 205000/205000/150000
+LEX: 1050100/DDTLEX-04 120000/120000/40000; 1028800/DDTLEX-02 90000/95000/30000.
+
+THO risks: OpenLab support monitor PMO DDTGMPORT-41; MES ↔ SAIL interface leadership MES DDTTO-80; Local mapping gaps planning Site DD&T; APMS dates vs spend leadership Reliability DDTTO-54.
+GRA risk: LIMS adoption vs reported RAG leadership GRA quality DDTGRA-11.
+
+Asks: Codex seats for Aimee Rarugal (Jan Felix Meyer, 9 Sep 2026, already on SPOT 1063647); APMS leadership airtime (Site Head, this cycle, SPOT 1041357).
+
+Pending integrations THO: MES ↔ SAIL (DDTTO-80); Veeva ↔ SAP; LabWare ↔ MES (DDTTO-31).
+
+Capability scores: THO ~50, LEX ~69, BRP ~42. Deployed / Adopted from 100 * Sum(0.5 Deployed + 0.5 Adopted) / Count.
+
+============================================================
+TAB 1 — BRIEFING (default landing)
+============================================================
+Replace today’s first impression. This is the 5-minute walk-in.
+
+HERO (one row of huge numbers + one sentence of English):
+- Executive: “GML DD&T is enabling ${SUM approved} of approved investment across N active initiatives at {site}. You have 45 seconds: we exist to make quality manufacturing data usable.”
+- Site DD&T / Delivery: longer — name the red/amber counts.
+- KPIs: Active projects · Need attention (red+amber count, Delayed colour on the number) · Approved OPEX · Open leadership asks · Last go-live story = SAIL FDP
+
+Then four stacked chapters (not six equal cards):
+
+01 PORTFOLIO
+- Three large tiles: Local site · Global / North Star · Shared delivery, with counts from ProgrammeOrLocal / bucket.
+- Under the tiles: top platforms as large clickable planets (MES, LIMS, SAIL, APMS…). Click opens Explore filtered to that platform.
+
+02 ATTENTION
+- Auto-surface exceptions only (status leadership / blocked / monitor). Example pattern: “2 red · 3 amber · the rest recede”.
+- Clicking an exception selects it for the sidecar. Default select the highest: TO APMS DDTTO-54.
+
+03 PRIORITY
+- 2×2: impact (high/low) × risk (Delayed vs At Risk).
+- Default highlight the high-impact Delayed quadrant (APMS).
+- Clicking a chip selects that project.
+
+04 CONTEXT + ACTION sidecar
+- What happened / why at risk / business impact / owner / milestones
+- End every red item with: Support needed · Decision · Owner · Timing · If we do nothing
+- Buttons: Open {platform} in Explore · Money · Open Jira (new window)
+- Audience lens: Executive = one action sentence; Site DD&T = why + action; Delivery = why + action + need + if-nothing
+
+Optional “Show full review beats” toggle BELOW THE FOLD (the old six Business Review Topics). Hidden by default. Do not make this the first thing Joel sees.
+
+============================================================
+TAB 2 — EXPLORE
+============================================================
+Two entry modes (segment control): Platforms | Sites. No dropdown-run pattern.
+
+PLATFORMS = Global Solutions constellation. Large clickable planets.
+Click LIMS → count, RAG split, on-fire list, mini-Gantt (progress bars, not a new report), sites involved as chips.
+Click a site chip → set siteCode and open Briefing scoped to that site, breadcrumb THO › LIMS or GRA › LIMS.
+
+SITES = 18 codes in regional clusters:
+- Americas
+- Europe (caption: Vashi reports here)
+- APAC (caption: Yaroslavl reports here)
+Click GRA → same briefing pattern scoped to Grange Castle.
+Click THO → Briefing for Thousand Oaks.
+
+Breadcrumb + Back to Briefing always visible after a drill. Never “run report”.
+
+============================================================
+TAB 3 — ROADMAP (drill destination)
+============================================================
+Keep the FY × six Big Rocks grid for planners. This is the mapping wall, not the walk-in.
+- Cell tint by worst RAG in that cell (Delayed red wash, At Risk amber wash, On Track green wash).
+- Empty cells stay BLANK. No “Drop a project here” text. Colour/drop can remain.
+- Cards: status circle, title, “SPOT {id} · {JiraKey}” with live Jira hyperlink.
+- Banner: “Roadmap is the mapping wall — not the walk-in. Layout changes are planning metadata. Jira dates and status remain the system of record.”
+
+============================================================
+TAB 4 — CAPABILITY (drill destination)
+============================================================
+Donuts + integration pairs as the maturity story (not a PDF embed).
+- Site score donut (THO 50 / LEX 69 / BRP 42)
+- Deployed % and Adopted % bars
+- Pending integrations as MES ↔ SAIL, Veeva ↔ SAP cards with Integration needed + Jira link when present
+- Caption: “Is it deployed, adopted, used, and integrated?”
+
+============================================================
+TAB 5 — MONEY (Budget + Gantt+Budget in one tab)
+============================================================
+KPI-first. Table only after click.
+- KPIs: Approved (SUM), project count, FY26, FY27, variance vs forecast
+- Ranking chart (bars) of approved investment
+- “Show project table” reveals Title / SPOT / Jira / FY / Approved
+- Caption: “SPOT is the money system of record. Integration needed. No edits from this glass.”
+- Do not invent a second money dataset.
+
+============================================================
+TAB 6 — RISKS
+============================================================
+Exception cards first (leadership + monitor). PMO table behind “Show all”.
+Each card: RAG circle, title, owner, Jira hyperlink when present.
+No “Broken” button.
+
+============================================================
+TAB 7 — ASK COPILOT
+============================================================
+A tab, not a floating bot that is the product.
+Suggested chips (zero extra tokens — they only navigate + show a 4–6 line executive summary card):
+1. Walk me into Thousand Oaks → set site THO, open Briefing, summary: 5 items need airtime; only APMS and MES ↔ SAIL earn Elaine’s 5 minutes; Phoenix $436k is the value line; two asks (Codex seats, APMS airtime).
+2. What’s on fire? → Briefing Attention, list current Delayed titles.
+3. What just went live? → Briefing, highlight TO SAIL — FDP.
+4. What’s happening with LIMS? → Explore / LIMS constellation (THO on track, GRA adoption reconcile, VAS is Delivery-only warning).
+5. What do I need from Elaine? → Briefing, summary: no 32-project dump; ask for 15 minutes of APMS airtime if Dennis is in the room.
+
+Free-text box: visible, DISABLED, labelled “Preview only — Copilot Studio deferred until token budget is approved.”
+Answers are cards (project, ask, platform), never a wall of chat.
+
+============================================================
+TAB 8 — SITE INPUT (only write path, quieter)
+============================================================
+Keep as the far-right tab.
+Commentary + open asks for the selected site.
+Primary button: Open in SharePoint → https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform
+Never Patch SharePoint from Vibe. Never write Jira or SPOT.
+
+============================================================
+NAVIGATION CONTRACT (Joel demo, under one minute)
+============================================================
+1. Open the copy → immediately see why DD&T exists at THO and what needs attention (Briefing).
+2. Click LIMS (Portfolio planet or Explore) → count + on-fire + sites. Click GRA. Back to Briefing.
+3. Ask Copilot chip “Walk me into Thousand Oaks” → Portfolio → Attention → Priority → Action.
+4. From sidecar, Open Jira on DDTTO-12 / DDTTO-54 in a new window. Dean can stay on the same glass for a 30-minute Ivan 1:1.
+5. The original workbench app 6578df9f still looks exactly as it does today.
+
+============================================================
+PUBLISH
+============================================================
+Publish THIS copy to a NEW app ID. Leave the original play URL untouched.
+Do not add connectors. Do not rebuild donuts on the original. Do not rename tabs on the original.

@@ -1,0 +1,28 @@
+On GSQ EP Prototype only. Do not edit GSQ DD and T Leadership Briefing. Do not restyle. Do not change Briefing UI, chips, tabs, or the default Budget tab. Do not add tables. Do not bump @microsoft/power-apps. Do not Patch SharePoint. Do not write Jira or SPOT. English only.
+
+Ask Copilot still returns Integration needed. Runtime proof from the published app:
+
+1) Client schema mutation is not enough.
+2) The host connection map comes from power.config.json via getAppConnectionConfigsAsync.
+3) power.config.json still has only Microsoft MCP Servers and SharePoint. It does not have microsoftcopilotstudio, so _getConnectionReference('microsoftcopilotstudio') fails.
+
+FIX power.config.json if it is editable. Keep the existing SharePoint and Microsoft MCP Servers connectionReferences exactly. ADD only this connection reference:
+
+key: 1c5f2396-6f9c-43e5-bc7e-e35e589a5aa2
+id: /providers/Microsoft.PowerApps/apis/shared_microsoftcopilotstudio
+displayName: Microsoft Copilot Studio
+dataSources: ["microsoftcopilotstudio"]
+authenticationType: oauthDefault
+dataSets: {}
+
+Use existing connection display name GSQDDTExecPlatformAgent, connection id 7b8bcd1e7fc94a5e9b16ee28cb62b24a. Do not use connection ab9d8b34b30f471f95a6c92e4c9adaff. Do not add any other connector.
+
+Also merge microsoftcopilotstudio into .power/appschemas/dataSourcesInfo.ts if that file is editable. Keep a365mcpservers. Add the official ExecuteCopilotAsyncV2 API:
+
+path: /{connectionId}/powervirtualagents/dataverse-backed/authenticated/bots/{Copilot}/proactivecopilot/executeAsyncV2
+method POST
+parameters: connectionId path, Copilot path, body body, x-ms-conversation-id header optional, environmentId query optional.
+
+Keep Ask Copilot calling ExecuteCopilotAsyncV2 with Copilot new_gsqDdtExecPlatformStd, nested body { message, notificationUrl: https://notificationurlplaceholder }, and x-ms-conversation-id only if a conversation id already exists.
+
+If MicrosoftCopilotStudioService can be generated, use that class. Prefix free text with Site={site display name} Scope={scope} Audience={audience}. Render lastResponse as a 4-6 line executive card. On error show Integration needed.
