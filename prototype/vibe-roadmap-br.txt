@@ -1,0 +1,17 @@
+Implement now. Visual chrome only. Do not add connectors. Do not invent money. Do not Patch. Do not invent Jira keys or SPOT IDs. English only. No yen.
+
+1) TAB RENAME
+Rename the tab label "One pager" to "Roadmap" everywhere it appears in the tab row and in-app navigation that points at that screen. Keep the screen itself as the 1000-foot Big Rocks × FY grid. Do not rename the identity title "DD&T Roadmap FY26–FY28+". Tab order stays: Roadmap · Status KPIs · Gantt + Budget · Budget · Risks · Capability · Business Review. Site input stays the red pill on the far right. No Jira tab. No Network tab.
+
+2) BUSINESS REVIEW TILES — slide 2 language, not a copy of the slide
+On the Business Review tab only, restyle the existing summary boxes (Portfolio Pulse, Delivery Health, Financial Outlook, and any sibling pulse/health/outlook tiles). Do NOT recreate the PowerPoint "Digital Journey - Top 10 Highlights" slide. Do NOT copy those ten project tiles (Cybersecurity Patching, Project Phoenix, Data Quality Review, Workforce Automation, Digital Fluency, Paperless, BIO3, Takami, MES, LIMS). Keep current Business Review titles, meeting beats, asks, freeze pack, and staged THO numbers.
+
+Match the GRAPHIC LANGUAGE of that slide:
+- White rounded cards
+- Colored header band with a simple white line-icon + the box title
+- Alternate header colors: charcoal #34373F and Claude burgundy (solid #A3251B or the existing red gradient)
+- Body: one large KPI in #A3251B (percent or count already on the tile) plus a short navy #102033 caption
+- Add small burgundy #A3251B donut / pie glyphs like the slide (pair of rings or a filled pie) so each box SHOWS what it means — mix, completion, or split — not a wall of text
+- Use existing staged THO figures only (on-track %, at-risk count, OPEX $1,158,000 / FY26 $822,000 / FY27 $336,000, project count 7). Do not invent new money or dates.
+
+Keep identity banner the Claude red gradient, white banner text, light tab row, greens/ambers, navy type #102033. Keep Budget / Roadmap / other tabs unchanged except the Roadmap label.

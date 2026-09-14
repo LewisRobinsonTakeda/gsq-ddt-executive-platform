@@ -19,7 +19,7 @@ SOURCES OF TRUTH AND INTEGRATION LABELS:
 - SharePoint lists are read-only inside Vibe. Site input must NOT pretend to Patch SharePoint. Each write form has a primary button "Open in SharePoint" that launches the matching list NewForm on /sites/GSQExecutivePlatform, plus a read-only gallery of staged/open writes. Never write Jira dates/status or SPOT money from this app.
 - EDB / Capability Tracker live pull: "Integration needed".
 
-VISUAL TOKENS (exact): Takeda red #E1242A, maroon #891515, navy #102033, dark #34373F, steel #A1B1C3, gray #D1D8E0, mist #EDF2F3, page #F4F6F8, green #2E8B57, amber #C98900, blue #2B5A8A, white #FFFFFF. Segoe UI / Aptos. Wordmark: "DD&T" navy + "Executive Platform" red. No extra gradients.
+VISUAL TOKENS (exact): Claude reds (not flat Takeda #E1242A): gradient #501311 → #6E1C18 → #89211B → #A3251B → #C4332F on banners, table headers, and primary pills; solid #A3251B on donut main slice / ranking / FY26. Matching Claude navy-blue (same 5-stop depth, not candy #2B5A8A): gradient #0D1A28 → #152A40 → #1B3A55 → #244A6E → #2B5A8A on Gantt navy rails; solid #1B3A55 on donut second slice / FY27 / other navy chart fills. Type navy stays #102033. Dark #34373F, steel #A1B1C3, gray #D1D8E0, mist #EDF2F3, page #F4F6F8, green #2E8B57, amber #C98900, white #FFFFFF. Segoe UI / Aptos. Identity banner stays the red gradient with white text. Tab row stays light.
 
 STATUS GLYPHS: on_track filled green circle; monitor amber triangle; leadership red diamond; blocked filled red circle; planning hollow steel circle; complete blue check; cancelled steel X. Initiative RAG = worst open child (leadership > blocked > monitor > on_track). Complete/cancelled excluded from Active and At risk.
 

@@ -1,0 +1,5 @@
+Implement now. Visual chrome only. English only. Do not add connectors.
+
+Change the banner title from "GSQ DD&T Executive Dashboard" / "DD&T Executive Roadmap" to "GSQ DD&T Executive Platform". Keep the site block (SITE / THOUSAND OAKS · THO) and red slash. Do not add a subtitle.
+
+Do not change tabs, Portfolio Health, Roadmap, Global Solutions, status colors, Jira links, or Budget.

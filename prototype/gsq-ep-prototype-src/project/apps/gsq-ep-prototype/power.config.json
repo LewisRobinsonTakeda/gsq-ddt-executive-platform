@@ -1,0 +1,104 @@
+{
+  "appDisplayName": "GSQ EP Prototype",
+  "description": "DD&T Executive Platform single pane of glass for GSQ GML roadmap, delivery, financial oversight, risks, capabilities, and site input.",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "logoPath": "Default",
+  "localAppUrl": "http://localhost:5173/",
+  "appId": "6578df9f-308b-466e-ac80-3f99f06830c8",
+  "tags": {
+    "planId": "",
+    "projectId": "3e0db99d-4425-49eb-af2d-13a44c6b63bb"
+  },
+  "connectionReferences": {
+    "bd77bf70-d85a-4c20-920d-5ac36eac8d6e": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_a365mcpservers",
+      "displayName": "Microsoft MCP Servers",
+      "dataSets": {},
+      "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1826/1.0.1826.4868/a365mcpservers/icon.png",
+      "dataSources": [
+        "a365mcpservers"
+      ],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Premium",
+      "isCustomApiConnection": false
+    },
+    "1c5f2396-6f9c-43e5-bc7e-e35e589a5aa2": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_microsoftcopilotstudio",
+      "displayName": "Microsoft Copilot Studio",
+      "dataSets": {},
+      "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1830/1.0.1830.5051/microsoftcopilotstudio/icon.png",
+      "dataSources": [
+        "microsoftcopilotstudio"
+      ],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Standard",
+      "isCustomApiConnection": false,
+      "authenticationType": "oauthDefault"
+    },
+    "2c9aa941-cc9d-46fd-848a-8803f993947b": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+      "displayName": "SharePoint",
+      "dataSets": {
+        "https%253A%252F%252Fmytakeda.sharepoint.com%252Fsites%252FGSQExecutivePlatform": {
+          "dataSources": {
+            "risks": {
+              "tableName": "e72dae58-447d-4931-ab67-ef9d80d81ae1"
+            },
+            "projects": {
+              "tableName": "7249b554-f7e3-4a98-80b8-2bedde558f9d"
+            },
+            "commentary": {
+              "tableName": "2cdc3e1a-a4f0-4c07-a7c4-ff28735fcee0"
+            },
+            "financials": {
+              "tableName": "14251f9a-5bee-414a-9207-0d235543c123"
+            },
+            "projectmap": {
+              "tableName": "3c4432ff-99a2-4ba8-aabb-f00b920da3df"
+            },
+            "integrationstracker": {
+              "tableName": "77be8fc3-72c7-4ff1-b6f6-09f8a587bd3f"
+            },
+            "audit": {
+              "tableName": "70e84578-f2e8-466c-8bd3-c72cadbc8d5a"
+            },
+            "onepager": {
+              "tableName": "bacc0221-bb6b-483e-a1b7-34c67d0cab4e"
+            },
+            "capabilitytracker": {
+              "tableName": "a46c5e09-9c6d-4354-83dc-3029c32cf50d"
+            },
+            "budgettracker": {
+              "tableName": "eb468a6f-464f-4b27-a14f-5e7e5099ffda"
+            },
+            "leadershipasks": {
+              "tableName": "8142a105-8ec7-4324-bf48-5d5979216ce8"
+            }
+          }
+        }
+      },
+      "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1827/1.0.1827.4913/sharepointonline/icon.png",
+      "dataSources": [
+        "risks",
+        "projects",
+        "commentary",
+        "financials",
+        "projectmap",
+        "integrationstracker",
+        "audit",
+        "onepager",
+        "capabilitytracker",
+        "budgettracker",
+        "leadershipasks"
+      ],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Standard",
+      "isCustomApiConnection": false
+    }
+  },
+  "databaseReferences": {}
+}

@@ -1,0 +1,27 @@
+Implement now. Visual chrome only. Do not add connectors. Do not invent money, Jira keys, SPOT IDs, or dates. Do not Patch. English only. Do not change SharePoint bindings.
+
+1) TAB RENAME
+Rename the tab label "One pager" to "Roadmap" on every screen. Same screen, same Big Rocks grid, same data. Tab order: Roadmap · Status KPIs · Gantt + Budget · Budget · Risks · Capability · Business Review. Site input stays the far-right pill. No Jira tab. No Network tab.
+
+2) BUSINESS REVIEW — six beat cards get slide-2 GRAPHICS (similar, not a copy)
+Keep the existing six boxes and their current titles / narrative:
+1. Portfolio pulse
+2. Delivery health
+3. Financial outlook
+4. Risk decisions
+5. Capability progress
+6. Leadership asks
+Keep the burgundy "Six beats for the next leadership review" strip, Leadership asks list, Freeze pack, and Open in SharePoint. Do NOT replace these cards with the PPT’s ten highlight tiles. Do NOT import Cybersecurity Patching, Project Phoenix, Data Quality Review, Workforce Automation, Digital Fluency, Paperless, BIO3, Takami, MES, or LIMS artwork or stats from the deck.
+
+Match the GRAPHIC SYSTEM of the Aug 2026 TO deck slide 2 “Digital Journey - Top 10 Highlights”:
+- Each beat is a rounded tile split TOP HEADER / BOTTOM BODY (like those highlight cards).
+- HEADER: white line-icon + white title. Alternate charcoal #34373F and Claude burgundy gradient (#501311 → #6E1C18 → #89211B → #A3251B → #C4332F). White text.
+- BODY: mist #EDF2F3 / white. One graphic that shows what the box means, plus the existing short caption:
+  · Portfolio pulse — dual burgundy/navy DONUTS for on-track vs at-risk (use current KPI counts already in the app; keep the mapping-debt sentence).
+  · Delivery health — completion-style DONUT(s) for on-track % / delayed; keep Elaprase DS / DDTTO-12 / SPOT 1024096 text.
+  · Financial outlook — oversized #A3251B TOTAL OPEX $1,158K (BudgetTracker) plus FY26 $822k / FY27 $336k as paired stats or a two-slice donut. Do not use $1,174,000. Keep Integration needed.
+  · Risk decisions — small donut or count ring for at-risk / leadership items; keep APMS / LPMS sentence.
+  · Capability progress — score/progress RING using current capability % already on the Capability tab (THO ~30% live if that is what the app shows); keep SAIL/FDP/Takami sentence.
+  · Leadership asks — big number of open asks (from the list already on this tab) plus a simple icon; keep the existing ask rows below.
+- Donut fills: #A3251B and #1B3A55, remainder #D1D8E0. No candy #E1242A. No flat #102033 chart fills. Type navy #102033.
+- Keep identity banner the red Claude gradient with white text. Light tab row. Do not add Mid Year Cycle hero. Do not rebuild the Roadmap grid. Do not mix Budget into Roadmap.

@@ -1,0 +1,31 @@
+Implement now on GSQ DD and T Leadership Briefing only. Do not open or edit GSQ EP Prototype. Do not Patch SharePoint. Do not write Jira or SPOT. English only.
+
+EXCEPTION: add exactly one new connector: Microsoft Copilot Studio (shared_microsoftcopilotstudio). Do not add SharePoint, Jira, SPOT, or any other connector. Do not click Change data source except for this Copilot Studio connector.
+
+Keep the existing Microsoft MCP Servers connection as-is.
+
+On the Ask Copilot tab only:
+
+1) Keep these five chips. Chips stay free and still navigate:
+   Walk me into Thousand Oaks
+   What's on fire?
+   What just went live?
+   What's happening with LIMS?
+   What do I need from Elaine?
+
+2) Enable the chat box. Free text is the paid path to the published agent.
+
+3) After the connector generates services, call ExecuteCopilotAsyncV2 only. Do not use ExecuteCopilot or ExecuteCopilotAsync.
+   Agent schema name (exact): cr8d8_gsqddtexecplatformagent_350mvj
+   notificationUrl: https://notificationurlplaceholder
+   Prefix every message with: Site={current site} Scope={current scope} Audience={current audience}
+   Then the user text.
+   On first send, omit the conversation header.
+   After a reply, persist conversationId (also check ConversationId and conversationID).
+   On later turns, pass x-ms-conversation-id only when that id exists.
+   Render lastResponse as a 4 to 6 line executive card on Ask Copilot.
+   On error or missing connection, show Integration needed. Do not invent Jira keys, SPOT IDs, dates, or money.
+
+4) If the project can bump @microsoft/power-apps, use 1.1.3 or later.
+
+Do not change Briefing as the default tab. Title stays GSQ DD&T Executive Platform with an ampersand. Do not change the 18-site roster, Jira host onetakeda.atlassian.net, or SharePoint launch URL.

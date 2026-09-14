@@ -1,0 +1,36 @@
+{
+  "appDisplayName": "GSQ DD and T Leadership Briefing",
+  "description": "Desktop executive site and network briefing for GSQ DD and T leadership.",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "logoPath": "Default",
+  "localAppUrl": "http://localhost:5173/",
+  "appId": "69ecf8db-3884-4680-9c3e-62f73d9d273c",
+  "environmentId": "0f7bbacc-ed0b-efbc-9497-b5b75c96f91e",
+  "region": "prod",
+  "tags": {
+    "planId": "",
+    "projectId": "d7c5eb38-e1ac-4dad-b679-231853a8793c"
+  },
+  "connectionReferences": {
+    "f6bff8fd-82fc-45f6-a694-0e351e2357d5": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_a365mcpservers",
+      "displayName": "Microsoft MCP Servers",
+      "dataSources": [
+        "a365mcpservers"
+      ],
+      "dataSets": {}
+    },
+    "1c5f2396-6f9c-43e5-bc7e-e35e589a5aa2": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_microsoftcopilotstudio",
+      "displayName": "Microsoft Copilot Studio",
+      "dataSources": [
+        "microsoftcopilotstudio"
+      ],
+      "authenticationType": "oauthDefault",
+      "dataSets": {}
+    }
+  },
+  "databaseReferences": {},
+  "version": "1.0"
+}

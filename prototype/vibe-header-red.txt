@@ -1,0 +1,18 @@
+Implement now. Visual chrome only. Do not add connectors. Do not invent money. Do not Patch.
+
+The Claude red is a LEFT-TO-RIGHT multi-stop gradient. There is a matching BLUE/NAVY version in the same style (dark left → brighter steel-blue right). Do not change the identity banner — it stays the red gradient.
+
+RED (already on banner / table header / Site input / Open in SharePoint / ranking / FY26):
+background: linear-gradient(90deg, #501311 0%, #6E1C18 25%, #89211B 45%, #A3251B 70%, #C4332F 100%);
+solid chart red: #A3251B
+
+BLUE counterpart (same 5-stop structure):
+background: linear-gradient(90deg, #0D1A28 0%, #152A40 25%, #1B3A55 45%, #244A6E 70%, #2B5A8A 100%);
+solid chart blue: #1B3A55
+
+Apply the BLUE palette only to navy chart fills that are currently flat #102033:
+- OPEX by Value Stream donut: small/second slice #1B3A55 (or the blue gradient). Main slice stays #A3251B
+- Fiscal Year Distribution: FY27 series #1B3A55 or the blue 90deg gradient. FY26 stays Claude red #A3251B
+- Any other navy chart bars (Gantt + Budget rail, etc.)
+
+Do not recolor body text, titles, or the page. Keep #102033 for navy type. Keep greens/ambers. Keep light tab row. White banner text. No Jira tab. No Network tab.

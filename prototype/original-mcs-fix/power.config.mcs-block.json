@@ -1,0 +1,9 @@
+{
+  "1c5f2396-6f9c-43e5-bc7e-e35e589a5aa2": {
+    "id": "/providers/Microsoft.PowerApps/apis/shared_microsoftcopilotstudio",
+    "displayName": "Microsoft Copilot Studio",
+    "dataSources": ["microsoftcopilotstudio"],
+    "authenticationType": "oauthDefault",
+    "dataSets": {}
+  }
+}
