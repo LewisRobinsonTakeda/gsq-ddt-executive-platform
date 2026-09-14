@@ -1,0 +1,1070 @@
+{
+  "name": "shared_a365mcpservers",
+  "id": "/providers/Microsoft.PowerApps/apis/shared_a365mcpservers",
+  "type": "Microsoft.PowerApps/apis",
+  "properties": {
+    "displayName": "Microsoft MCP Servers",
+    "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1826/1.0.1826.4868/a365mcpservers/icon.png",
+    "iconBrandColor": "#e22228",
+    "apiEnvironment": "Shared",
+    "isCustomApi": false,
+    "blobUrisAreProxied": false,
+    "connectionParameterSets": {
+      "uiDefinition": {
+        "displayName": "Authentication type",
+        "description": "Type of authentication to be used"
+      },
+      "values": [
+        {
+          "name": "certOauth",
+          "uiDefinition": {
+            "displayName": "Login with Microsoft Entra ID",
+            "description": "Provide Microsoft Entra ID credentials using PFX certificate and password"
+          },
+          "parameters": {
+            "Token": {
+              "type": "oauthSetting",
+              "oAuthSettings": {
+                "identityProvider": "aadcertificate",
+                "clientId": "20fda2f0-188f-42ef-aab6-2baf3d39c0d0",
+                "scopes": [],
+                "redirectMode": "GlobalPerConnector",
+                "redirectUrl": "https://global.consent.azure-apim.net/redirect/a365mcpservers",
+                "properties": {
+                  "IsFirstParty": "True",
+                  "AzureActiveDirectoryResourceId": "ea9ffc3e-8a23-4a7d-836d-234d7c7565c1",
+                  "IsOnbehalfofLoginSupported": true
+                },
+                "customParameters": {
+                  "LoginUri": {
+                    "value": "https://login.windows.net"
+                  },
+                  "LoginUriAAD": {
+                    "value": "https://login.windows.net"
+                  },
+                  "ResourceUri": {
+                    "value": "ea9ffc3e-8a23-4a7d-836d-234d7c7565c1"
+                  },
+                  "enableOnbehalfOfLogin": {
+                    "value": "true"
+                  }
+                }
+              },
+              "uiDefinition": {
+                "displayName": "Login with your Microsoft Entra ID Credentials",
+                "description": "Login with your Microsoft Entra ID Credentials",
+                "tooltip": "Provide  Microsoft Entra ID credentials",
+                "constraints": {
+                  "required": "true"
+                }
+              }
+            }
+          },
+          "metadata": {
+            "allowSharing": false
+          }
+        }
+      ]
+    },
+    "connectionParameters": {
+      "Token": {
+        "type": "oauthSetting",
+        "oAuthSettings": {
+          "identityProvider": "aadcertificate",
+          "clientId": "20fda2f0-188f-42ef-aab6-2baf3d39c0d0",
+          "scopes": [],
+          "redirectMode": "GlobalPerConnector",
+          "redirectUrl": "https://global.consent.azure-apim.net/redirect/a365mcpservers",
+          "properties": {
+            "IsFirstParty": "True",
+            "AzureActiveDirectoryResourceId": "ea9ffc3e-8a23-4a7d-836d-234d7c7565c1",
+            "IsOnbehalfofLoginSupported": true
+          },
+          "customParameters": {
+            "LoginUri": {
+              "value": "https://login.windows.net"
+            },
+            "LoginUriAAD": {
+              "value": "https://login.windows.net"
+            },
+            "ResourceUri": {
+              "value": "ea9ffc3e-8a23-4a7d-836d-234d7c7565c1"
+            },
+            "enableOnbehalfOfLogin": {
+              "value": "true"
+            }
+          }
+        },
+        "uiDefinition": {
+          "displayName": "Login with your Microsoft Entra ID Credentials",
+          "description": "Login with your Microsoft Entra ID Credentials",
+          "tooltip": "Provide  Microsoft Entra ID credentials",
+          "constraints": {
+            "required": "true"
+          }
+        }
+      }
+    },
+    "swagger": {
+      "swagger": "2.0",
+      "info": {
+        "title": "Microsoft MCP Servers",
+        "description": "Microsoft MCP Servers, allowing users to interact with Microsoft first party MCP Servers. This feature is part of Microsoft’s Frontier program and is in an early, experimental state. Availability and capabilities may change at any time. Learn more: https://aka.ms/AboutAgent365",
+        "version": "1.0",
+        "contact": {
+          "name": "Microsoft",
+          "url": "https://support.microsoft.com"
+        },
+        "x-ms-api-annotation": {
+          "status": "Preview"
+        }
+      },
+      "host": "0f7bbacc-ed0b-efbc-9497-b5b75c96f91e.13.common.usa002.azure-apihub.net",
+      "basePath": "/apim/a365mcpservers",
+      "schemes": [
+        "https"
+      ],
+      "consumes": [],
+      "produces": [],
+      "paths": {
+        "/{connectionId}/servers/mcp_MailTools": {
+          "post": {
+            "summary": "Microsoft Outlook Mail MCP",
+            "description": "MCP server for Microsoft Outlook Mail operations. This feature is part of Microsoft’s Frontier program and is in an early, experimental state. Availability and capabilities may change at any time. Learn more: https://aka.ms/AboutAgent365",
+            "operationId": "mcp_MailTools",
+            "x-ms-name-for-model": "OutlookMailMCP",
+            "x-ms-description-for-model": "Use this MCP server to for Microsoft Outlook Mail operations.",
+            "x-ms-agentic-protocol": "mcp-streamable-1.0",
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "default": {
+                "description": "default",
+                "schema": {}
+              }
+            },
+            "externalDocs": {
+              "url": "https://docs.microsoft.com/connectors/a365mcpservers/#microsoft-outlook-mail-mcp"
+            },
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              },
+              {
+                "in": "body",
+                "name": "queryRequest",
+                "required": false,
+                "schema": {
+                  "$ref": "#/definitions/QueryRequest"
+                }
+              }
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ]
+          },
+          "get": {
+            "summary": "GET - Microsoft Outlook Mail MCP",
+            "operationId": "Getmcp_MailTools",
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "201": {
+                "description": "Created",
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "x-ms-agentic-origin-operation": "mcp_MailTools",
+            "x-ms-visibility": "internal"
+          }
+        },
+        "/{connectionId}/servers/mcp_MeServer": {
+          "post": {
+            "summary": "Microsoft 365 User Profile MCP",
+            "description": "MCP server for User Profile operations. This feature is part of Microsoft’s Frontier program and is in an early, experimental state. Availability and capabilities may change at any time. Learn more: https://aka.ms/AboutAgent365",
+            "operationId": "mcp_MeServer",
+            "x-ms-name-for-model": "UserProfileMCP",
+            "x-ms-description-for-model": "Use this MCP server to for Microsoft 365 User Profile operations.",
+            "x-ms-agentic-protocol": "mcp-streamable-1.0",
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "default": {
+                "description": "default",
+                "schema": {}
+              }
+            },
+            "externalDocs": {
+              "url": "https://docs.microsoft.com/connectors/a365mcpservers/#microsoft-365-user-profile-mcp"
+            },
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              },
+              {
+                "in": "body",
+                "name": "queryRequest",
+                "required": false,
+                "schema": {
+                  "$ref": "#/definitions/QueryRequest"
+                }
+              }
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ]
+          },
+          "get": {
+            "summary": "GET - Microsoft 365 User Profile MCP",
+            "operationId": "Getmcp_MeServer",
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "201": {
+                "description": "Created",
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "x-ms-agentic-origin-operation": "mcp_MeServer",
+            "x-ms-visibility": "internal"
+          }
+        },
+        "/{connectionId}/servers/mcp_CalendarTools": {
+          "post": {
+            "summary": "Microsoft Outlook Calendar MCP",
+            "description": "MCP server for Microsoft Outlook Calendar operations. This feature is part of Microsoft’s Frontier program and is in an early, experimental state. Availability and capabilities may change at any time. Learn more: https://aka.ms/AboutAgent365",
+            "operationId": "mcp_CalendarTools",
+            "x-ms-description-for-model": "Use this MCP server to for Microsoft Outlook Calendar operations.",
+            "x-ms-name-for-model": "OutlookCalendarMCP",
+            "x-ms-agentic-protocol": "mcp-streamable-1.0",
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "default": {
+                "description": "default",
+                "schema": {}
+              }
+            },
+            "externalDocs": {
+              "url": "https://docs.microsoft.com/connectors/a365mcpservers/#microsoft-outlook-calendar-mcp"
+            },
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              },
+              {
+                "in": "body",
+                "name": "queryRequest",
+                "required": false,
+                "schema": {
+                  "$ref": "#/definitions/QueryRequest"
+                }
+              }
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ]
+          },
+          "get": {
+            "summary": "GET - Microsoft Outlook Calendar MCP",
+            "operationId": "Getmcp_CalendarTools",
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "201": {
+                "description": "Created",
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "x-ms-agentic-origin-operation": "mcp_CalendarTools",
+            "x-ms-visibility": "internal"
+          }
+        },
+        "/{connectionId}/servers/mcp_TeamsServer": {
+          "post": {
+            "summary": "Microsoft Teams MCP",
+            "description": "MCP server for Microsoft Teams operations. This feature is part of Microsoft’s Frontier program and is in an early, experimental state. Availability and capabilities may change at any time. Learn more: https://aka.ms/AboutAgent365",
+            "operationId": "mcp_TeamsServer",
+            "x-ms-name-for-model": "TeamsMCP",
+            "x-ms-description-for-model": "Use this MCP server to for Microsoft Teams operations.",
+            "x-ms-agentic-protocol": "mcp-streamable-1.0",
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "default": {
+                "description": "default",
+                "schema": {}
+              }
+            },
+            "externalDocs": {
+              "url": "https://docs.microsoft.com/connectors/a365mcpservers/#microsoft-teams-mcp"
+            },
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              },
+              {
+                "in": "body",
+                "name": "queryRequest",
+                "required": false,
+                "schema": {
+                  "$ref": "#/definitions/QueryRequest"
+                }
+              }
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ]
+          },
+          "get": {
+            "summary": "GET - Microsoft Teams MCP",
+            "operationId": "Getmcp_TeamsServer",
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "201": {
+                "description": "Created",
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "x-ms-agentic-origin-operation": "mcp_TeamsServer",
+            "x-ms-visibility": "internal"
+          }
+        },
+        "/{connectionId}/servers/mcp_ODSPRemoteServer": {
+          "post": {
+            "summary": "Microsoft SharePoint and OneDrive MCP",
+            "description": "MCP server for Microsoft SharePoint and OneDrive remote file operations. This feature is part of Microsoft’s Frontier program and is in an early, experimental state. Availability and capabilities may change at any time. Learn more: https://aka.ms/AboutAgent365",
+            "operationId": "mcp_ODSPRemoteServer",
+            "x-ms-description-for-model": "Use this MCP server to for Microsoft SharePoint and OneDrive file operations.",
+            "x-ms-name-for-model": "SharepointAndOneDriveMCP",
+            "x-ms-agentic-protocol": "mcp-streamable-1.0",
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "default": {
+                "description": "default",
+                "schema": {}
+              }
+            },
+            "externalDocs": {
+              "url": "https://docs.microsoft.com/connectors/a365mcpservers/#microsoft-sharepoint-and-onedrive-mcp"
+            },
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              },
+              {
+                "in": "body",
+                "name": "queryRequest",
+                "required": false,
+                "schema": {
+                  "$ref": "#/definitions/QueryRequest"
+                }
+              }
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ]
+          },
+          "get": {
+            "summary": "GET - Microsoft SharePoint and OneDrive MCP",
+            "operationId": "Getmcp_ODSPRemoteServer",
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "201": {
+                "description": "Created",
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "x-ms-agentic-origin-operation": "mcp_ODSPRemoteServer",
+            "x-ms-visibility": "internal"
+          }
+        },
+        "/{connectionId}/servers/mcp_SharepointListsTools": {
+          "post": {
+            "summary": "Microsoft SharePoint Lists MCP",
+            "description": "MCP server for Microsoft SharePoint Lists operations. This feature is part of Microsoft’s Frontier program and is in an early, experimental state. Availability and capabilities may change at any time. Learn more: https://aka.ms/AboutAgent365",
+            "operationId": "mcp_SharepointListsTools",
+            "x-ms-description-for-model": "Use this MCP server to for Microsoft SharePoint Lists operations.",
+            "x-ms-name-for-model": "SharepointListsMCP",
+            "x-ms-agentic-protocol": "mcp-streamable-1.0",
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "default": {
+                "description": "default",
+                "schema": {}
+              }
+            },
+            "externalDocs": {
+              "url": "https://docs.microsoft.com/connectors/a365mcpservers/#microsoft-sharepoint-lists-mcp"
+            },
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              },
+              {
+                "in": "body",
+                "name": "queryRequest",
+                "required": false,
+                "schema": {
+                  "$ref": "#/definitions/QueryRequest"
+                }
+              }
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ]
+          },
+          "get": {
+            "summary": "GET - Microsoft SharePoint Lists MCP",
+            "operationId": "Getmcp_SharepointListsTools",
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "201": {
+                "description": "Created",
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "x-ms-agentic-origin-operation": "mcp_SharepointListsTools",
+            "x-ms-visibility": "internal"
+          }
+        },
+        "/{connectionId}/servers/mcp_AdminTools": {
+          "post": {
+            "summary": "Microsoft 365 Admin Center MCP",
+            "description": "MCP server for Microsoft 365 admin operations. This feature is part of Microsoft’s Frontier program and is in an early, experimental state. Availability and capabilities may change at any time. Learn more: https://aka.ms/AboutAgent365",
+            "operationId": "mcp_AdminTools",
+            "x-ms-name-for-model": "Admin365CenterMCP",
+            "x-ms-description-for-model": "Use this MCP server to for Microsoft 365 admin operations.",
+            "x-ms-agentic-protocol": "mcp-streamable-1.0",
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "default": {
+                "description": "default",
+                "schema": {}
+              }
+            },
+            "externalDocs": {
+              "url": "https://docs.microsoft.com/connectors/a365mcpservers/#microsoft-365-admin-center-mcp"
+            },
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              },
+              {
+                "in": "body",
+                "name": "queryRequest",
+                "required": false,
+                "schema": {
+                  "$ref": "#/definitions/QueryRequest"
+                }
+              }
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ]
+          },
+          "get": {
+            "summary": "GET - Microsoft 365 Admin Center MCP",
+            "operationId": "Getmcp_AdminTools",
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "201": {
+                "description": "Created",
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "x-ms-agentic-origin-operation": "mcp_AdminTools",
+            "x-ms-visibility": "internal"
+          }
+        },
+        "/{connectionId}/servers/mcp_WordServer": {
+          "post": {
+            "summary": "Microsoft Word MCP",
+            "description": "MCP server for Microsoft Word operations. This feature is part of Microsoft’s Frontier program and is in an early, experimental state. Availability and capabilities may change at any time. Learn more: https://aka.ms/AboutAgent365",
+            "operationId": "mcp_WordServer",
+            "x-ms-name-for-model": "WordMCP",
+            "x-ms-description-for-model": "Use this MCP server to for Microsoft Word operations.",
+            "x-ms-agentic-protocol": "mcp-streamable-1.0",
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "default": {
+                "description": "default",
+                "schema": {}
+              }
+            },
+            "externalDocs": {
+              "url": "https://docs.microsoft.com/connectors/a365mcpservers/#microsoft-word-mcp"
+            },
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              },
+              {
+                "in": "body",
+                "name": "queryRequest",
+                "required": false,
+                "schema": {
+                  "$ref": "#/definitions/QueryRequest"
+                }
+              }
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ]
+          },
+          "get": {
+            "summary": "GET - Microsoft Word MCP",
+            "operationId": "Getmcp_WordServer",
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "201": {
+                "description": "Created",
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "x-ms-agentic-origin-operation": "mcp_WordServer",
+            "x-ms-visibility": "internal"
+          }
+        },
+        "/{connectionId}/servers/mcp_m365copilot": {
+          "post": {
+            "summary": "Microsoft 365 Copilot (Search) MCP",
+            "description": "MCP server for Copilot search operations. This feature is part of Microsoft’s Frontier program and is in an early, experimental state. Availability and capabilities may change at any time. Learn more: https://aka.ms/AboutAgent365",
+            "operationId": "mcp_m365copilot",
+            "x-ms-name-for-model": "M365CopilotMCP",
+            "x-ms-description-for-model": "Use this MCP server to for Microsoft 365 Copilot and search operations.",
+            "x-ms-agentic-protocol": "mcp-streamable-1.0",
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "default": {
+                "description": "default",
+                "schema": {}
+              }
+            },
+            "externalDocs": {
+              "url": "https://docs.microsoft.com/connectors/a365mcpservers/#microsoft-365-copilot-(search)-mcp"
+            },
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              },
+              {
+                "in": "body",
+                "name": "queryRequest",
+                "required": false,
+                "schema": {
+                  "$ref": "#/definitions/QueryRequest"
+                }
+              }
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ]
+          },
+          "get": {
+            "summary": "GET - Microsoft 365 Copilot (Search) MCP",
+            "operationId": "Getmcp_m365copilot",
+            "parameters": [
+              {
+                "name": "connectionId",
+                "in": "path",
+                "required": true,
+                "x-ms-visibility": "internal",
+                "type": "string"
+              },
+              {
+                "in": "header",
+                "name": "Mcp-Session-Id",
+                "required": false,
+                "type": "string",
+                "description": "This is the session Id",
+                "x-ms-summary": "Session Id"
+              }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "tags": [
+              "Agentic",
+              "McpStreamable"
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "201": {
+                "description": "Created",
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "x-ms-agentic-origin-operation": "mcp_m365copilot",
+            "x-ms-visibility": "internal"
+          }
+        }
+      },
+      "x-ms-connector-metadata": [
+        {
+          "propertyName": "Website",
+          "propertyValue": "https://www.microsoft.com/en-us/microsoft-365/copilot"
+        },
+        {
+          "propertyName": "Privacy policy",
+          "propertyValue": "https://privacy.microsoft.com/"
+        },
+        {
+          "propertyName": "Categories",
+          "propertyValue": "Productivity"
+        }
+      ],
+      "externalDocs": {
+        "url": "https://docs.microsoft.com/connectors/a365mcpservers"
+      },
+      "definitions": {
+        "QueryRequest": {
+          "type": "object",
+          "properties": {
+            "jsonrpc": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "params": {
+              "type": "object"
+            },
+            "result": {
+              "type": "object"
+            },
+            "error": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "runtimeUrls": [
+      "https://0f7bbacc-ed0b-efbc-9497-b5b75c96f91e.13.common.usa002.azure-apihub.net/apim/a365mcpservers"
+    ],
+    "primaryRuntimeUrl": "https://0f7bbacc-ed0b-efbc-9497-b5b75c96f91e.13.common.usa002.azure-apihub.net/apim/a365mcpservers",
+    "doNotUseApiHubNetRuntimeUrl": "https://0f7bbacc-ed0b-efbc-9497-b5b75c96f91e.13.common.usa002.azure-apihub.net/apim/a365mcpservers",
+    "metadata": {
+      "source": "marketplace",
+      "brandColor": "#e22228",
+      "hideKey": "ATGMCPServers",
+      "useNewApimVersion": "true",
+      "version": {
+        "previous": "releases/v1.0.1819\\1.0.1819.4798",
+        "current": "releases/v1.0.1826\\1.0.1826.4868"
+      },
+      "OperationIcons": {
+        "mcp_AdminTools": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1826/1.0.1826.4868/a365mcpservers/icon_mcp_AdminTools.png",
+        "mcp_CalendarTools": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1826/1.0.1826.4868/a365mcpservers/icon_mcp_CalendarTools.png",
+        "mcp_MailTools": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1826/1.0.1826.4868/a365mcpservers/icon_mcp_MailTools.png",
+        "mcp_ODSPRemoteServer": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1826/1.0.1826.4868/a365mcpservers/icon_mcp_ODSPRemoteServer.png",
+        "mcp_SharepointListsTools": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1826/1.0.1826.4868/a365mcpservers/icon_mcp_SharepointListsTools.png",
+        "mcp_TeamsServer": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1826/1.0.1826.4868/a365mcpservers/icon_mcp_TeamsServer.png",
+        "mcp_WordServer": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1826/1.0.1826.4868/a365mcpservers/icon_mcp_WordServer.png"
+      }
+    },
+    "capabilities": [
+      "actions"
+    ],
+    "interfaces": {},
+    "description": "Microsoft MCP Servers, allowing users to interact with Microsoft first party MCP Servers. This feature is part of Microsoft’s Frontier program and is in an early, experimental state. Availability and capabilities may change at any time. Learn more: https://aka.ms/AboutAgent365",
+    "createdTime": "2025-11-11T17:51:22.225119Z",
+    "changedTime": "2026-08-31T17:15:29.007995Z",
+    "releaseTag": "Preview",
+    "tier": "Premium",
+    "publisher": "Microsoft",
+    "scopes": {
+      "will": [],
+      "wont": []
+    },
+    "rateLimit": 0,
+    "apiVersion": "None"
+  }
+}

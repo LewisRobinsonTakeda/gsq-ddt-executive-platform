@@ -3,6 +3,25 @@
 All notable versions of the GSQ DD&T Executive Platform live here.
 Version source of truth: `VERSION`. Git tags match `vMAJOR.MINOR.PATCH`.
 
+## [0.3.0] — 2026-09-14
+
+### Added
+- Harvested live **GSQ EP Prototype** source into `prototype/gsq-ep-prototype-src/` (Vibe remains source of record).
+- Portfolio Health world map with `%` pin placement, Site Fact plant photos (BUE uses the map pin — no Site Fact PDF), and Org Explorer site-head strip with circular photos.
+- Ask Copilot on the live workbench via `ExecuteCopilotAsyncV2` / schema `new_gsqDdtExecPlatformStd`.
+- Aimee Rarugal as Power Apps **CanEdit** on app `6578df9f-308b-466e-ac80-3f99f06830c8`.
+
+### Changed
+- GSQ EP Prototype is the **live** workbench again. Leadership Briefing stays the working copy — do not mix.
+- Removed the Briefing tab from the Prototype (tabs: Portfolio Health, Roadmap, Status KPIs, Gantt + Budget, Budget, Risks, Capability, Ask Copilot).
+- Dropped local Playwright CLI logs from the tree (do not commit `.playwright-cli/`).
+
+### Notes
+- Do not Patch SharePoint. Do not write Jira or SPOT. Title stays **GSQ DD&T Executive Platform**.
+- Vashi reports to Europe in `siteOptions`; map-only VAS geography stays APAC.
+- Org Explorer is source of record for site heads. BUE and YAR stay not listed.
+- GitHub Settings collaborators were not changed (write access from this identity cannot invite). Power App CanEdit for Aimee is already live.
+
 ## [0.2.0] — 2026-09-12
 
 ### Added
