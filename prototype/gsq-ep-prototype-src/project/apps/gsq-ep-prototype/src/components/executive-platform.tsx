@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import { Bar, BarChart, CartesianGrid, Cell, Pie, PieChart, XAxis, YAxis } from 'recharts';
 import { AlertTriangle, CheckCircle2, ChevronDown, CircleDashed, CircleDollarSign, ClipboardCheck, Download, Gauge, GripVertical, HandCoins, Search, ShieldAlert, TrendingUp, Workflow, X } from 'lucide-react';
@@ -473,6 +473,7 @@ function Gantt({ site, showBudget = true }: { site: SiteOption; showBudget?: boo
   const [ownership, setOwnership] = useState<'both' | GanttOwnership>('both');
   const [initiativeFilter, setInitiativeFilter] = useState('All initiatives');
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
+  const initialCollapseSite = useRef<string | null>(null);
   const listOptions = useMemo(() => ({ orderBy: ['sequence asc'] }), []);
   const { data: rows = [], isLoading, isError } = useOnePagerList(listOptions);
   const projects = useMemo(() => {
@@ -577,6 +578,11 @@ function Gantt({ site, showBudget = true }: { site: SiteOption; showBudget?: boo
       return left.localeCompare(right);
     });
   }, [visible]);
+  useEffect(() => {
+    if (grouped.length === 0 || initialCollapseSite.current === site.code) return;
+    setCollapsed(Object.fromEntries(grouped.map(([name]: [string, GanttProject[]]) => [name, true])));
+    initialCollapseSite.current = site.code;
+  }, [grouped, site.code]);
   const filtersOn = health !== 'All' || atRiskOnly || highValueOnly || ownership !== 'both' || initiativeFilter !== 'All initiatives';
   const allCollapsed = grouped.length > 0 && grouped.every(([name]: [string, GanttProject[]]) => collapsed[name]);
   const downloadCsv = () => {
@@ -656,16 +662,36 @@ function Gantt({ site, showBudget = true }: { site: SiteOption; showBudget?: boo
           const groupUsd = groupProjects.reduce((sum: number, project: GanttProject) => sum + (project.usd ?? 0), 0);
           const highValueCount = groupProjects.filter((project: GanttProject) => project.usd != null && project.usd >= ganttHighValueUsd && (project.health === 'Amber' || project.health === 'Red')).length;
           const isClosed = Boolean(collapsed[initiative]);
+          const datedProjects = groupProjects.filter((project: GanttProject) => project.dated);
+          const rollupStarts = datedProjects.map((project: GanttProject) => ganttPct(project.start)).filter((value: number | null): value is number => value !== null);
+          const rollupFinishes = datedProjects.map((project: GanttProject) => ganttPct(project.finish)).filter((value: number | null): value is number => value !== null);
+          const rollupLeft = rollupStarts.length > 0 ? Math.min(...rollupStarts) : 2;
+          const rollupRight = rollupFinishes.length > 0 ? Math.max(...rollupFinishes) : 12;
+          const rollupWidth = Math.max(1.2, rollupRight - rollupLeft);
           return <section key={initiative}>
-            <button type="button" className="grid w-full grid-cols-[280px_1fr] bg-[#fde8ea] text-left" onClick={() => setCollapsed((current: Record<string, boolean>) => ({ ...current, [initiative]: !current[initiative] }))}>
+            <button type="button" className="grid w-full grid-cols-[280px_1fr] bg-[#fde8ea] text-left transition-colors hover:bg-[#fbdde1]" onClick={() => setCollapsed((current: Record<string, boolean>) => ({ ...current, [initiative]: !current[initiative] }))}>
               <div className="flex items-center gap-2 px-3 py-2 text-sm font-black"><ChevronDown className={`size-4 transition ${isClosed ? '-rotate-90' : ''}`} />{initiative}</div>
-              <div className="flex items-center justify-end gap-2 px-3 py-2">
-                {highValueCount > 0 && <span className="rounded-full bg-[#e11d48] px-2 py-0.5 text-[10px] font-bold text-white">{highValueCount} high value at risk</span>}
-                <span className="rounded-full border bg-white px-2 py-0.5 text-[10px] font-bold">{moneyCompact(groupUsd)}</span>
-                {counts.Red > 0 && <span className="rounded-full bg-white px-1.5 py-0.5 text-[10px] font-bold text-[#e11d48]">R{counts.Red}</span>}
-                {counts.Amber > 0 && <span className="rounded-full bg-white px-1.5 py-0.5 text-[10px] font-bold text-[#b45309]">A{counts.Amber}</span>}
-                {counts.Green > 0 && <span className="rounded-full bg-white px-1.5 py-0.5 text-[10px] font-bold text-[#15803d]">G{counts.Green}</span>}
-                {counts.Unassigned > 0 && <span className="rounded-full bg-white px-1.5 py-0.5 text-[10px] font-bold text-[#6b7280]">U{counts.Unassigned}</span>}
+              <div className="relative min-h-12 border-l px-3 py-2">
+                {isClosed && <>
+                  <div className="pointer-events-none absolute inset-0 grid" style={{ gridTemplateColumns: `repeat(${ganttQuarterCount}, minmax(0, 1fr))` }}>{Array.from({ length: ganttQuarterCount }).map((_: unknown, index: number) => <div key={index} className="border-l border-[#f5cbd0]" />)}</div>
+                  <div className="pointer-events-none absolute bottom-0 top-0 z-10 w-px bg-[#e11d48]" style={{ left: `${ganttTodayPct}%` }} />
+                  {datedProjects.length > 0 ? <div
+                    className="absolute top-3 z-20 flex h-6 items-center overflow-hidden rounded-full bg-[#8b929c] px-2 text-[10px] font-bold text-white shadow-sm"
+                    style={{ left: `${rollupLeft}%`, width: `${rollupWidth}%` }}
+                    title={`${initiative}: ${groupProjects.length} projects · ${moneyCompact(groupUsd)}`}
+                  >
+                    {highValueCount > 0 && <span className="mr-1 inline-flex size-4 items-center justify-center rounded-sm bg-white text-[10px] font-black text-[#e11d48]">$</span>}
+                    <span className="truncate">{groupProjects.length} projects · {moneyCompact(groupUsd)}</span>
+                  </div> : <div className="absolute left-[2%] top-3 z-20 flex h-6 w-[10%] items-center rounded-full bg-[#8b929c] px-2 text-[10px] font-bold text-white">No dates</div>}
+                </>}
+                {!isClosed && <div className="flex h-full items-center justify-end gap-2">
+                  {highValueCount > 0 && <span className="rounded-full bg-[#e11d48] px-2 py-0.5 text-[10px] font-bold text-white">{highValueCount} high value at risk</span>}
+                  <span className="rounded-full border bg-white px-2 py-0.5 text-[10px] font-bold">{moneyCompact(groupUsd)}</span>
+                  {counts.Red > 0 && <span className="rounded-full bg-white px-1.5 py-0.5 text-[10px] font-bold text-[#e11d48]">R{counts.Red}</span>}
+                  {counts.Amber > 0 && <span className="rounded-full bg-white px-1.5 py-0.5 text-[10px] font-bold text-[#b45309]">A{counts.Amber}</span>}
+                  {counts.Green > 0 && <span className="rounded-full bg-white px-1.5 py-0.5 text-[10px] font-bold text-[#15803d]">G{counts.Green}</span>}
+                  {counts.Unassigned > 0 && <span className="rounded-full bg-white px-1.5 py-0.5 text-[10px] font-bold text-[#6b7280]">U{counts.Unassigned}</span>}
+                </div>}
               </div>
             </button>
             {!isClosed && groupProjects.map((project: GanttProject) => {
