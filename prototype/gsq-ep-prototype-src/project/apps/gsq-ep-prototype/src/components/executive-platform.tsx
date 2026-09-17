@@ -559,7 +559,6 @@ function Gantt({ site, showBudget = true }: { site: SiteOption; showBudget?: boo
     if (atRiskOnly && project.health !== 'Amber' && project.health !== 'Red') return false;
     const highValue = project.usd != null && project.usd >= ganttHighValueUsd && (project.health === 'Amber' || project.health === 'Red');
     if (highValueOnly && !highValue) return false;
-    if (ownership !== 'both' && project.ownership !== ownership) return false;
     if (initiativeFilter !== 'All initiatives' && project.initiative !== initiativeFilter) return false;
     return true;
   });
@@ -583,7 +582,7 @@ function Gantt({ site, showBudget = true }: { site: SiteOption; showBudget?: boo
     setCollapsed(Object.fromEntries(grouped.map(([name]: [string, GanttProject[]]) => [name, true])));
     initialCollapseSite.current = site.code;
   }, [grouped, site.code]);
-  const filtersOn = health !== 'All' || atRiskOnly || highValueOnly || ownership !== 'both' || initiativeFilter !== 'All initiatives';
+  const filtersOn = health !== 'All' || initiativeFilter !== 'All initiatives';
   const allCollapsed = grouped.length > 0 && grouped.every(([name]: [string, GanttProject[]]) => collapsed[name]);
   const downloadCsv = () => {
     const header = ['Initiative', 'Title', 'Site', 'Health', 'Ownership', 'USD', 'Start', 'Finish', 'SPOT', 'Jira'];
@@ -615,17 +614,7 @@ function Gantt({ site, showBudget = true }: { site: SiteOption; showBudget?: boo
       </div>
     </div>
     <div className="mt-4 flex flex-wrap items-center gap-2 px-5">
-      {(['All', 'Red', 'Amber', 'Green', 'Unassigned'] as const).map((item) => <Button key={item} type="button" size="sm" variant={health === item && !atRiskOnly && !highValueOnly ? 'default' : 'outline'} className="rounded-full" onClick={() => { setHealth(item === 'All' ? 'All' : item); setAtRiskOnly(false); setHighValueOnly(false); }}>{item === 'All' ? 'All health' : <span className="flex items-center gap-1.5"><span className={`size-2.5 rounded-full ${item === 'Unassigned' ? 'border border-[#9ca3af] bg-white' : ganttDotClass(item)}`} />{item}</span>}</Button>)}
-      <Button type="button" size="sm" variant={atRiskOnly ? 'default' : 'outline'} className="rounded-full" onClick={() => { setAtRiskOnly(!atRiskOnly); setHighValueOnly(false); if (!atRiskOnly) setHealth('All'); }}>At risk only</Button>
-      <Button type="button" size="sm" variant={highValueOnly ? 'destructive' : 'outline'} className="rounded-full" onClick={() => { setHighValueOnly(!highValueOnly); setAtRiskOnly(false); if (!highValueOnly) setHealth('All'); }}>$ High value at risk</Button>
-      <Select value={ownership} onValueChange={(value: string) => setOwnership(value as 'both' | GanttOwnership)}>
-        <SelectTrigger className="h-8 w-48 rounded-full"><SelectValue /></SelectTrigger>
-        <SelectContent>
-          <SelectItem value="both">Owned and associated</SelectItem>
-          <SelectItem value="Owned">Owned</SelectItem>
-          <SelectItem value="Associated">Associated</SelectItem>
-        </SelectContent>
-      </Select>
+      {(['All', 'Red', 'Amber', 'Green'] as const).map((item) => <Button key={item} type="button" size="sm" variant={health === item && !atRiskOnly && !highValueOnly ? 'default' : 'outline'} className="rounded-full" onClick={() => { setHealth(item === 'All' ? 'All' : item); setAtRiskOnly(false); setHighValueOnly(false); }}>{item === 'All' ? 'All health' : <span className="flex items-center gap-1.5"><span className={`size-2.5 rounded-full ${ganttDotClass(item)}`} />{item}</span>}</Button>)}
       <Select value={initiativeFilter} onValueChange={setInitiativeFilter}>
         <SelectTrigger className="h-8 w-52 rounded-full"><SelectValue /></SelectTrigger>
         <SelectContent>
@@ -633,7 +622,7 @@ function Gantt({ site, showBudget = true }: { site: SiteOption; showBudget?: boo
           {initiatives.map((name: string) => <SelectItem key={name} value={name}>{name}</SelectItem>)}
         </SelectContent>
       </Select>
-      {filtersOn && <Button type="button" size="sm" variant="ghost" className="text-[#e11d48]" onClick={() => { setHealth('All'); setAtRiskOnly(false); setHighValueOnly(false); setOwnership('both'); setInitiativeFilter('All initiatives'); }}>Clear all filters</Button>}
+      {filtersOn && <Button type="button" size="sm" variant="ghost" className="text-[#e11d48]" onClick={() => { setHealth('All'); setAtRiskOnly(false); setHighValueOnly(false); setInitiativeFilter('All initiatives'); }}>Clear all filters</Button>}
       <span className="ml-auto text-xs text-muted-foreground">{visible.length} of {projects.length} projects · {moneyCompact(budgetInView)} budget in view</span>
     </div>
     {isLoading && <p className="px-5 py-3 text-sm text-muted-foreground">Loading OnePager timelines from SharePoint…</p>}
@@ -681,7 +670,9 @@ function Gantt({ site, showBudget = true }: { site: SiteOption; showBudget?: boo
                     title={`${initiative}: ${groupProjects.length} projects · ${moneyCompact(groupUsd)}`}
                   >
                     {highValueCount > 0 && <span className="mr-1 inline-flex size-4 items-center justify-center rounded-sm bg-white text-[10px] font-black text-[#e11d48]">$</span>}
-                    <span className="truncate">{groupProjects.length} projects · {moneyCompact(groupUsd)}</span>
+                    <span className="truncate">
+  {groupProjects.length} projects
+</span>
                   </div> : <div className="absolute left-[2%] top-3 z-20 flex h-6 w-[10%] items-center rounded-full bg-[#8b929c] px-2 text-[10px] font-bold text-white">No dates</div>}
                 </>}
                 {!isClosed && <div className="flex h-full items-center justify-end gap-2">
@@ -704,18 +695,34 @@ function Gantt({ site, showBudget = true }: { site: SiteOption; showBudget?: boo
                 <div className="flex items-start gap-2 px-3 py-2">
                   <span className={`mt-1 size-2.5 shrink-0 rounded-full ${ganttDotClass(project.health)}`} />
                   <div className="min-w-0">
-                    <p className="truncate text-xs font-bold">{project.title}</p>
-                    <p className="text-[10px] text-muted-foreground">{project.siteName}{project.usd != null ? ` · ${moneyCompact(project.usd)}` : ''} · {project.ownership} · {project.health}</p>
+                    <p
+  className="truncate text-xs font-bold"
+  title={project.title}
+>
+  {project.title}
+</p>
+                    <p className="text-[10px] text-muted-foreground">
+  {project.siteName} · {project.ownership} · {project.health}
+</p>
                     {project.jira && <p className="text-[10px]"><JiraKeyLink jiraKey={project.jira} /></p>}
                   </div>
                 </div>
                 <div className="relative min-h-12 border-l">
                   <div className="pointer-events-none absolute inset-0 grid" style={{ gridTemplateColumns: `repeat(${ganttQuarterCount}, minmax(0, 1fr))` }}>{Array.from({ length: ganttQuarterCount }).map((_: unknown, index: number) => <div key={index} className="border-l border-slate-100" />)}</div>
                   <div className="pointer-events-none absolute bottom-0 top-0 z-10 w-px bg-[#e11d48]" style={{ left: `${ganttTodayPct}%` }} />
-                  {project.dated && <div className={`absolute top-3 z-20 flex h-6 items-center overflow-hidden rounded-full px-2 text-[10px] font-bold ${ganttBarClass(project.health)}`} style={{ left: `${barLeft}%`, width: `${barWidth}%` }}>
-                    {highValue && <span className="mr-1 inline-flex size-4 items-center justify-center rounded-sm bg-white text-[10px] font-black text-[#e11d48]">$</span>}
-                    <span className="truncate">{project.title}</span>
-                  </div>}
+                  {project.dated && (
+  <div
+    className={`absolute top-3 z-20 flex h-6 items-center overflow-hidden rounded-full px-2 text-[10px] font-bold ${ganttBarClass(project.health)}`}
+    style={{ left: `${barLeft}%`, width: `${barWidth}%` }}
+    title={project.title}
+  >
+    {highValue && (
+      <span className="mr-1 inline-flex size-4 items-center justify-center rounded-sm bg-white text-[10px] font-black text-[#e11d48]">
+        $
+      </span>
+    )}
+  </div>
+)}
                   {!project.dated && <div className="absolute top-3 left-[2%] z-20 h-6 w-[10%] rounded-full bg-[#c5c9ce]" />}
                 </div>
               </div>;
@@ -728,8 +735,6 @@ function Gantt({ site, showBudget = true }: { site: SiteOption; showBudget?: boo
       <span className="flex items-center gap-1.5"><span className="size-2.5 rounded-full bg-[#22a45a]" />Green</span>
       <span className="flex items-center gap-1.5"><span className="size-2.5 rounded-full bg-[#f5a623]" />Amber</span>
       <span className="flex items-center gap-1.5"><span className="size-2.5 rounded-full bg-[#e11d48]" />Red</span>
-      <span className="flex items-center gap-1.5"><span className="size-2.5 rounded-full border border-[#9ca3af] bg-white" />Unassigned</span>
-      <span className="flex items-center gap-1.5"><span className="inline-flex size-4 items-center justify-center rounded-sm bg-[#e11d48] text-[10px] font-black text-white">$</span>High value and at risk</span>
     </div>
   </div>;
   if (!showBudget) return ganttBody;
