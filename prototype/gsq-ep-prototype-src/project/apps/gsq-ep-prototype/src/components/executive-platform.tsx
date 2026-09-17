@@ -658,7 +658,7 @@ function Gantt({ site, showBudget = true }: { site: SiteOption; showBudget?: boo
           const rollupRight = rollupFinishes.length > 0 ? Math.max(...rollupFinishes) : 12;
           const rollupWidth = Math.max(1.2, rollupRight - rollupLeft);
           return <section key={initiative}>
-            <button type="button" className="grid w-full grid-cols-[280px_1fr] bg-[#fde8ea] text-left transition-colors hover:bg-[#fbdde1]" onClick={() => setCollapsed((current: Record<string, boolean>) => ({ ...current, [initiative]: !current[initiative] }))}>
+            <button type="button" className="grid w-full grid-cols-[280px_1fr] bg-[#E8F2FD] text-left transition-colors hover:bg-[#DCEAFB]" onClick={() => setCollapsed((current: Record<string, boolean>) => ({ ...current, [initiative]: !current[initiative] }))}>
               <div className="flex items-center gap-2 px-3 py-2 text-sm font-black"><ChevronDown className={`size-4 transition ${isClosed ? '-rotate-90' : ''}`} />{initiative}</div>
               <div className="relative min-h-12 border-l px-3 py-2">
                 {isClosed && <>
@@ -667,11 +667,11 @@ function Gantt({ site, showBudget = true }: { site: SiteOption; showBudget?: boo
                   {datedProjects.length > 0 ? <div
                     className="absolute top-3 z-20 flex h-6 items-center overflow-hidden rounded-full bg-[#8b929c] px-2 text-[10px] font-bold text-white shadow-sm"
                     style={{ left: `${rollupLeft}%`, width: `${rollupWidth}%` }}
-                    title={`${initiative}: ${groupProjects.length} projects · ${moneyCompact(groupUsd)}`}
+                    title={`${initiative}: ${groupProjects.length} ${groupProjects.length === 1 ? 'project' : 'projects'}`}
                   >
                     {highValueCount > 0 && <span className="mr-1 inline-flex size-4 items-center justify-center rounded-sm bg-white text-[10px] font-black text-[#e11d48]">$</span>}
                     <span className="truncate">
-  {groupProjects.length} projects
+  {groupProjects.length} {groupProjects.length === 1 ? 'project' : 'projects'}
 </span>
                   </div> : <div className="absolute left-[2%] top-3 z-20 flex h-6 w-[10%] items-center rounded-full bg-[#8b929c] px-2 text-[10px] font-bold text-white">No dates</div>}
                 </>}
