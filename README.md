@@ -6,7 +6,7 @@ Versioned source for the GSQ GML DD&T single pane of glass — prototype spec, S
 
 | Field | Value |
 | --- | --- |
-| Version | `0.3.0` — see [`VERSION`](VERSION) |
+| Version | `0.3.1` — see [`VERSION`](VERSION) |
 | Investment | SPOT **1063647** (do not create a second SPOT) |
 | SharePoint (data entry) | https://mytakeda.sharepoint.com/sites/GSQExecutivePlatform |
 | Vibe environment | `0f7bbacc-ed0b-efbc-9497-b5b75c96f91e` |
@@ -48,7 +48,8 @@ Power Apps Vibe does not version itself. Live source of record is the Vibe proje
 | `prototype/build_sharepoint_seed.py` | Regenerates the seed workbook |
 | `design-assets/mockups/platform.html` | Frozen workbench visual DNA (1000-foot / Gantt / Review / Site input) |
 | `design-assets/mockups/leadership-briefing.html` | Leadership Briefing copy — Takeda chrome, golden path, Explore, Ask Copilot |
-| `scripts/` | Markdown → Word / walkthrough builders |
+| `design-assets/mockup-pdfs/` | Print mockups: Initiative Roadmap, Business Review, Digital Maturity (view + tab + combined PDFs) |
+| `scripts/` | Markdown → Word / walkthrough builders · `build_mockup_pdfs.py` |
 
 ## Two surfaces (do not mix)
 

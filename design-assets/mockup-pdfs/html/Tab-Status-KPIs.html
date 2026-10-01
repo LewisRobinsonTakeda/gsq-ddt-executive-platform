@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Status KPIs — GSQ DD&T Executive Platform</title>
+<link rel="stylesheet" href="../print.css" />
+</head>
+<body>
+
+<section class="page cover">
+  <div class="kicker">Tab · Initiative Roadmap</div>
+  <h1>Status KPIs tab</h1>
+  <p class="sub">Heat before cards. Counts come from the One pager list for the selected site.</p>
+  <div class="badge-row"><span class="pill hot">Status KPIs</span><span class="pill">Live workbench</span></div>
+  <div class="grid-2">
+    <div class="card"><h3>Purpose</h3><p style='margin-top:6px'>Projects, On Track, Started, At Risk / Delayed, and on-track %. Click a tile to filter Roadmap.</p></div>
+    <div class="card"><h3>Workflow</h3><ol><li>Read the hero sentence.</li><li>Click At Risk / Delayed if attention &gt; 0.</li><li>Confirm coverage % before trusting money on Budget.</li></ol></div>
+  </div>
+  <div class="note">This PDF does not invent initiative counts. Live totals must equal the filtered Roadmap card count.</div>
+  <div class="foot"><span>GSQ DD&amp;T Executive Platform · live workbench mockup · English only · Do not write Jira dates/status or SPOT money from this app</span><span>Status KPIs · 1 / 2</span></div>
+</section>
+
+<section class="page cover" style="background:#fff">
+  <p class="screen-title">Screen mockup · Status KPIs</p>
+  <div class="split">
+    <div class="screen-wrap">
+
+<div class="app">
+  <div class="hdr">
+    <div class="mark">T</div>
+    <div class="site-box"><div class="site-k">SITE</div><div class="site-v">THOUSAND OAKS · THO</div></div>
+    <div class="slash"></div>
+    <h1>GSQ DD&amp;T Executive Platform</h1>
+  </div>
+  <div class="tabs"><div class="tab">Portfolio Health</div><div class="tab">Roadmap</div><div class="tab on">Status KPIs</div><div class="tab">Gantt + Budget</div><div class="tab">Budget</div><div class="tab">Risks</div><div class="tab">Capability</div><div class="tab">Ask Copilot</div><div class="tab sitein">Site input</div></div>
+
+<div style="padding:8px;display:flex;flex-direction:column;gap:7px;flex:1;min-height:0">
+  <div class="kpi-hero">
+    <h2>Where the portfolio stands today</h2>
+    <p class="tiny" style="color:#d1d8e0;margin-top:3px">
+      THOUSAND OAKS counts come from the SharePoint One pager list. Click a tile to filter Roadmap.
+    </p>
+    <div class="kpi-row"><div class="kpi"><b>Live count</b><span>Projects</span></div><div class="kpi"><b>Live count</b><span>On Track</span></div><div class="kpi"><b>Live count</b><span>Started</span></div><div class="kpi"><b>Live count</b><span>At Risk / Delayed</span></div><div class="kpi"><b>Live %</b><span>On-track %</span></div></div>
+  </div>
+  <div class="charts">
+    <div class="chartbox">
+      <h3>Portfolio health mix</h3>
+      <div class="donut-wrap">
+        <div class="donut"></div>
+        <div class="tiny">Donut = On Track · Started · At Risk · Delayed.<br />
+        Centre number = mapped initiatives for the selected site.<br />
+        Totals must equal the filtered Roadmap card count.</div>
+      </div>
+    </div>
+    <div class="chartbox">
+      <h3>Execution by Big Rock</h3>
+      <div class="bars">
+        <div class="barline"><span style="width:140px">One Day Batch Release</span><div class="track"><div class="fill" style="width:70%"></div></div></div>
+        <div class="barline"><span style="width:140px">Lab of the Future</span><div class="track"><div class="fill" style="width:45%"></div></div></div>
+        <div class="barline"><span style="width:140px">Predictive Maintenance</span><div class="track"><div class="fill" style="width:35%"></div></div></div>
+        <div class="barline"><span style="width:140px">Rapid Digital Tech Transfer</span><div class="track"><div class="fill" style="width:55%"></div></div></div>
+        <div class="barline"><span style="width:140px">Inventory Optimization</span><div class="track"><div class="fill" style="width:25%"></div></div></div>
+        <div class="barline"><span style="width:140px">Power of Digital Twins</span><div class="track"><div class="fill" style="width:20%"></div></div></div>
+      </div>
+      <p class="tiny">Bar length is a layout stand-in. Live values are OnePager counts per Big Rock.</p>
+    </div>
+    <div class="chartbox">
+      <h3>Delivery health by fiscal year</h3>
+      <div class="bars" style="margin-top:8px">
+        <div class="barline"><span style="width:52px">FY2026</span><div class="track"><i style="display:block;height:100%;width:38%;background:#22a45a;float:left"></i><i style="display:block;height:100%;width:18%;background:#f5a623;float:left"></i><i style="display:block;height:100%;width:12%;background:#E1242A;float:left"></i></div></div>
+        <div class="barline"><span style="width:52px">FY2027</span><div class="track"><i style="display:block;height:100%;width:28%;background:#22a45a;float:left"></i><i style="display:block;height:100%;width:16%;background:#A1B1C3;float:left"></i><i style="display:block;height:100%;width:10%;background:#f5a623;float:left"></i></div></div>
+        <div class="barline"><span style="width:52px">FY2028</span><div class="track"><i style="display:block;height:100%;width:16%;background:#A1B1C3;float:left"></i></div></div>
+      </div>
+      <p class="tiny" style="margin-top:6px">Stack = On Track · Started · At Risk · Delayed. Lengths are chrome only. Live stacks come from OnePager.</p>
+    </div>
+    <div class="chartbox">
+      <h3>One pager coverage</h3>
+      <p style="margin-top:8px"><b>Jira linkage</b> — share of initiatives with a Jira key (opens onetakeda.atlassian.net).</p>
+      <div class="meter" style="margin:6px 0 10px"><i style="width:62%;background:var(--red)"></i></div>
+      <p><b>SPOT coverage</b> — share of initiatives with a SPOT ID. Gaps are Integration needed.</p>
+      <div class="meter" style="margin-top:6px"><i style="width:48%;background:#2a4158"></i></div>
+      <p class="tiny" style="margin-top:8px">Percent bars above are chrome only. Live % is calculated from the One pager list.</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+    <div class="callouts"><div class="callout"><div class="num">1</div><div><b>Hero tiles</b><span>Five clickable KPIs.</span></div></div><div class="callout"><div class="num">2</div><div><b>Donut</b><span>Portfolio health mix.</span></div></div><div class="callout"><div class="num">3</div><div><b>Big Rocks</b><span>Horizontal counts.</span></div></div><div class="callout"><div class="num">4</div><div><b>Coverage</b><span>Jira linkage and SPOT coverage.</span></div></div></div>
+  </div>
+  <div class="foot"><span>GSQ DD&amp;T Executive Platform · live workbench mockup · English only · Do not write Jira dates/status or SPOT money from this app</span><span>Status KPIs · 2 / 2</span></div>
+</section>
+
+</body>
+</html>

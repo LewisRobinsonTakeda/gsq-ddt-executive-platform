@@ -3,6 +3,12 @@
 All notable versions of the GSQ DD&T Executive Platform live here.
 Version source of truth: `VERSION`. Git tags match `vMAJOR.MINOR.PATCH`.
 
+## [0.3.1] — 2026-10-01
+
+### Added
+- Print mockup kit in `design-assets/mockup-pdfs/`: separate PDFs for the Initiative Roadmap, Business Review, and Digital Maturity views; a PDF for each live tab in those views (Roadmap, Status KPIs, Gantt + Budget, Budget, Portfolio Health, Capability, Risks); and `Combined-GSQ-DDT-Executive-Platform-Views.pdf`. Rebuild with `python3 scripts/build_mockup_pdfs.py`.
+- Screen mockups use live workbench chrome (SITE / GSQ DD&amp;T Executive Platform / current tab row) plus explanations and workflow. Money and keys are the 13 Sep 2026 SPOT harvest only. Initiative counts, capability %, commentary, asks, and risk titles are not invented.
+
 ## [0.3.0] — 2026-09-14
 
 ### Added

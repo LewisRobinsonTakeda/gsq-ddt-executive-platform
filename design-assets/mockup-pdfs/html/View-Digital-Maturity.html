@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Digital Maturity View — GSQ DD&T Executive Platform</title>
+<link rel="stylesheet" href="../print.css" />
+</head>
+<body>
+
+<section class="page cover">
+  <div class="kicker">View · Digital Maturity</div>
+  <h1>Digital Maturity View</h1>
+  <p class="sub">Screen mockups, explanations, and workflow for the Capability tab.</p>
+  <div class="badge-row"><span class="pill hot">Capability</span><span class="pill">IntegrationsTracker</span><span class="pill">CapabilityTracker</span></div>
+  <div class="grid-2">
+    <div class="card"><h3>What this view is</h3><p style="margin-top:6px">The Digital Maturity view is the live <b>Capability</b> tab.
+        It answers whether North Star systems are deployed, adopted, and integrated — the question
+        the Initiative Roadmap Gantt cannot answer.</p>
+        <ul>
+          <li>Lists: IntegrationsTracker and CapabilityTracker</li>
+          <li>Filters: geography, site (bound to header SITE), status</li>
+          <li>Toggle: Actuals (deploy %) vs FY26 Forecast (adopt %)</li>
+          <li>Cards group by domain pair, then integration ID</li>
+        </ul></div>
+    <div class="card"><h3>KPI strip</h3><ul>
+          <li><b>Total</b> — tracker rows for the site</li>
+          <li><b>In Progress</b> — status InProgress</li>
+          <li><b>Not Started</b> — NotStarted or NotPlanned</li>
+          <li><b>% Live</b> — Live, Validated, Adopted, Deployed, or Active</li>
+          <li><b>% Actuals</b> — average deployPct</li>
+        </ul>
+        <p class="tiny" style="margin-top:6px">Live numbers are SharePoint. This PDF does not invent deploy or adopt %.</p></div>
+  </div>
+  <div class="note">Domain sort puts Engineering / Manufacturing first, then Engineering, then other pairs. CapabilityTracker rows attach when reqIntIds contains the integration ID.</div>
+  <div class="foot"><span>GSQ DD&amp;T Executive Platform · live workbench mockup · English only · Do not write Jira dates/status or SPOT money from this app</span><span>Digital Maturity · 1 / 3</span></div>
+</section>
+
+<section class="page cover">
+  <div class="kicker">Workflow</div>
+  <h1>How a digital lead reads maturity</h1>
+  <p class="sub">Use after Roadmap and Gantt, when the question is “is it used?” not “when does it land?”</p>
+  <div class="badge-row"><span class="pill hot">Actuals</span><span class="pill">FY26 Forecast</span></div>
+  <div class="grid-2">
+    <div class="card"><h3>Path</h3><div class="flow"><div class="step"><div class="n">Step 1</div><b>Set SITE</b><p class="tiny">THO, LEX, or BRP for plants that already have tracker history.</p></div><div class="arrow">→</div><div class="step"><div class="n">Step 2</div><b>KPI strip</b><p class="tiny">Read % Live and % Actuals before opening cards.</p></div><div class="arrow">→</div><div class="step"><div class="n">Step 3</div><b>Domain cards</b><p class="tiny">Open Engineering / Manufacturing first (MES pairs).</p></div><div class="arrow">→</div><div class="step"><div class="n">Step 4</div><b>Toggle Forecast</b><p class="tiny">FY26 Forecast switches bars to adopt %.</p></div><div class="arrow">→</div><div class="step"><div class="n">Step 5</div><b>Jump back</b><p class="tiny">A pending pair can be discussed on Roadmap or Risks.</p></div></div></div>
+    <div class="card"><h3>Rules</h3><ul>
+                          <li>Deployed ≠ adopted. Adopted means the usage threshold is met.</li>
+                          <li>Header SITE drives the list filter. The in-tab site control is display-only.</li>
+                          <li>All Sites uses all 18 SiteCodes.</li>
+                          <li>Empty copy: No tracker records match the selected filters.</li>
+                        </ul></div>
+  </div>
+  <div class="note">Acceptance in the design blueprint: THO, LEX, and BRP match the published tracker after the same filters.</div>
+  <div class="foot"><span>GSQ DD&amp;T Executive Platform · live workbench mockup · English only · Do not write Jira dates/status or SPOT money from this app</span><span>Digital Maturity · 2 / 3</span></div>
+</section>
+
+<section class="page cover" style="background:#fff">
+  <p class="screen-title">Tab · Capability · Thousand Oaks</p>
+  <div class="split">
+    <div class="screen-wrap">
+
+<div class="app">
+  <div class="hdr">
+    <div class="mark">T</div>
+    <div class="site-box"><div class="site-k">SITE</div><div class="site-v">THOUSAND OAKS · THO</div></div>
+    <div class="slash"></div>
+    <h1>GSQ DD&amp;T Executive Platform</h1>
+  </div>
+  <div class="tabs"><div class="tab">Portfolio Health</div><div class="tab">Roadmap</div><div class="tab">Status KPIs</div><div class="tab">Gantt + Budget</div><div class="tab">Budget</div><div class="tab">Risks</div><div class="tab on">Capability</div><div class="tab">Ask Copilot</div><div class="tab sitein">Site input</div></div>
+
+<div style="padding:8px;display:flex;flex-direction:column;gap:7px;flex:1;min-height:0">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:8px">
+    <div>
+      <p class="tiny" style="font-weight:800">DIGITAL INTEGRATIONS KPI</p>
+      <h2 style="font-size:18px;color:var(--navy)">Capability · Thousand Oaks</h2>
+      <p class="tiny">IntegrationsTracker and CapabilityTracker · SiteCode THO</p>
+    </div>
+    <div style="display:flex;gap:6px">
+      <span class="pill">All geographies</span>
+      <span class="pill hot">THO · Thousand Oaks</span>
+      <span class="pill">All statuses</span>
+      <span class="pill hot">Actuals</span>
+      <span class="pill">FY26 Forecast</span>
+    </div>
+  </div>
+  <div class="cap-kpis">
+    <div class="cap-kpi">Total<b>Live</b></div>
+    <div class="cap-kpi">In Progress<b>Live</b></div>
+    <div class="cap-kpi">Not Started<b>Live</b></div>
+    <div class="cap-kpi">% Live<b>Live</b></div>
+    <div class="cap-kpi">% Actuals<b>Live</b></div>
+  </div>
+  <section class="domain"><h3>Engineering / Manufacturing</h3><div class="icards"><article class="icard"><h4>MES ↔ shop-floor pair</h4><p class="tiny">Product group bars = deploy % (Actuals) or adopt % (FY26 Forecast)</p><div class="meter"><i style="width:0%"></i></div><p class="tiny" style="margin-top:4px">Live % from IntegrationsTracker</p></article><article class="icard"><h4>Pending interface</h4><p class="tiny">Linked CapabilityTracker title · platform · target quarter when mapped</p><div class="meter"><i style="width:0%"></i></div><p class="tiny" style="margin-top:4px">Live % from IntegrationsTracker</p></article></div></section><section class="domain"><h3>Engineering</h3><div class="icards"><article class="icard"><h4>OT / engineering integration</h4><p class="tiny">Status filter: NotStarted, InProgress, Live, Validated, Adopted, Deployed, Active</p><div class="meter"><i style="width:0%"></i></div><p class="tiny" style="margin-top:4px">Live % from IntegrationsTracker</p></article></div></section><section class="domain"><h3>Enterprise integrations</h3><div class="icards"><article class="icard"><h4>Veeva / SAP / quality pair</h4><p class="tiny">Empty filter state: No tracker records match the selected filters for THO.</p><div class="meter"><i style="width:0%"></i></div><p class="tiny" style="margin-top:4px">Live % from IntegrationsTracker</p></article></div></section>
+  <p class="tiny">This tab answers deployed / adopted / integrated — the question the Gantt cannot answer.
+  Do not invent deploy or adopt percentages in a briefing. Read them from SharePoint when the app is online.</p>
+</div>
+</div>
+</div>
+    <div class="callouts"><div class="callout"><div class="num">1</div><div><b>KPI pills</b><span>Total, In Progress, Not Started, % Live, % Actuals.</span></div></div><div class="callout"><div class="num">2</div><div><b>Actuals / Forecast</b><span>Actuals = deployPct. FY26 Forecast = adoptPct.</span></div></div><div class="callout"><div class="num">3</div><div><b>Domain groups</b><span>Engineering / Manufacturing sorts first.</span></div></div><div class="callout"><div class="num">4</div><div><b>Capability footer</b><span>Title · platform · target quarter when a tracker row links.</span></div></div></div>
+  </div>
+  <div class="foot"><span>GSQ DD&amp;T Executive Platform · live workbench mockup · English only · Do not write Jira dates/status or SPOT money from this app</span><span>Digital Maturity · 3 / 3</span></div>
+</section>
+
+</body>
+</html>
